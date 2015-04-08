@@ -2,10 +2,10 @@
 
 #Configuración inicial 
 
-1. Clonar -> git clone https://github.com/NormanColoma/API_Rest.git
+1. Clonar -> git clone https://bitbucket.org/NormanColoma/dss
 2. Configurar usuario -> git config --global user.name "Nombre" 
 			 git config --global user.email "Email" 
-3. Añadir el repositiorio -> git remote add origin https://github.com/NormanColoma/API_Rest.git
+3. Añadir el repositiorio -> git remote add origin https://bitbucket.org/NormanColoma/dss
 
 
 ## Comandos git
