@@ -1,0 +1,23 @@
+﻿.navbar-inverse {
+    background: #5cb85c;
+    border-bottom: 0px;
+}
+
+.navbar-inverse a{
+    color:white !important;
+}
+
+.navbar-register{
+
+}
+
+.navbar-register li:hover{
+    background-color:white;
+    
+}
+
+.navbar-register li:hover a{
+    color: #5cb85c !important;
+}
+
+
