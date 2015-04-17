@@ -1,5 +1,5 @@
 ﻿.navbar-inverse {
-    background: #428bca;
+    background: #5cb85c;
     border-bottom: 0px;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .navbar-register li:hover a{
-    color: #428bca !important;
+    color: #5cb85c !important;
 }
 
 
