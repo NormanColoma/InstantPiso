@@ -92,7 +92,7 @@ namespace PisoEstudiantes.Models.DAO
                 {
 
                     Flat f = new Flat(Convert.ToInt16(t.Rows[i]["id"]), t.Rows[i]["province"].ToString(), t.Rows[i]["city"].ToString(), t.Rows[i]["postal_code"].ToString(),
-                    t.Rows[i]["address"].ToString(), t.Rows[i]["capacity"].ToString(), t.Rows[i]["description"].ToString(), null, t.Rows[i]["profile_img"].ToString(),
+                    t.Rows[i]["address"].ToString(), t.Rows[i]["description"].ToString(), t.Rows[i]["capacity"].ToString(), null, t.Rows[i]["profile_img"].ToString(),
                     t.Rows[i]["img1"].ToString(), t.Rows[i]["img2"].ToString(), t.Rows[i]["img3"].ToString(), t.Rows[i]["img4"].ToString(), t.Rows[i]["img5"].ToString(),
                     t.Rows[i]["img6"].ToString(), t.Rows[i]["img7"].ToString(), Convert.ToDouble(t.Rows[i]["price"]));
                     flats.Add(f);
