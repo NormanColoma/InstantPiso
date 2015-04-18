@@ -10,6 +10,5 @@ namespace PisoEstudiantes.Models
     interface IUser
     {
         public bool login(User u);
-        
     }
 }
