@@ -1,4 +1,6 @@
-﻿@{
+﻿@using PisoEstudiantes.Models.DTO.Flat
+@model IEnumerable<PisoEstudiantes.Models.DTO.Flat> 
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -70,84 +72,21 @@
 </div>
 <div class="flat-container">
     <ul>
+        @foreach (var flat in Model) { 
         <li>
             <div class="flat">
                 <img src="http://imganuncios.mitula.net/piso_apartamento_por_alquiler_en_barcelona_96635445967580311.jpg">
                 <div class="description">
-                    <span class="city">Madrid</span>
-                    <p>Esta en el barrio la latina, justo donde el mercado de la cebada. Tiene una cama doble y baño propio. ...</p>
-                    <span class="price">350 € mes</span>
+                    <span class="city">@Html.DisplayFor(modelItem => flat.City)</span>
+                    <p>@Html.DisplayFor(modelItem => flat.Description)</p>
+                    <span class="price">@Html.DisplayFor(modelItem => flat.Price)</span>
                     <div class="hire-flat">
                         <a href="" class="btn btn-sm btn-success btn-hire">Alquilar ahora</a>
                     </div>
                 </div>
             </div>
-        </li>
-        <li>
-            <div class="flat">
-                <img src="http://imganuncios.mitula.net/piso_apartamento_por_alquiler_en_barcelona_96635445967580311.jpg">
-                <div class="description">
-                    <span class="city">Madrid</span>
-                    <p>Esta en el barrio la latina, justo donde el mercado de la cebada. Tiene una cama doble y baño propio. ...</p>
-                    <span class="price">350 € mes</span>
-                    <div class="hire-flat">
-                        <a href="" class="btn btn-sm btn-success btn-hire">Alquilar ahora</a>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="flat">
-                <img src="http://imganuncios.mitula.net/piso_apartamento_por_alquiler_en_barcelona_96635445967580311.jpg">
-                <div class="description">
-                    <span class="city">Madrid</span>
-                    <p>Esta en el barrio la latina, justo donde el mercado de la cebada. Tiene una cama doble y baño propio. ...</p>
-                    <span class="price">350 € mes</span>
-                    <div class="hire-flat">
-                        <a href="" class="btn btn-sm btn-success btn-hire">Alquilar ahora</a>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="flat">
-                <img src="http://imganuncios.mitula.net/piso_apartamento_por_alquiler_en_barcelona_96635445967580311.jpg">
-                <div class="description">
-                    <span class="city">Madrid</span>
-                    <p>Esta en el barrio la latina, justo donde el mercado de la cebada. Tiene una cama doble y baño propio. ...</p>
-                    <span class="price">350 € mes</span>
-                    <div class="hire-flat">
-                        <a href="" class="btn btn-sm btn-success btn-hire">Alquilar ahora</a>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="flat">
-                <img src="http://imganuncios.mitula.net/piso_apartamento_por_alquiler_en_barcelona_96635445967580311.jpg">
-                <div class="description">
-                    <span class="city">Madrid</span>
-                    <p>Esta en el barrio la latina, justo donde el mercado de la cebada. Tiene una cama doble y baño propio. ...</p>
-                    <span class="price">350 € mes</span>
-                    <div class="hire-flat">
-                        <a href="" class="btn btn-sm btn-success btn-hire">Alquilar ahora</a>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="flat">
-                <img src="http://imganuncios.mitula.net/piso_apartamento_por_alquiler_en_barcelona_96635445967580311.jpg">
-                <div class="description">
-                    <span class="city">Madrid</span>
-                    <p>Esta en el barrio la latina, justo donde el mercado de la cebada. Tiene una cama doble y baño propio. ...</p>
-                    <span class="price">350 € mes</span>
-                    <div class="hire-flat">
-                        <a href="" class="btn btn-sm btn-success btn-hire">Alquilar ahora</a>
-                    </div>
-                </div>
-            </div>
-        </li>
+        </li>     
+        }
     </ul>
 </div>
 <div class="row">
