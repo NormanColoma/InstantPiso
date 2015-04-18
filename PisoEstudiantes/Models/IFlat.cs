@@ -10,7 +10,7 @@ namespace PisoEstudiantes.Models
     interface IFlat
     {
         //TODO (solo necesitamos estas 2 operaciones para este sprint)
-        public IEnumerable<Flat> getAllFlats();
-        public IEnumerable<Flat> getFaltsByCity(string city);
+        public List<Flat> getAllFlats();
+        public List<Flat> getFaltsByCity(string city);
     }
 }

@@ -12,7 +12,7 @@ namespace PisoEstudiantes.Models.BO
         {
 
         } TODO*/
-        public IEnumerable<Flat> getFaltsByCity(string city)
+        public List<Flat> getFaltsByCity(string city)
         {
              
         }
