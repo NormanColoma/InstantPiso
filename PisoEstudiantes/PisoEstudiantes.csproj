@@ -181,6 +181,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\header.css" />
     <Content Include="Content\home.css" />
+    <Content Include="Content\img\piso1.jpg" />
+    <Content Include="Content\img\piso2.jpg" />
+    <Content Include="Content\img\piso3.jpg" />
+    <Content Include="Content\img\piso4.jpg" />
+    <Content Include="Content\img\piso5.jpg" />
+    <Content Include="Content\img\piso6.jpg" />
+    <Content Include="Content\img\piso7.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
