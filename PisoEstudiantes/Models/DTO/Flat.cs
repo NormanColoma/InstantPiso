@@ -23,10 +23,11 @@ namespace PisoEstudiantes.Models.DTO
         private string img5;
         private string img6;
         private string img7;
+        private double price;
 
         public Flat(int id, string province, string city, string postal_code, string address, string description,
         string capacity, Owner owner, string profile_img, string img1, string img2, string img3,
-        string img4, string img5, string img6, string img7)
+        string img4, string img5, string img6, string img7, double price)
         {
             this.id = id;
             this.province = province;
@@ -44,6 +45,7 @@ namespace PisoEstudiantes.Models.DTO
             this.img5 = img5;
             this.img6 = img6;
             this.img7 = img7;
+            this.price = price;
         }
         public int ID
         {
@@ -134,6 +136,12 @@ namespace PisoEstudiantes.Models.DTO
         {
             get { return img7; }
             set { img7 = value; }
+        }
+
+        public double Price
+        {
+            get { return price; }
+            set { price = value; }
         }
     }
 }

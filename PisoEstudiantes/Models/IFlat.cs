@@ -10,7 +10,7 @@ namespace PisoEstudiantes.Models
     interface IFlat
     {
         //TODO (solo necesitamos estas 2 operaciones para este sprint)
-        public List<Flat> getAllFlats();
-        public List<Flat> getFlatsByProvince(string province);
+        List<Flat> getLastFlats();
+        List<Flat> getFlatsByProvince(string province);
     }
 }
