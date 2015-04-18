@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PisoEstudiantes.Models.BO;
+using PisoEstudiantes.Models.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,14 @@ namespace PisoEstudiantes.Controllers
 {
     public class BusquedaController : Controller
     {
+        private BOFlat flatModel = new BOFlat();
         // GET: Busqueda
-        public ActionResult Pisos()
+        public ActionResult Pisos(string id)
         {
-            return View();
+            List<Flat> flats = flatModel.getFlatsByProvince(id);
+            ViewData["city"] = id;
+            ViewData["num"] = flats.Count;
+            return View(flats);
         }
     }
 }

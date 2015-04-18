@@ -1,18 +1,20 @@
-﻿
+﻿@model IEnumerable<PisoEstudiantes.Models.DTO.Flat> 
 @{
     ViewBag.Title = "Busqueda";
 }
 @Styles.Render("~/Content/flat.css")
 <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 <div class="result-container">
-    <h3 class="tittle">2 pisos en alquiler encontrados en Madrid</h3>
+    <h3 class="tittle">@Html.Encode(ViewData["num"]) pisos en alquiler encontrados en @Html.Encode(ViewData["city"])</h3>
     <ul class="flat-list">
+        @foreach (var flat in Model) {
+ 
         <li>
             <div class="flat">
-                <img class="flat-main-img" src="http://imganuncios.mitula.net/piso_apartamento_por_alquiler_en_barcelona_96635445967580311.jpg" />
+                <img class="flat-main-img" src="~/Content/img/@Html.DisplayFor(modelItem => flat.Profile)" />
                 <div class="flat-info">
-                    <span class="flat-city">Madrid</span>
-                    <p class="flat-description">Aquí ira la descripción de los pisos tras la búsqueda de los mismos. Por el momento es estático más adelante no lo será.</p>
+                    <span class="flat-city">@Html.DisplayFor(modelItem => flat.City)</span>
+                    <p class="flat-description">@Html.DisplayFor(modelItem => flat.Description)</p>
                     <ul class="flat-options">
                         <li>
                             <p>Actualmente disponible</p>
@@ -26,5 +28,6 @@
                 </div>
             </div>
         </li>
+        }
     </ul>
 </div>
