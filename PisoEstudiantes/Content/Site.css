@@ -16,3 +16,12 @@ select,
 textarea {
     max-width: 280px;
 }
+
+footer{
+    float: left;
+}
+
+hr{
+    float: left;
+  width: 100%;
+}

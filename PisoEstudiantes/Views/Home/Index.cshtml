@@ -2,12 +2,12 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
+@Styles.Render("~/Content/home.css")
 <div class="jumbotron">
     <h1>InstantPiso</h1>
     <p class="lead">InstantPiso is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <div class="search">
-        <select>
+        <select id="cities">
             <option>Selecciona la ciudad que buscas</option>
             <option value='A Coruña'>A Coruña</option>
             <option value='álava'>Álava</option>
@@ -63,9 +63,19 @@
             <option value='Zaragoza'>Zaragoza</option>
         </select>
         <div class="search-buttons">
-            <a href="http://asp.net" class="btn btn-primary btn-primary btn-search">Busco habitación/piso &raquo;</a>
-            <a href="http://asp.net" class="btn btn-primary btn-success btn-search">Alquilo habitación/piso &raquo;</a>
-        </div>   
+            @Html.ActionLink("Busco habitación/piso", "Pisos", "Busqueda", new { id = "Alicante" }, new { @class = "btn btn-primary btn-search", @id="searchButton"})
+            <a href="http://asp.net" class="btn btn-primary btn-success btn-search">Alquilo habitación/piso</a>
+        </div>
+        <script type="text/javascript">
+            $(function(){
+                $("#cities").change(function () {
+                    var city = this.value;
+                    city = city.replace(" ", "");
+                    var link = "Busqueda/Pisos/" + city;
+                    $("#searchButton").attr("href", link);
+                })
+            })
+        </script>   
     </div>
     
 </div>
