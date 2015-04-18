@@ -74,11 +74,11 @@
         @foreach (var flat in Model) { 
         <li>
             <div class="flat">
-                <img src="http://imganuncios.mitula.net/piso_apartamento_por_alquiler_en_barcelona_96635445967580311.jpg">
+                <img src="~/Content/img/@Html.DisplayFor(modelItem => flat.Profile)">
                 <div class="description">
                     <span class="city">@Html.DisplayFor(modelItem => flat.City)</span>
                     <p>@Html.DisplayFor(modelItem => flat.Description)</p>
-                    <span class="price">@Html.DisplayFor(modelItem => flat.Price)</span>
+                    <span class="price">@Html.DisplayFor(modelItem => flat.Price) €</span>
                     <div class="hire-flat">
                         <a href="" class="btn btn-sm btn-success btn-hire">Alquilar ahora</a>
                     </div>
