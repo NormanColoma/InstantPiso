@@ -11,6 +11,6 @@ namespace PisoEstudiantes.Models
     {
         //TODO (solo necesitamos estas 2 operaciones para este sprint)
         public List<Flat> getAllFlats();
-        public List<Flat> getFaltsByCity(string city);
+        public List<Flat> getFlatsByProvince(string province);
     }
 }

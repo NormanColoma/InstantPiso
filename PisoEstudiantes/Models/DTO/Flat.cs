@@ -12,7 +12,7 @@ namespace PisoEstudiantes.Models.DTO
         private string city;
         private string address;
         private string postal_code;
-        private int capacity;
+        private string capacity;
         private string description;
         private Owner owner;
         private string profile_img;
@@ -24,14 +24,15 @@ namespace PisoEstudiantes.Models.DTO
         private string img6;
         private string img7;
 
-        public Flat(int id, string province, string city, string postal_code, string description,
-        int capacity, Owner owner, string profile_img, string img1, string img2, string img3,
+        public Flat(int id, string province, string city, string postal_code, string address, string description,
+        string capacity, Owner owner, string profile_img, string img1, string img2, string img3,
         string img4, string img5, string img6, string img7)
         {
             this.id = id;
             this.province = province;
             this.city = city;
             this.postal_code = postal_code;
+            this.address = address;
             this.description = description;
             this.capacity = capacity;
             this.owner = owner;
@@ -73,7 +74,7 @@ namespace PisoEstudiantes.Models.DTO
             set { postal_code = value; }
         }
 
-        public int Capacity
+        public String Capacity
         {
             get { return capacity; }
             set { capacity = value; }
