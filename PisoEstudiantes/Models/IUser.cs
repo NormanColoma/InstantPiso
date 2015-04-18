@@ -10,6 +10,6 @@ namespace PisoEstudiantes.Models
     interface IUser
     {
         //TODO (A completar en el siguiente sprint, para este solo necesitamos la operación login);
-        public bool login(User u);
+        bool login(User u);
     }
 }
