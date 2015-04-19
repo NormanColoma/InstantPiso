@@ -11,6 +11,8 @@ namespace PisoEstudiantes.Models.DTO
         private List<Renter> lRenters;
         private List<Flat> lFlats;
 
+
+
         public List<Flat> LFlats
         {
             get { return lFlats; }
