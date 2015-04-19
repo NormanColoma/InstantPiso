@@ -8,22 +8,25 @@ namespace PisoEstudiantes.Models.DTO
     public class User
     {
 
-        #region private properties
-        private string email = "";
-        private string name = "";
-        private string phone = "";
-        private string age = "";
-        private string leaseholder = "";
-        private string surname = "";
-        private string password = "";
-        private string gender = "";
+        #region protected properties
+        protected string email = "";
+        protected string name = "";
+        protected string phone = "";
+        protected string age = "";
+        protected string leaseholder = "";
+        protected string surname = "";
+        protected string password = "";
+        protected string gender = "";
 
         #endregion
 
 
 
         #region Public properties
+        public User()
+        {
 
+        }
         public User(string email, string name, string phone, string age, string leaseholder, string surname, string password, string gender) {
             this.email = email;
             this.name = name;
