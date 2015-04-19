@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PisoEstudiantes.Models
 {
-    interface IFlat
+     public interface IFlat
     {
         //TODO (solo necesitamos estas 2 operaciones para este sprint)
         List<Flat> getLastFlats();
