@@ -166,6 +166,7 @@
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Models\BO\BOFlat.cs" />
     <Compile Include="Models\DAO\DAOFlat.cs" />
+    <Compile Include="Models\DAO\DAOUser.cs" />
     <Compile Include="Models\DTO\Flat.cs" />
     <Compile Include="Models\DTO\Owner.cs" />
     <Compile Include="Models\DTO\Renter.cs" />
