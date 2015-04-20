@@ -45,8 +45,9 @@ namespace PisoEstudiantes.Models.DAO
                 da.Fill(ds, "User");
                 //Obtenemos las tablas contenidas en el DataSet.
                 t = ds.Tables["User"];
-
-                if (t.Rows.Count == 2)
+                if (t.Rows.Count == 0)
+                    return false;
+                if (t.Rows[0]["email"].ToString() == u.Email && t.Rows[0]["password"].ToString() == u.Password)
                     return true;
                 return false;
 

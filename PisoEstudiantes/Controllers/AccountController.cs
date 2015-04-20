@@ -5,39 +5,39 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-
+using PisoEstudiantes.Models.DTO;
+using PisoEstudiantes.Models.BO;
+using System.Web.Security;
 namespace PisoEstudiantes.Controllers
 {
     public class AccountController : Controller
     {
+        private BOUser userModel = new BOUser();
         // GET: Account
         public ActionResult Login()
         {
             return View();
         }
 
-        //
         // POST: /Account/Login
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                
-                var user = await UserManager.FindAsync(model.Email, model.Password);
-                if (user != null)
+                User u = new User(model.Email, model.Password);
+                var user = userModel.login(u);
+                if (user != false)
                 {
-                    await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+                   FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Nombre de usuario o contraseña no válidos.");
+                    ModelState.AddModelError("", "Nombre de usuario o contraseña no válidos."+user);
                 }
             }
-
+            
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             return View(model);
         }
