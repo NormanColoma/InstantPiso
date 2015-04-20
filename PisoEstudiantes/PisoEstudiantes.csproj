@@ -192,6 +192,7 @@
     <Content Include="Content\img\piso5.jpg" />
     <Content Include="Content\img\piso6.jpg" />
     <Content Include="Content\img\piso7.jpg" />
+    <Content Include="Content\login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
