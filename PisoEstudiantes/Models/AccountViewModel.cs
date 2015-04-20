@@ -2,8 +2,6 @@
 
 namespace PisoEstudiantes.Models
 {
-    public class LoginView
-    {
         public class LoginViewModel
         {
             [Required]
@@ -19,5 +17,4 @@ namespace PisoEstudiantes.Models
             [Display(Name = "¿Recordar cuenta?")]
             public bool RememberMe { get; set; }
         }
-    }
 }
