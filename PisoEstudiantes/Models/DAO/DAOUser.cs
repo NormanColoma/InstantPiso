@@ -1,5 +1,4 @@
-﻿
-using PisoEstudiantes.Models.DTO;
+﻿using PisoEstudiantes.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -28,93 +27,6 @@ namespace PisoEstudiantes.Models.DAO
 
         //DataTable es un elmento tipo tabla.
         private DataTable t = new DataTable();
-
-
-        #region CRUDS
-
-        public void InsertarUsuario(User us)
-        {
-            SqlConnection c = new SqlConnection(bdConnection);
-            try
-            {
-                
-                
-
-                c.Open();
-
-                SqlCommand comm = new SqlCommand("Insert Into User(email,name,password,leaseholder,gender,surname,phone,age) VALUES ('" + us.Email + "','" + us.Name + "','" + "','" + us.Password + "','" +
-                    "','" + us.Leaseholder + "','" + "','" + us.Gender + "','" + "','" + us.Surname + "','" + us.Phone + "','" + "','" + us.Age + "')", c);
-
-                comm.ExecuteNonQuery();
-                c.Close();
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally {
-                c.Close();
-            }
-        }
-
-        public void UpdateUser(User us)
-        {
-            SqlConnection c = new SqlConnection(bdConnection);
-            try
-            {
-             
-
-
-                c.Open();
-
-                SqlCommand comm = new SqlCommand("Update User set name=@nombre , password=@pass, leaseholder=@lease,gender=@gen , surname=@sur, phone=@phon , age=@age where email=@mail", c);
-                comm.Parameters.AddWithValue("@mail", us.Email);
-                comm.Parameters.AddWithValue("@nombre", us.Name);
-                comm.Parameters.AddWithValue("@pass", us.Password);
-                comm.Parameters.AddWithValue("@lease", us.Leaseholder);
-                comm.Parameters.AddWithValue("@gen", us.Gender);
-                comm.Parameters.AddWithValue("@sur", us.Surname);
-                comm.Parameters.AddWithValue("@phon", us.Phone);
-                comm.Parameters.AddWithValue("@age", us.Age);
-                comm.ExecuteNonQuery();
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally
-            {
-                c.Close();
-            }
-        }    
-        public void BorrarUsuario(User us)
-        {
-            SqlConnection c = new SqlConnection(bdConnection);
-            try
-            { 
-
-                c.Open();
-
-                SqlCommand comm = new SqlCommand("Delete From User where email=@mail", c);
-                    comm.Parameters.AddWithValue("@mail",us.Email);
-                    comm.ExecuteNonQuery();
-                
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally {
-                c.Close();
-            }
-        }    
- 
-
-
-
-        #endregion
-
 
         public bool login(User u)
         {
