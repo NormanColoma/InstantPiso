@@ -68,7 +68,7 @@ namespace PisoEstudiantes.Models.DAO
             }
         }
 
-        public bool insertFlat(Flat f)
+        public bool deleteFlat(Flat f)
         {
             try
             {
@@ -84,9 +84,6 @@ namespace PisoEstudiantes.Models.DAO
                 if (result == 1)
                     return true;
                 return false;
-                
-                
-
             }
             catch (SqlException Ex)
             {
