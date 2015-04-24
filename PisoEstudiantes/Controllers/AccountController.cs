@@ -71,8 +71,11 @@ namespace PisoEstudiantes.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-      
 
+        public ActionResult Manage()
+        {
+            return View();
+        }
         
     }
 

@@ -163,6 +163,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountManageView.cs" />
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Models\BO\BOFlat.cs" />
     <Compile Include="Models\BO\BOUser.cs" />
@@ -182,6 +183,7 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\account.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\flat.css" />
@@ -229,6 +231,7 @@
     <Content Include="Views\Busqueda\Pisos.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
