@@ -30,8 +30,6 @@ namespace PisoEstudiantes.Models.DAO
 
         public List<Flat> getFlatsByProvince(string province)
         {
-            /*Usaremos un bloque try/catch para comprobar si el nombre y contraseña del usuario 
-            existe en nuestra base de datos, de lo contrario devolveremos false.*/
             try
             {
                 //Creamos instancia y abrimos la conexión de la BD
@@ -72,8 +70,6 @@ namespace PisoEstudiantes.Models.DAO
 
         public bool insertFlat(Flat f)
         {
-            /*Usaremos un bloque try/catch para comprobar si el nombre y contraseña del usuario 
-           existe en nuestra base de datos, de lo contrario devolveremos false.*/
             try
             {
                 //Creamos instancia y abrimos la conexión de la BD
@@ -83,10 +79,11 @@ namespace PisoEstudiantes.Models.DAO
                 /*Realizamos la sentencia SQL y la ejecutamos. Tiene dos parámetros, un string (con la sentencia SQL)
                 y una instancia de SqlConnection, para pasarle la conexión.*/
                 comm = new SqlCommand("Insert Into [dbo].[Flat] (id,province,city,address,postal_code,capacity,description,owner,profile_img,img1,img2,img3,img4,img5,img6,img7,price) VALUES('" + f.ID + "','" + f.Province + "','" + f.City + "','" + f.Address + "','" + f.PC + "','" + f.Capacity + "','" + f.Description + f.Owner + "','" + f.Profile + "','" + f.IMG1 + "','" + f.IMG2 + "','" + f.IMG3 + "','" + f.IMG4 + "','" + f.IMG5 + "','" + f.IMG6 + "','" + f.IMG7 + "','" + f.Price + "')", conn);
-                comm.ExecuteNonQuery();
+                int result = comm.ExecuteNonQuery();
 
-                //Obtenemos las tablas contenidas en el DataSet.
-                return true;
+                if (result == 1)
+                    return true;
+                return false;
                 
                 
 
@@ -105,8 +102,6 @@ namespace PisoEstudiantes.Models.DAO
 
         public List<Flat> getLastFlats()
         {
-            /*Usaremos un bloque try/catch para comprobar si el nombre y contraseña del usuario 
-            existe en nuestra base de datos, de lo contrario devolveremos false.*/
             try
             {
                 //Creamos instancia y abrimos la conexión de la BD
