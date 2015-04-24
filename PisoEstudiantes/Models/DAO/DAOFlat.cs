@@ -72,8 +72,6 @@ namespace PisoEstudiantes.Models.DAO
 
         public bool deleteFlat(Flat f)
         {
-            /*Usaremos un bloque try/catch para comprobar si el nombre y contraseña del usuario 
-           existe en nuestra base de datos, de lo contrario devolveremos false.*/
             try
             {
                 //Creamos instancia y abrimos la conexión de la BD
@@ -83,10 +81,11 @@ namespace PisoEstudiantes.Models.DAO
                 /*Realizamos la sentencia SQL y la ejecutamos. Tiene dos parámetros, un string (con la sentencia SQL)
                 y una instancia de SqlConnection, para pasarle la conexión.*/
                 comm = new SqlCommand("DELETE * FROM [dbo].[Flat] WHERE id ='"+f.ID+"'", conn);
-                comm.ExecuteNonQuery();
+                int result = comm.ExecuteNonQuery();
+                if (result == 1)
+                    return true;
 
-                //Obtenemos las tablas contenidas en el DataSet.
-                return true;
+                return false;
             }
             catch (SqlException Ex)
             {
