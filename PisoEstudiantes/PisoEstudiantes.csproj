@@ -182,6 +182,7 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\account.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\flat.css" />
@@ -194,6 +195,7 @@
     <Content Include="Content\img\piso5.jpg" />
     <Content Include="Content\img\piso6.jpg" />
     <Content Include="Content\img\piso7.jpg" />
+    <Content Include="Content\img\user_profile\norman.jpg" />
     <Content Include="Content\login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -229,6 +231,7 @@
     <Content Include="Views\Busqueda\Pisos.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -17,6 +17,7 @@ namespace PisoEstudiantes.Models.DTO
         protected string surname = "";
         protected string password = "";
         protected string gender = "";
+        protected string img = "";
 
         #endregion
 
@@ -33,7 +34,15 @@ namespace PisoEstudiantes.Models.DTO
             this.email = email;
             this.password = password;
         }
-        public User(string email, string name, string phone, string age, string leaseholder, string surname, string password, string gender) {
+
+        public User(string email, string name, string surname, string phone)
+        {
+            this.email = email;
+            this.name = name;
+            this.surname = surname;
+            this.phone = phone;
+        }
+        public User(string email, string name, string phone, string age, string leaseholder, string surname, string password, string gender, string img) {
             this.email = email;
             this.name = name;
             this.phone = phone;
@@ -42,6 +51,7 @@ namespace PisoEstudiantes.Models.DTO
             this.surname = surname;
             this.password = password;
             this.gender = gender;
+            this.img = img;
         
         }
         
@@ -99,6 +109,12 @@ namespace PisoEstudiantes.Models.DTO
         {
             get { return gender; }
             set { gender = value; }
+        }
+
+        public string IMG
+        {
+            get { return img; }
+            set { img = value; }
         }
 
 
