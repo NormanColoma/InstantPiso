@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PisoEstudiantes.Models.DTO;
+using System.ComponentModel.DataAnnotations;
 
 namespace PisoEstudiantes.Models
 {
@@ -20,6 +21,16 @@ namespace PisoEstudiantes.Models
 
         public class AccountViewModel
         {
+
+            public AccountViewModel returnAccount(User u)
+            {
+                AccountViewModel avm = new AccountViewModel();
+                avm.Email = u.Email;
+                avm.Name = u.Name;
+                avm.Surname = u.Surname;
+                avm.Phone = u.Phone;
+                return avm;
+            }
             [Required]
             [EmailAddress]
             [Display(Name = "Correo electrónico")]

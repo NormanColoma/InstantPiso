@@ -74,7 +74,10 @@ namespace PisoEstudiantes.Controllers
 
         public ActionResult Manage()
         {
-            return View();
+            User u = userModel.getUser(User.Identity.Name);
+            AccountViewModel avm = new AccountViewModel();
+            avm = avm.returnAccount(u);
+            return View(avm);
         }
         
     }
