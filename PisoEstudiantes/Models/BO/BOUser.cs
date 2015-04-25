@@ -14,5 +14,10 @@ namespace PisoEstudiantes.Models.BO
         {
             return du.login(u);
         }
+
+        public User getUser(string email)
+        {
+            return 
+        }
     }
 }
