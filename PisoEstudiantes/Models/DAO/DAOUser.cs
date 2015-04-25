@@ -128,7 +128,7 @@ namespace PisoEstudiantes.Models.DAO
         }
 
 
-        public void UpdateUser(User us, string email)
+        public bool UpdateUser(User us, string email)
         {
             SqlConnection c = new SqlConnection(bdConnection);
           try
@@ -144,12 +144,15 @@ namespace PisoEstudiantes.Models.DAO
                 comm.Parameters.AddWithValue("@omail", email);
                 comm.Parameters.AddWithValue("@sur", us.Surname);
                 comm.Parameters.AddWithValue("@phon", us.Phone);
-                comm.ExecuteNonQuery();
+                int result = comm.ExecuteNonQuery();
+                if (result == 1)
+                    return true;
+                return false;
 
             }
             catch (Exception ex)
             {
-
+                return false;
             }
             finally
             {

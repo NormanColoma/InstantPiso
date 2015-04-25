@@ -19,5 +19,10 @@ namespace PisoEstudiantes.Models.BO
         {
             return du.getUser(email);
         }
+
+        public bool updateUser(User u, string email)
+        {
+            return du.UpdateUser(u, email);
+        }
     }
 }

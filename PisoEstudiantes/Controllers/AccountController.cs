@@ -85,10 +85,20 @@ namespace PisoEstudiantes.Controllers
         {
             if (ModelState.IsValid)
             {
-                User current = userModel.getUser(User.Identity.Name);
+                /*User current = userModel.getUser(User.Identity.Name);
                 string email = current.Email;
-                User u = new User(model.Email, model.Name, model.Phone, string age, string leaseholder, string surname, string password, string gender, string img)
+                User u = new User(model.Email, model.Name, model.Surname, model.Phone);
+                if (userModel.updateUser(u, email))
+                {
+
+                }
+                else
+                {
+
+                }*/
+                ModelState.AddModelError("", "No se puede actualizar el perfil en estos momentos");
             }
+            return View(model);
         }
     }
 

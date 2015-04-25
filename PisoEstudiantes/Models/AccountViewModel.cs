@@ -37,13 +37,13 @@ namespace PisoEstudiantes.Models
             [Display(Name = "Correo electrónico")]
             public string Email { get; set; }
 
-            [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$", ErrorMessage = "Introduce un nombre válido")]
+            [RegularExpression(@"^[A-Z]+[a-zA-ZÁÉÍÓÚáéíóuñÑ''-'\s_ ]*$", ErrorMessage = "Introduce un nombre válido")]
             [Required]
             [StringLength(30)]
             [Display(Name = "Nombre")]
             public string Name { get; set; }
 
-            [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$", ErrorMessage = "Introduce un apellido válido")]
+            [RegularExpression(@"^[A-Z]+[a-zA-ZÁÉÍÓÚáéíóuñÑ''-'\s_ ]*$", ErrorMessage = "Introduce un apellido válido")]
             [Required]
             [StringLength(50)]
             [Display(Name = "Apellidos")]
