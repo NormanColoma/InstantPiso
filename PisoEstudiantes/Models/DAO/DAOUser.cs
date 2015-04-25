@@ -99,5 +99,88 @@ namespace PisoEstudiantes.Models.DAO
             }
 
         }
+
+        #region CRUDS
+
+        public void InsertarUsuario(User us)
+        {
+            SqlConnection c = new SqlConnection(bdConnection);
+            try
+            {
+                
+                
+
+                c.Open();
+
+                SqlCommand comm = new SqlCommand("Insert Into User(email,name,password,leaseholder,gender,surname,phone,age) VALUES ('" + us.Email + "','" + us.Name + "','" + "','" + us.Password + "','" +
+                    "','" + us.Leaseholder + "','" + "','" + us.Gender + "','" + "','" + us.Surname + "','" + us.Phone + "','" + "','" + us.Age + "')", c);
+
+                comm.ExecuteNonQuery();
+                c.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally {
+                c.Close();
+            }
+        }
+
+
+        public void UpdateUser(User us, string email)
+        {
+            SqlConnection c = new SqlConnection(bdConnection);
+          try
+            {
+             
+
+
+                c.Open();
+
+                SqlCommand comm = new SqlCommand("Update User set name=@nombre , surname=@sur, phone=@phon where email=@omail", c);
+                comm.Parameters.AddWithValue("@mail", us.Email);
+                comm.Parameters.AddWithValue("@nombre", us.Name);
+                comm.Parameters.AddWithValue("@omail", email);
+                comm.Parameters.AddWithValue("@sur", us.Surname);
+                comm.Parameters.AddWithValue("@phon", us.Phone);
+                comm.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                c.Close();
+            }
+        }    
+        public void BorrarUsuario(User us)
+        {
+            SqlConnection c = new SqlConnection(bdConnection);
+            try
+            { 
+
+                c.Open();
+
+                SqlCommand comm = new SqlCommand("Delete From User where email=@mail", c);
+                    comm.Parameters.AddWithValue("@mail",us.Email);
+                    comm.ExecuteNonQuery();
+                
+            }
+           catch (Exception ex)
+            {
+
+           }
+           finally {
+               c.Close();
+            }
+        }    
+
+
+
+
+        #endregion
     }
 }

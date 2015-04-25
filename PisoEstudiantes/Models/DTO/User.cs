@@ -34,6 +34,14 @@ namespace PisoEstudiantes.Models.DTO
             this.email = email;
             this.password = password;
         }
+
+        public User(string email, string name, string surname, string phone)
+        {
+            this.email = email;
+            this.name = name;
+            this.surname = surname;
+            this.phone = phone;
+        }
         public User(string email, string name, string phone, string age, string leaseholder, string surname, string password, string gender, string img) {
             this.email = email;
             this.name = name;

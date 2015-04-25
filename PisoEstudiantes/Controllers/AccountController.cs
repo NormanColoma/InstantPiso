@@ -80,6 +80,16 @@ namespace PisoEstudiantes.Controllers
             return View(avm);
         }
         
+        [HttpPost]
+        public ActionResult Manage(AccountViewModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                User current = userModel.getUser(User.Identity.Name);
+                string email = current.Email;
+                User u = new User(model.Email, model.Name, model.Phone, string age, string leaseholder, string surname, string password, string gender, string img)
+            }
+        }
     }
 
 
