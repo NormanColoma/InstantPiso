@@ -48,7 +48,7 @@ namespace PisoEstudiantes.Models.DAO
                 t = ds.Tables["User"];
                 User u = new User(t.Rows[0]["email"].ToString(), t.Rows[0]["name"].ToString(), t.Rows[0]["phone"].ToString(),
                 t.Rows[0]["age"].ToString(), t.Rows[0]["leaseholder"].ToString(), t.Rows[0]["surname"].ToString(),
-                t.Rows[0]["password"].ToString(), t.Rows[0]["gender"].ToString());
+                t.Rows[0]["password"].ToString(), t.Rows[0]["gender"].ToString(), t.Rows[0]["img"].ToString());
                 return u;
 
             }

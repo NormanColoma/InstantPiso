@@ -29,6 +29,7 @@ namespace PisoEstudiantes.Models
                 avm.Name = u.Name;
                 avm.Surname = u.Surname;
                 avm.Phone = u.Phone;
+                avm.Img = u.IMG;
                 return avm;
             }
             [Required]
@@ -52,5 +53,7 @@ namespace PisoEstudiantes.Models
             [RegularExpression(@"^[9|6|7][0-9]{8}$", ErrorMessage = "El teléfono introducido no es un teléfono válido")]
             [Display(Name = "Teléfono")]
             public string Phone { get; set; }
+
+            public string Img { get; set; }
         }
 }
