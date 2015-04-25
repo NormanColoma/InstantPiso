@@ -1,4 +1,5 @@
 ﻿@{
+    var success = ViewData["Success"];
     ViewBag.Title = "Mi cuenta";
 }
 @using PisoEstudiantes.Models
@@ -45,6 +46,17 @@
                             <input type="submit" value="Actualizar Perfil" class="btn btn-primary" />
                         </div>
                     </div>
+                    if (success != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            <p>@success</p>
+                        </div>
+                    }
+                    <script type="text/javascript">
+                        $(function () {
+                            $(".alert").fadeIn('slow').delay(4000).fadeOut('slow');
+                        });
+                    </script>
                 }
             </section>
         </div>

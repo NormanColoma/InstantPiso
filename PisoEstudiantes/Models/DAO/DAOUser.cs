@@ -138,7 +138,7 @@ namespace PisoEstudiantes.Models.DAO
 
                 c.Open();
 
-                SqlCommand comm = new SqlCommand("Update User set name=@nombre , surname=@sur, phone=@phon where email=@omail", c);
+                SqlCommand comm = new SqlCommand("Update [dbo].[User] set name=@nombre , surname=@sur, phone=@phon where email=@omail", c);
                 comm.Parameters.AddWithValue("@mail", us.Email);
                 comm.Parameters.AddWithValue("@nombre", us.Name);
                 comm.Parameters.AddWithValue("@omail", email);
@@ -152,7 +152,7 @@ namespace PisoEstudiantes.Models.DAO
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
             finally
             {

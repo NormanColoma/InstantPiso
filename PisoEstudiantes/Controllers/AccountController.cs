@@ -77,6 +77,8 @@ namespace PisoEstudiantes.Controllers
             User u = userModel.getUser(User.Identity.Name);
             AccountViewModel avm = new AccountViewModel();
             avm = avm.returnAccount(u);
+            if (TempData["Redirected"] != null)
+                ViewData["Success"] = "Su perfil ha sido acutalizado";
             return View(avm);
         }
         
@@ -85,18 +87,21 @@ namespace PisoEstudiantes.Controllers
         {
             if (ModelState.IsValid)
             {
-                /*User current = userModel.getUser(User.Identity.Name);
+                User current = userModel.getUser(User.Identity.Name);
                 string email = current.Email;
                 User u = new User(model.Email, model.Name, model.Surname, model.Phone);
                 if (userModel.updateUser(u, email))
                 {
-
+                    TempData["Redirected"] = true;
+                    ViewData["Success"] = "Su perfil ha sido acutalizado";
+                    return RedirectToAction("Manage", "Account");
+                    
                 }
                 else
                 {
-
-                }*/
-                ModelState.AddModelError("", "No se puede actualizar el perfil en estos momentos");
+                     ModelState.AddModelError("", "No se puede actualizar el perfil en estos momentos");
+                }
+                
             }
             return View(model);
         }
