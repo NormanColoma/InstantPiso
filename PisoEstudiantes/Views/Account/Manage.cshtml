@@ -7,60 +7,124 @@
 @Styles.Render("~/Content/account.css")
 <h2>Mi cuenta</h2>
 <div class="account-container">
-    <div class="row">
-        <div class="col-md-8 loginContainer">
-            <section id="loginForm">
-                @using (Html.BeginForm("Manage", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                {
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @Value= @Model.Email, @readonly = true})
-                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @Value = @Model.Name })
-                            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Surname, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Surname, new { @class = "form-control", @Value = @Model.Surname })
-                            @Html.ValidationMessageFor(m => m.Surname, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @Value = @Model.Phone })
-                            @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Actualizar Perfil" class="btn btn-primary" />
-                        </div>
-                    </div>
-                    if (success != null)
+    <div class="update-account">
+        <p>Modifique los campos que quiera cambiar. Tenga encuenta que el email no es modificable, ya que lo usamos para identificarle. Los campos de contraseña no son obligatorios, salvo que quiera cambiarla.</p>
+        <div class="row">
+            <div class="col-md-8 loginContainer">
+                <section id="updateAccountForm">
+                    @using (Html.BeginForm("Manage", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                     {
-                        <div class="alert alert-success" role="alert">
-                            <p>@success</p>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @Value= @Model.Email, @readonly = true})
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
                         </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @Value = @Model.Name })
+                                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Surname, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Surname, new { @class = "form-control", @Value = @Model.Surname })
+                                @Html.ValidationMessageFor(m => m.Surname, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @Value = @Model.Phone })
+                                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Actualizar Perfil" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        if (success != null)
+                        {
+                            <div class="alert alert-success" role="alert">
+                                <p>@success</p>
+                            </div>
+                        }
+                        <script type="text/javascript">
+                            $(function () {
+                                $(".alert").fadeIn('slow').delay(4000).fadeOut('slow');
+                            });
+                        </script>
                     }
-                    <script type="text/javascript">
-                        $(function () {
-                            $(".alert").fadeIn('slow').delay(4000).fadeOut('slow');
-                        });
-                    </script>
-                }
-            </section>
+                </section>
+            
+            </div>
         </div>
     </div>
+    <div class="close-account">
+
+        <section id="cancelAccount">
+            @using (Html.BeginForm("Cancel", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", @id="cancelForm" }))
+            {
+                <h2>Cerrar cuenta</h2>
+                <p>
+                    Tenga en cuenta que si cierra su cuenta, todos los pisos que tenga anunciados, serán eliminados. Podrá volver a registrarse una vez
+                    cerrada su cuenta. Debe introducir su contraseña, para que podamos verificar que realmente es usted quien quiere cerrar su cuenta.
+                </p>
+                <label class="control-label">Contraseña</label>
+                <input type="password" class="form-control" id="userPass" />
+                <label for="userPass" id="incorrectPass" class="text-danger"></label>
+                <input type="button" class="btn btn-primary" value="Cerrar cuenta" id="cancelButton" />
+                <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+                <script>
+                    var port = location.port; //Al estar combinando controladores MVC y Web API, necesitamos la uri entera
+                    var uri = "http://localhost:" + port + "/api/account/";
+
+                    $(document).ready(function () {
+                        // Send an AJAX request
+                        var uriMetod = uri;
+                        $("#cancelButton").click(function (e) {
+                            var pass = $("#userPass").val();
+                            uri = "";
+                            uri = uriMetod + pass;
+                            $.getJSON(uri)
+                               .done(function (data) {
+                                   if (data)
+                                       $("#cancelForm").submit();
+                                   else
+                                       $("#incorrectPass").text("Contraseña incorrecta");
+                                      
+                               })
+                               .fail(function (jqXHR, textStatus, err) {
+                               
+                               });
+                           return status;
+                        })
+                   
+                    });
+                </script>
+            }
+        </section>
+    </div>
+
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
     }

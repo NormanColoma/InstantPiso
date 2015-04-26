@@ -89,7 +89,9 @@ namespace PisoEstudiantes.Controllers
             {
                 User current = userModel.getUser(User.Identity.Name);
                 string email = current.Email;
-                User u = new User(model.Email, model.Name, model.Surname, model.Phone);
+                if (model.Password == null)
+                    model.Password = current.Password;
+                User u = new User(model.Email, model.Name, model.Surname, model.Phone, model.Password);
                 if (userModel.updateUser(u, email))
                 {
                     TempData["Redirected"] = true;

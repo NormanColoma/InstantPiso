@@ -30,6 +30,7 @@ namespace PisoEstudiantes.Models
                 avm.Surname = u.Surname;
                 avm.Phone = u.Phone;
                 avm.Img = u.IMG;
+                avm.Password = u.Password;
                 return avm;
             }
             [Required]
@@ -48,6 +49,16 @@ namespace PisoEstudiantes.Models
             [StringLength(50)]
             [Display(Name = "Apellidos")]
             public string Surname { get; set; }
+
+            [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
+            [DataType(DataType.Password)]
+            [Display(Name = "Contraseña")]
+            public string Password { get; set; }
+
+            [DataType(DataType.Password)]
+            [Display(Name = "Confirmar contraseña")]
+            [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
+            public string ConfirmPassword { get; set; }
 
             [Required]
             [RegularExpression(@"^[9|6|7][0-9]{8}$", ErrorMessage = "El teléfono introducido no es un teléfono válido")]
