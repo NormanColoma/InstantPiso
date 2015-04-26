@@ -63,6 +63,8 @@ namespace PisoEstudiantes.Models.DAO
                     conn.Close();
             }
         }
+
+
         public bool login(User u)
         {
             /*Usaremos un bloque try/catch para comprobar si el nombre y contraseña del usuario 
@@ -138,9 +140,10 @@ namespace PisoEstudiantes.Models.DAO
 
                 c.Open();
 
-                SqlCommand comm = new SqlCommand("Update [dbo].[User] set name=@nombre , surname=@sur, phone=@phon where email=@omail", c);
+                SqlCommand comm = new SqlCommand("Update [dbo].[User] set name=@nombre , surname=@sur, phone=@phon , password=@pass where email=@omail", c);
                 comm.Parameters.AddWithValue("@mail", us.Email);
                 comm.Parameters.AddWithValue("@nombre", us.Name);
+                comm.Parameters.AddWithValue("@pass", us.Password);
                 comm.Parameters.AddWithValue("@omail", email);
                 comm.Parameters.AddWithValue("@sur", us.Surname);
                 comm.Parameters.AddWithValue("@phon", us.Phone);
@@ -185,5 +188,41 @@ namespace PisoEstudiantes.Models.DAO
 
 
         #endregion
+
+        public bool checkPassword(User u)
+        {
+            /*Usaremos un bloque try/catch para comprobar si el nombre y contraseña del usuario 
+            existe en nuestra base de datos, de lo contrario devolveremos false.*/
+            try
+            {
+                //Creamos instancia y abrimos la conexión de la BD
+                conn = new SqlConnection(bdConnection);
+                conn.Open();
+
+                /*Realizamos la sentencia SQL y la ejecutamos. Tiene dos parámetros, un string (con la sentencia SQL)
+                y una instancia de SqlConnection, para pasarle la conexión.*/
+                da = new SqlDataAdapter("SELECT password FROM [dbo].[User] where email = '" + u.Email + "'", conn);
+                //Llenamos (fill) el dataset, con el resultado de la consulta SQL almacenado en el DataAdapter.
+                da.Fill(ds, "User");
+                //Obtenemos las tablas contenidas en el DataSet.
+                t = ds.Tables["User"];
+                if (t.Rows.Count == 0)
+                    return false;
+                if (t.Rows[0]["password"].ToString() == u.Password)
+                    return true;
+                return false;
+
+            }
+            catch (SqlException Ex)
+            {
+                throw Ex;
+
+            }
+            finally
+            {
+                if (conn != null)
+                    conn.Close();
+            }
+        }
     }
 }

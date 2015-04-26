@@ -1,3 +1,13 @@
 ﻿.account-options {
   
 }
+
+.close-account input[type="button"]{
+    margin-top:20px;
+}
+
+#incorrectPass{
+  float: left;
+  width: 100%;
+  font-weight: 100;
+}

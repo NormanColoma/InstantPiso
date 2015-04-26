@@ -220,3 +220,9 @@ C:\Users\usuario\Documents\visual projectos\PisoEstudiantes\bin\es\Microsoft.Owi
 C:\Users\usuario\Documents\visual projectos\PisoEstudiantes\obj\Debug\PisoEstudiantes.csprojResolveAssemblyReference.cache
 C:\Users\usuario\Documents\visual projectos\PisoEstudiantes\obj\Debug\PisoEstudiantes.dll
 C:\Users\usuario\Documents\visual projectos\PisoEstudiantes\obj\Debug\PisoEstudiantes.pdb
+C:\Users\Norman\Desktop\dss\PisoEstudiantes\bin\System.Net.Http.Formatting.dll
+C:\Users\Norman\Desktop\dss\PisoEstudiantes\bin\System.Web.Http.dll
+C:\Users\Norman\Desktop\dss\PisoEstudiantes\bin\System.Web.Http.WebHost.dll
+C:\Users\Norman\Desktop\dss\PisoEstudiantes\bin\System.Net.Http.Formatting.xml
+C:\Users\Norman\Desktop\dss\PisoEstudiantes\bin\System.Web.Http.xml
+C:\Users\Norman\Desktop\dss\PisoEstudiantes\bin\System.Web.Http.WebHost.xml
