@@ -82,7 +82,7 @@
     <div class="close-account">
 
         <section id="cancelAccount">
-            @using (Html.BeginForm("Cancel", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", @id="cancelForm" }))
+            @using (Html.BeginForm("Close", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", @id="cancelForm" }))
             {
                 <h2>Cerrar cuenta</h2>
                 <p>

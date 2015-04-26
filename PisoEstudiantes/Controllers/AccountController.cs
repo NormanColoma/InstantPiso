@@ -107,6 +107,11 @@ namespace PisoEstudiantes.Controllers
             }
             return View(model);
         }
+
+        public ActionResult Close()
+        {
+            return View();
+        }
     }
 
 
