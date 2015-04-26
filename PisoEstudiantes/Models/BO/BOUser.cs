@@ -25,6 +25,11 @@ namespace PisoEstudiantes.Models.BO
             return du.UpdateUser(u, email);
         }
 
+        public void deleteUser(User u)
+        {
+           du.BorrarUsuario(u);
+        }
+
         public bool checkPassword(User u)
         {
             return du.checkPassword(u);
