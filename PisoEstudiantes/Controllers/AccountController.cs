@@ -107,6 +107,14 @@ namespace PisoEstudiantes.Controllers
             }
             return View(model);
         }
+
+        public ActionResult Close()
+        {
+            User u = new User();
+            u.Email = User.Identity.Name;
+            userModel.deleteUser(u);
+            return LogOff();
+        }
     }
 
 

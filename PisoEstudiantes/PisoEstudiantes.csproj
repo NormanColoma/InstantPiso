@@ -246,6 +246,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Close.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

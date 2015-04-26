@@ -170,7 +170,7 @@ namespace PisoEstudiantes.Models.DAO
 
                 c.Open();
 
-                SqlCommand comm = new SqlCommand("Delete From User where email=@mail", c);
+                SqlCommand comm = new SqlCommand("Delete From [dbo].[User] where email=@mail", c);
                     comm.Parameters.AddWithValue("@mail",us.Email);
                     comm.ExecuteNonQuery();
                 

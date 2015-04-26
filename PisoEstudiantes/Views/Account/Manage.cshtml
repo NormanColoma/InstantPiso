@@ -82,8 +82,7 @@
     <div class="close-account">
 
         <section id="cancelAccount">
-            @using (Html.BeginForm("Cancel", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", @id="cancelForm" }))
-            {
+            
                 <h2>Cerrar cuenta</h2>
                 <p>
                     Tenga en cuenta que si cierra su cuenta, todos los pisos que tenga anunciados, serán eliminados. Podrá volver a registrarse una vez
@@ -108,7 +107,8 @@
                             $.getJSON(uri)
                                .done(function (data) {
                                    if (data)
-                                       $("#cancelForm").submit();
+                                       //$("#cancelForm").submit();
+                                       window.location.replace("Close");
                                    else
                                        $("#incorrectPass").text("Contraseña incorrecta");
                                       
@@ -121,7 +121,6 @@
                    
                     });
                 </script>
-            }
         </section>
     </div>
 
