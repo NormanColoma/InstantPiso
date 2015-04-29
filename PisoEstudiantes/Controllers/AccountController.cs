@@ -20,6 +20,7 @@ namespace PisoEstudiantes.Controllers
     public class AccountController : Controller
     {
         private BOUser userModel = new BOUser();
+        private BOEmail emailModel = new BOEmail();
         // GET: Account
         public ActionResult Login()
         {
@@ -110,9 +111,9 @@ namespace PisoEstudiantes.Controllers
 
         public ActionResult Close()
         {
-            User u = new User();
-            u.Email = User.Identity.Name;
+            User u = userModel.getUser(User.Identity.Name);
             userModel.deleteUser(u);
+            emailModel.mannageCenter(u, "canceled");
             return LogOff();
         }
     }
