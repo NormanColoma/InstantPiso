@@ -18,6 +18,7 @@ namespace PisoEstudiantes.Models.DTO
         protected string password = "";
         protected string gender = "";
         protected string img = "";
+        protected string city;
 
         #endregion
 
@@ -116,6 +117,12 @@ namespace PisoEstudiantes.Models.DTO
         {
             get { return img; }
             set { img = value; }
+        }
+
+        public string City
+        {
+            get { return city; }
+            set { city = value; }
         }
 
 
