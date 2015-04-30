@@ -34,5 +34,9 @@ namespace PisoEstudiantes.Models.BO
         {
             return du.checkPassword(u);
         }
+
+        public bool insertUser(User u) {
+            return du.InsertarUsuario(u);
+        }
     }
 }

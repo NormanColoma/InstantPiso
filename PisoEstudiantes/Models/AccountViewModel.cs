@@ -52,11 +52,13 @@ namespace PisoEstudiantes.Models
 
             [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
             [DataType(DataType.Password)]
+            [Required]
             [Display(Name = "Contraseña")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
             [Display(Name = "Confirmar contraseña")]
+            [Required]
             [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
             public string ConfirmPassword { get; set; }
 
@@ -66,5 +68,22 @@ namespace PisoEstudiantes.Models
             public string Phone { get; set; }
 
             public string Img { get; set; }
+
+            
+            [Display(Name = "Edad")]
+            public string Age { get; set; }
+
+            
+            [Display(Name = "Sexo")]
+            public string Gender { get; set; }
+
+            [Display(Name = "Soy arrendatario (necesario si quieres poner pisos en alquiler)")]
+            public bool Leaseholder { get; set; }
+            [Display(Name = "Ciudad")]
+            public string City { get; set; }
+
+            public string selectedCity { get; set; }
+            public string selectedAge { get; set; }
+            public string selectedGender { get; set; }
         }
 }

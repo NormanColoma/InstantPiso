@@ -19,6 +19,9 @@ namespace PisoEstudiantes.Models.BO
                 case "canceled":
                     accountCanceled(u);
                     break;
+                case "created":
+                    userRegistered(u);
+                    break;
             }
         }
         public void accountCanceled(User u)
@@ -29,7 +32,9 @@ namespace PisoEstudiantes.Models.BO
         }
         public void userRegistered(User u)
         {
-
+            Email.subject = "Bienvenido a InstantPiso";
+            Email.message = "Hola "+u.Name + " le confirmamos que su cuenta en InstantPiso ha sido creada.";
+            sendEmail(u);
         }
 
         public void sendEmail(User u)

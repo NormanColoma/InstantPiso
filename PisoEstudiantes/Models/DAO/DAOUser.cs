@@ -48,7 +48,7 @@ namespace PisoEstudiantes.Models.DAO
                 t = ds.Tables["User"];
                 User u = new User(email, t.Rows[0]["name"].ToString(), t.Rows[0]["phone"].ToString(),
                 t.Rows[0]["age"].ToString(), t.Rows[0]["leaseholder"].ToString(), t.Rows[0]["surname"].ToString(),
-                t.Rows[0]["password"].ToString(), t.Rows[0]["gender"].ToString(), t.Rows[0]["img"].ToString());
+                t.Rows[0]["password"].ToString(), t.Rows[0]["gender"].ToString(), t.Rows[0]["img"].ToString(), t.Rows[0]["city"].ToString());
                 return u;
 
             }
@@ -104,7 +104,7 @@ namespace PisoEstudiantes.Models.DAO
 
         #region CRUDS
 
-        public void InsertarUsuario(User us)
+        public bool InsertarUsuario(User us)
         {
             SqlConnection c = new SqlConnection(bdConnection);
             try
@@ -114,15 +114,18 @@ namespace PisoEstudiantes.Models.DAO
 
                 c.Open();
 
-                SqlCommand comm = new SqlCommand("Insert Into User(email,name,password,leaseholder,gender,surname,phone,age) VALUES ('" + us.Email + "','" + us.Name + "','" + "','" + us.Password + "','" +
-                    "','" + us.Leaseholder + "','" + "','" + us.Gender + "','" + "','" + us.Surname + "','" + us.Phone + "','" + "','" + us.Age + "')", c);
+                SqlCommand comm = new SqlCommand("Insert Into [dbo].[User](email,name,password,leaseholder,gender,surname,phone,age,city) VALUES ('" + us.Email + "','" + us.Name + "','" + 
+                us.Password +"','" + us.Leaseholder + "','" + us.Gender + "','" + us.Surname + "','" + us.Phone + "','" + us.Age + "','"+ us.City + "')", c);
 
-                comm.ExecuteNonQuery();
-                c.Close();
+                int result = comm.ExecuteNonQuery();
+                if (result == 1)
+                    return true;
+                return false;
+                
             }
             catch (Exception ex)
             {
-
+                return false;
             }
             finally {
                 c.Close();
