@@ -75,7 +75,7 @@ namespace PisoEstudiantes.Models
             [Display(Name = "Sexo")]
             public string Gender { get; set; }
 
-            [Display(Name = "¿Eres propietario de pisos? (necesario si quieres poner pisos en alquiler)")]
+            [Display(Name = "Soy arrendatario (necesario si quieres poner pisos en alquiler)")]
             public bool Leaseholder { get; set; }
             [Display(Name = "Ciudad")]
             public string City { get; set; }

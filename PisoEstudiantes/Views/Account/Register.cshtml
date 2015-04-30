@@ -2,64 +2,138 @@
 @model AccountViewModel
 
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Registrar cuenta";
 }
-
-<h2>Register</h2>
 
 <h2 class="tittle">@ViewBag.Title</h2>
 <div class="row">
     <div class="col-md-8 loginContainer">
         <section id="loginForm">
-            @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-                @Html.AntiForgeryToken()
-                <h4>Crea tu cuenta y podrás empezar a realizar tus alquieres ya</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        @Html.AntiForgeryToken()
+        <h4>Crea tu cuenta y podrás empezar a realizar tus alquieres ya</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Surname, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.City, new SelectList(
+                             new List<Object>
+                             {
+                                new{ value= 0, text ="Seleccionar"},
+	                            new{ value= 1, text="Álava"},
+	                            new{ value= 2, text="Albacete"},
+	                            new{ value= 3, text="Alicante"},
+	                            new{ value= 4, text="Almería"},
+	                            new{ value= 5, text="Asturias"},
+	                            new{ value= 6, text="Ávila"},
+	                            new{ value= 7, text="Badajoz"},
+	                            new{ value= 8, text="Barcelona"},
+	                            new{ value= 9, text="Burgos"},
+	                            new{ value= 10, text="Cáceres"},
+	                            new{ value= 11, text="Cádiz"},
+	                            new{ value= 12, text="Cantabria"},
+	                            new{ value= 13, text="Castellón"},
+	                            new{ value= 14, text="Ceuta"},
+	                            new{ value= 15, text="Ciudad Real"},
+	                            new{ value= 16, text="Córdoba"},
+	                            new{ value= 17, text="Cuenca"},
+	                            new{ value= 18, text="Girona"},
+	                            new{ value= 19, text="Las Palmas"},
+	                            new{ value= 20, text="Granada"},
+	                            new{ value= 21, text="Guadalajara"},
+	                            new{ value= 22, text="Guipúzcoa"},
+	                            new{ value= 23, text="Huelva"},
+	                            new{ value= 24, text="Huesca"},
+	                            new{ value= 25, text="Islas Baleares"},
+	                            new{ value= 26, text="Jaén"},
+	                            new{ value= 27, text="A Coruña"},
+	                            new{ value= 28, text="La Rioja"},
+	                            new{ value= 29, text="León"},
+	                            new{ value= 30, text="LLeida"},
+	                            new{ value= 31, text="Lugo"},
+	                            new{ value= 32, text="Madrid"},
+	                            new{ value= 33, text="Málaga"},
+	                            new{ value= 34, text="Melilla"},
+	                            new{ value= 35, text="Murcia"},
+	                            new{ value= 36, text="Navarra"},
+	                            new{ value= 37, text="Ourense"},
+	                            new{ value= 38, text="Palencia"},
+	                            new{ value= 39, text="Pontevedra"},
+	                            new{ value= 40, text="Salamanca"},
+	                            new{ value= 41, text="Segovia"},
+	                            new{ value= 42, text="Sevilla"},
+	                            new{ value= 43, text="Soria"},
+	                            new{ value= 44, text="Tarragona"},
+	                            new{ value= 45, text="Tenerife"},
+	                            new{ value= 46, text="Teruel"},
+	                            new{ value= 47, text="Toledo"},
+	                            new{ value= 48, text="Valencia"},
+	                            new{ value= 49, text="Valladolid"},
+	                            new{ value= 50, text="Vizcaya"},
+	                            new{ value= 51, text="Zamora"},
+	                            new{ value= 52, text="Zaragoza"},
+                             }, "value","text",0
+                           ), new { @class = "select" })
+            </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.City, new SelectList(
+                                 new List<object>
+                        {
+                        new{ value= 0, text ="Selecciona tu sexo"},
+                        new{ value= 1, text="Hombre"},
+                        new{ value= 2, text="Mujer"}
+                        }, "value", "text", 0
+                    ), new { @class="select"})
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.Leaseholder)
+                        @Html.LabelFor(m => m.Leaseholder)
                     </div>
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Surname, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
-                    </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Crear cuenta" class="btn btn-primary" />
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.Leaseholder)
-                            @Html.LabelFor(m => m.Leaseholder)
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Crear cuenta" class="btn btn-primary" />
-                    </div>
-                </div>
-            }
-        </section>
+            </div>
+                    }
+    </section>
     </div>
 </div>
 @section Scripts {
