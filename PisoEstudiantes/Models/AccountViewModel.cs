@@ -68,16 +68,16 @@ namespace PisoEstudiantes.Models
             public string Img { get; set; }
 
             [Required]
+            [Display(Name = "Edad")]
             public string Age { get; set; }
 
             [Required]
+            [Display(Name = "Sexo")]
             public string Gender { get; set; }
 
-            [Required]
-            public string Leaseholder { get; set; }
-
+            [Display(Name = "¿Eres propietario de pisos? (necesario si quieres poner pisos en alquiler)")]
+            public bool Leaseholder { get; set; }
+            [Display(Name = "Ciudad")]
             public string City { get; set; }
-
-            public string InHome { get; set; }
         }
 }
