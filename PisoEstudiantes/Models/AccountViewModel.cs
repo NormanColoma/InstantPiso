@@ -68,12 +68,16 @@ namespace PisoEstudiantes.Models
             public string Img { get; set; }
 
             [Required]
-            public string Birthday { get; set; }
+            public string Age { get; set; }
 
             [Required]
             public string Gender { get; set; }
 
             [Required]
             public string Leaseholder { get; set; }
+
+            public string City { get; set; }
+
+            public string InHome { get; set; }
         }
 }
