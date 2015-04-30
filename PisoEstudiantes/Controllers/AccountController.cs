@@ -130,10 +130,19 @@ namespace PisoEstudiantes.Controllers
             if (ModelState.IsValid)
             {
                 string leaseHolder = "no";
+                string city = null;
+                string gender = null;
+                string age = null;
+                if (model.selectedAge != "0")
+                    age = model.selectedAge;
+                if (model.selectedCity != "0")
+                    city = model.selectedCity;
+                if (model.selectedGender != "0")
+                    gender = model.selectedGender;
                 if (model.Leaseholder)
                     leaseHolder = "yes";
-                User u = new User(model.Email, model.Name, model.Phone, model.selectedAge, leaseHolder, model.Surname, model.Password,
-                model.selectedGender, null, model.selectedCity);
+                User u = new User(model.Email, model.Name, model.Phone, age, leaseHolder, model.Surname, model.Password,
+                gender, null, city);
                 if (userModel.insertUser(u))
                 {
                     var identity = new ClaimsIdentity(new[] {

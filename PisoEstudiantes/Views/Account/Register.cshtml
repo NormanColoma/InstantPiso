@@ -63,7 +63,7 @@
                 @Html.DropDownListFor(m => m.City, new SelectList(
                              new List<Object>
                              {
-                                new{ value= 0, text ="Seleccionar"},
+                                new{ value= 0, text ="Selecciona tu ciudad"},
 	                            new{ value= 1, text="Álava"},
 	                            new{ value= 2, text="Albacete"},
 	                            new{ value= 3, text="Alicante"},
@@ -210,11 +210,20 @@
                 $(function () {
                     $("form").submit(function () {
                         var city = $("#City option:selected").text();
-                        $("#selectedCity").val(city);
+                        if (!city.valueOf("Selecciona tu ciudad"))
+                            $("#selectedCity").val(city);
+                        else
+                            $("#selectedCity").val(0);
                         var gender = $("#Gender option:selected").text();
-                        $("#selectedGender").val(gender);
+                        if(!gender.valueOf("Selecciona tu edad"))
+                            $("#selectedGender").val(gender);
+                        else
+                            $("#selectedGender").val(0)
                         var age = $("#Age option:selected").text();
-                        $("#selectedAge").val(age);
+                        if (!age.valueOf("Selecciona tu sexo"))
+                            $("#selectedAge").val(age);
+                        else
+                            $("#selectedAge").val(0);
                     });
                 });
             </script>
