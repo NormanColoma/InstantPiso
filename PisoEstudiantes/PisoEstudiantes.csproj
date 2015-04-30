@@ -214,6 +214,7 @@
     <Content Include="Content\img\piso7.jpg" />
     <Content Include="Content\img\user_profile\norman.jpg" />
     <Content Include="Content\login.css" />
+    <Content Include="Content\register.css" />
     <Content Include="Views\favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

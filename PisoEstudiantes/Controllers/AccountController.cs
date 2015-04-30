@@ -119,7 +119,42 @@ namespace PisoEstudiantes.Controllers
 
         public ActionResult Register()
         {
+            
             return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Register(AccountViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string leaseHolder = "no";
+                if (model.Leaseholder)
+                    leaseHolder = "yes";
+                User u = new User(model.Email, model.Name, model.Phone, model.selectedAge, leaseHolder, model.Surname, model.Password,
+                model.selectedGender, null, model.selectedCity);
+                if (userModel.insertUser(u))
+                {
+                    var identity = new ClaimsIdentity(new[] {
+                            new Claim(ClaimTypes.Name, model.Email),
+                        },
+                        DefaultAuthenticationTypes.ApplicationCookie,
+                        ClaimTypes.Name, ClaimTypes.Role);
+                    //Necesario crear el interfaz para poder tener acceso a la operación SignIn
+                    IOwinContext owinContext = HttpContext.GetOwinContext();
+                    IAuthenticationManager authenticationManager = owinContext.Authentication;
+                    authenticationManager.SignIn(new AuthenticationProperties
+                    {
+                        IsPersistent = false
+                    }, identity);
+                    emailModel.mannageCenter(u, "created");
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                    ModelState.AddModelError("", "Ya existe una cuenta asociada al email " + model.Email);
+            }
+            return View(model);
         }
     }
 

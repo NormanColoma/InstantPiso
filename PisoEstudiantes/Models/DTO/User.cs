@@ -44,7 +44,7 @@ namespace PisoEstudiantes.Models.DTO
             this.phone = phone;
             this.password = password;
         }
-        public User(string email, string name, string phone, string age, string leaseholder, string surname, string password, string gender, string img) {
+        public User(string email, string name, string phone, string age, string leaseholder, string surname, string password, string gender, string img, string city) {
             this.email = email;
             this.name = name;
             this.phone = phone;
@@ -54,7 +54,7 @@ namespace PisoEstudiantes.Models.DTO
             this.password = password;
             this.gender = gender;
             this.img = img;
-        
+            this.city = city;       
         }
         
         

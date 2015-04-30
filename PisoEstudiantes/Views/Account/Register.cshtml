@@ -4,12 +4,12 @@
 @{
     ViewBag.Title = "Registrar cuenta";
 }
-
+@Styles.Render("~/Content/register.css")
 <h2 class="tittle">@ViewBag.Title</h2>
 <div class="row">
     <div class="col-md-8 loginContainer">
         <section id="loginForm">
-    @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
         @Html.AntiForgeryToken()
         <h4>Crea tu cuenta y podrás empezar a realizar tus alquieres ya</h4>
@@ -44,7 +44,21 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label", @id="listCities" })
             <div class="col-md-10">
                 @Html.DropDownListFor(m => m.City, new SelectList(
                              new List<Object>
@@ -104,12 +118,14 @@
 	                            new{ value= 52, text="Zaragoza"},
                              }, "value","text",0
                            ), new { @class = "select" })
-            </div>
+
+                </div>
+                @Html.HiddenFor(m => m.selectedCity, new {@id="selectedCity"})
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+                @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label", @id="listGender" })
                 <div class="col-md-10">
-                    @Html.DropDownListFor(m => m.City, new SelectList(
+                    @Html.DropDownListFor(m => m.Gender, new SelectList(
                                  new List<object>
                         {
                         new{ value= 0, text ="Selecciona tu sexo"},
@@ -118,6 +134,63 @@
                         }, "value", "text", 0
                     ), new { @class="select"})
                 </div>
+                @Html.HiddenFor(m => m.selectedGender, new {@id="selectedGender"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Age, new { @class = "col-md-2 control-label", @id="listAge" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.Age, new SelectList(
+                                         new List<object>
+                                {
+                                    new{ value= 0, text ="Selecciona tu edad"},
+                                    new{ value= 1, text="18"},
+                                    new{ value= 2, text="19"},
+                                    new{ value= 3, text="20"},
+                                    new{ value= 4, text="21"},
+                                    new{ value= 5, text="22"},
+                                    new{ value= 6, text="23"},
+                                    new{ value= 7, text="24"},
+                                    new{ value= 8, text="25"},
+                                    new{ value= 9, text="26"},
+                                    new{ value= 10, text="27"},
+                                    new{ value= 11, text="28"},
+                                    new{ value= 12, text="29"},
+                                    new{ value= 13, text="30"},
+                                    new{ value= 14, text="31"},
+                                    new{ value= 15, text="32"},
+                                    new{ value= 16, text="33"},
+                                    new{ value= 17, text="34"},
+                                    new{ value= 18, text="35"},
+                                    new{ value= 19, text="36"},
+                                    new{ value= 20, text="37"},
+                                    new{ value= 21, text="38"},
+                                    new{ value= 22, text="39"},
+                                    new{ value= 23, text="40"},
+                                    new{ value= 24, text="41"},
+                                    new{ value= 25, text="42"},
+                                    new{ value= 26, text="43"},
+                                    new{ value= 27, text="44"},
+                                    new{ value= 28, text="45"},
+                                    new{ value= 29, text="46"},
+                                    new{ value= 30, text="47"},
+                                    new{ value= 31, text="48"},
+                                    new{ value= 32, text="49"},
+                                    new{ value= 33, text="50"},
+                                    new{ value= 34, text="51"},
+                                    new{ value= 35, text="52"},
+                                    new{ value= 36, text="53"},
+                                    new{ value= 37, text="54"},
+                                    new{ value= 38, text="55"},
+                                    new{ value= 39, text="56"},
+                                    new{ value= 40, text="57"},
+                                    new{ value= 41, text="58"},
+                                    new{ value= 42, text="59"},
+                                    new{ value= 43, text="60"},
+                                    
+                                }, "value", "text", 0
+                            ), new { @class = "select" })
+                </div>
+                @Html.HiddenFor(m => m.selectedAge, new { @id = "selectedAge" })
             </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
@@ -133,6 +206,18 @@
                 </div>
             </div>
                     }
+            <script type="text/javascript">
+                $(function () {
+                    $("form").submit(function () {
+                        var city = $("#City option:selected").text();
+                        $("#selectedCity").val(city);
+                        var gender = $("#Gender option:selected").text();
+                        $("#selectedGender").val(gender);
+                        var age = $("#Age option:selected").text();
+                        $("#selectedAge").val(age);
+                    });
+                });
+            </script>
     </section>
     </div>
 </div>
