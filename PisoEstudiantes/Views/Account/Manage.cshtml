@@ -44,6 +44,138 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label", @id = "listCities" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.City, new SelectList(
+                                                 new List<Object>
+                                                 {
+                                                    new{ value= "0", text ="Selecciona tu ciudad"},
+	                                                new{ value= "Álava", text="Álava"},
+	                                                new{ value= "Albacete", text="Albacete"},
+	                                                new{ value= "Alicante", text="Alicante"},
+	                                                new{ value= "Almería", text="Almería"},
+	                                                new{ value= "Asturias", text="Asturias"},
+	                                                new{ value= "Ávila", text="Ávila"},
+	                                                new{ value= "Badajoz", text="Badajoz"},
+	                                                new{ value= "Barcelona", text="Barcelona"},
+	                                                new{ value= "Burgos", text="Burgos"},
+	                                                new{ value= "Cáceres", text="Cáceres"},
+	                                                new{ value= "Cádiz", text="Cádiz"},
+	                                                new{ value= "Cantabria", text="Cantabria"},
+	                                                new{ value= "Castellón", text="Castellón"},
+	                                                new{ value= "Ceuta", text="Ceuta"},
+	                                                new{ value= "Ciudad Real", text="Ciudad Real"},
+	                                                new{ value= "Córdoba", text="Córdoba"},
+	                                                new{ value= "Cuenca", text="Cuenca"},
+	                                                new{ value= "Girona", text="Girona"},
+	                                                new{ value= "Las Palmas", text="Las Palmas"},
+	                                                new{ value= "Granada", text="Granada"},
+	                                                new{ value= "Guadalajara", text="Guadalajara"},
+	                                                new{ value= "Guipúzcoa", text="Guipúzcoa"},
+	                                                new{ value= "Huelva", text="Huelva"},
+	                                                new{ value= "Huesca", text="Huesca"},
+	                                                new{ value= "Islas Baleares", text="Islas Baleares"},
+	                                                new{ value= "Jaén", text="Jaén"},
+	                                                new{ value= "A Coruña", text="A Coruña"},
+	                                                new{ value= "La Rioja", text="La Rioja"},
+	                                                new{ value= "León", text="León"},
+	                                                new{ value= "LLeida", text="LLeida"},
+	                                                new{ value= "Lugo", text="Lugo"},
+	                                                new{ value= "Madrid", text="Madrid"},
+	                                                new{ value= "Málaga", text="Málaga"},
+	                                                new{ value= "Melilla", text="Melilla"},
+	                                                new{ value= "Murcia", text="Murcia"},
+	                                                new{ value= "Navarra", text="Navarra"},
+	                                                new{ value= "Ourense", text="Ourense"},
+	                                                new{ value= "Palencia", text="Palencia"},
+	                                                new{ value= "Pontevedra", text="Pontevedra"},
+	                                                new{ value= "Salamanca", text="Salamanca"},
+	                                                new{ value= "Segovia", text="Segovia"},
+	                                                new{ value= "Sevilla", text="Sevilla"},
+	                                                new{ value= "Soria", text="Soria"},
+	                                                new{ value= "Tarragona", text="Tarragona"},
+	                                                new{ value= "Tenerife", text="Tenerife"},
+	                                                new{ value= "Teruel", text="Teruel"},
+	                                                new{ value= "Toledo", text="Toledo"},
+	                                                new{ value= "Valencia", text="Valencia"},
+	                                                new{ value= "Valladolid", text="Valladolid"},
+	                                                new{ value= "Vizcaya", text="Vizcaya"},
+	                                                new{ value= "Zamora", text="Zamora"},
+	                                                new{ value= "Zaragoza", text="Zaragoza"},
+                                                 }, "value", "text", @Model.City
+                                               ), new { @class = "select" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label", @id = "listGender" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.Gender, new SelectList(
+                                                     new List<object>
+                                            {
+                                            new{ value= "0", text ="Selecciona tu sexo"},
+                                            new{ value= "Hombre", text="Hombre"},
+                                            new{ value= "Mujer", text="Mujer"}
+                                            }, "value", "text", @Model.Gender
+                                        ), new { @class = "select" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Age, new { @class = "col-md-2 control-label", @id = "listAge" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.Age, new SelectList(
+                                                             new List<object>
+                                                    {
+                                                        new{ value= "0", text ="Selecciona tu edad"},
+                                                        new{ value= 18, text="18"},
+                                                        new{ value= 19, text="19"},
+                                                        new{ value= 20, text="20"},
+                                                        new{ value= 21, text="21"},
+                                                        new{ value= 22, text="22"},
+                                                        new{ value= 23, text="23"},
+                                                        new{ value= 24, text="24"},
+                                                        new{ value= 25, text="25"},
+                                                        new{ value= 26, text="26"},
+                                                        new{ value= 27, text="27"},
+                                                        new{ value= 28, text="28"},
+                                                        new{ value= 29, text="29"},
+                                                        new{ value= 30, text="30"},
+                                                        new{ value= 31, text="31"},
+                                                        new{ value= 32, text="32"},
+                                                        new{ value= 33, text="33"},
+                                                        new{ value= 34, text="34"},
+                                                        new{ value= 35, text="35"},
+                                                        new{ value= 36, text="36"},
+                                                        new{ value= 37, text="37"},
+                                                        new{ value= 38, text="38"},
+                                                        new{ value= 39, text="39"},
+                                                        new{ value= 40, text="40"},
+                                                        new{ value= 41, text="41"},
+                                                        new{ value= 42, text="42"},
+                                                        new{ value= 43, text="43"},
+                                                        new{ value= 44, text="44"},
+                                                        new{ value= 45, text="45"},
+                                                        new{ value= 46, text="46"},
+                                                        new{ value= 47, text="47"},
+                                                        new{ value= 48, text="48"},
+                                                        new{ value= 49, text="49"},
+                                                        new{ value= 50, text="50"},
+                                                        new{ value= 51, text="51"},
+                                                        new{ value= 52, text="52"},
+                                                        new{ value= 53, text="53"},
+                                                        new{ value= 54, text="54"},
+                                                        new{ value= 55, text="55"},
+                                                        new{ value= 56, text="56"},
+                                                        new{ value= 57, text="57"},
+                                                        new{ value= 58, text="58"},
+                                                        new{ value= 59, text="59"},
+                                                        new{ value= 60, text="60"},
+
+                                                    }, "value", "text", @Model.Age
+                                                ), new { @class = "select" })
+                            </div>
+                        </div>
+                        <div class="form-group">
                             @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
                             <div class="col-md-10">
                                 @Html.PasswordFor(m => m.Password, new { @class = "form-control"})
@@ -71,6 +203,17 @@
                         <script type="text/javascript">
                             $(function () {
                                 $(".alert").fadeIn('slow').delay(4000).fadeOut('slow');
+                                /*$("form").submit(function () {
+                                    if ($("#selectedAge").val() == "Selecciona tu edad") {
+                                        $("#selectedAge").val(0);
+                                    }
+                                    if ($("#selectedGender").val() == "Selecciona tu sexo") {
+                                        $("#selectedGender").val(0);
+                                    }
+                                    if ($("#selectedCity").val() == "Selecciona tu ciudad")
+                                        $("#selectedCity").val(0);
+                                    
+                                });*/
                             });
                         </script>
                     }
