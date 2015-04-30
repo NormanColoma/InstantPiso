@@ -116,6 +116,11 @@ namespace PisoEstudiantes.Controllers
             emailModel.mannageCenter(u, "canceled");
             return LogOff();
         }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
     }
 
 
