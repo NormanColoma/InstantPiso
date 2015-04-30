@@ -143,13 +143,17 @@ namespace PisoEstudiantes.Models.DAO
 
                 c.Open();
 
-                SqlCommand comm = new SqlCommand("Update [dbo].[User] set name=@nombre , surname=@sur, phone=@phon , password=@pass where email=@omail", c);
+                SqlCommand comm = new SqlCommand("Update [dbo].[User] set name=@nombre , surname=@sur, phone=@phon , password=@pass, leaseholder=@lease, age=@age, gender=@gender, city=@city where email=@omail", c);
                 comm.Parameters.AddWithValue("@mail", us.Email);
                 comm.Parameters.AddWithValue("@nombre", us.Name);
                 comm.Parameters.AddWithValue("@pass", us.Password);
                 comm.Parameters.AddWithValue("@omail", email);
                 comm.Parameters.AddWithValue("@sur", us.Surname);
                 comm.Parameters.AddWithValue("@phon", us.Phone);
+                comm.Parameters.AddWithValue("@age", us.Age);
+                comm.Parameters.AddWithValue("@gender", us.Gender);
+                comm.Parameters.AddWithValue("@lease", us.Leaseholder);
+                comm.Parameters.AddWithValue("@city", us.City);
                 int result = comm.ExecuteNonQuery();
                 if (result == 1)
                     return true;

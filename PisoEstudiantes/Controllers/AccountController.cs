@@ -92,7 +92,14 @@ namespace PisoEstudiantes.Controllers
                 string email = current.Email;
                 if (model.Password == null)
                     model.Password = current.Password;
-                User u = new User(model.Email, model.Name, model.Surname, model.Phone, model.Password);
+                if (model.City == "0")
+                    model.City = current.City;
+                if (model.Age == "0")
+                    model.Age = current.Age;
+                if (model.Gender == "0")
+                    model.Gender= current.Gender;
+                User u = new User(model.Email, model.Name, model.Phone, model.Age, current.Leaseholder, model.Surname, model.Password,
+               model.Gender, null, model.City);
                 if (userModel.updateUser(u, email))
                 {
                     TempData["Redirected"] = true;
@@ -125,7 +132,7 @@ namespace PisoEstudiantes.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Register(AccountViewModel model)
+        public ActionResult Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
