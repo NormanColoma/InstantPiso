@@ -327,6 +327,7 @@
     <Content Include="Views\Account\Close.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Pisos\Alquiler.cshtml" />
+    <Content Include="Views\Account\MisPisos.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

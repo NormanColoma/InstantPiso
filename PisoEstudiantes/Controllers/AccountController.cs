@@ -172,6 +172,11 @@ namespace PisoEstudiantes.Controllers
             }
             return View(model);
         }
+
+        public ActionResult MisPisos()
+        {
+            return View();
+        }
     }
 
 

@@ -41,10 +41,10 @@ namespace PisoEstudiantes.Controllers
                 model.minimum, model.property_type, model.avialableDate);
                 if (flatModel.insertFlat(f))
                 {
-                    ModelState.AddModelError("", "ha ido bien" + main_img.FileName);
+                    return RedirectToAction("MisPisos", "Account");
                 }
                 else
-                    ModelState.AddModelError("", "ha ido mal");   
+                    ModelState.AddModelError("", "No se ha podido publicar el anuncio, inténtelo nuevamente");   
             }
             return View(model);
         }
