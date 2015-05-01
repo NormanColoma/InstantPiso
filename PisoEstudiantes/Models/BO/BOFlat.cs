@@ -19,5 +19,10 @@ namespace PisoEstudiantes.Models.BO
         {
             return df.getLastFlats();
         }
+
+        public bool insertFlat(Flat f)
+        {
+            return df.insertFlat(f);
+        }
     }
 }
