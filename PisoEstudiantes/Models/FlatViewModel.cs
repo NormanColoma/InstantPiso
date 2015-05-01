@@ -55,11 +55,11 @@ namespace PisoEstudiantes.Models
         public int bedrooms_availables {get; set;}
 
 
-        [RegularExpression(@"^[A-Z]+[a-zA-ZÁÉÍÓÚáéíóuñÑ''-'\s_ ]*$", ErrorMessage = "Introduce una ciudad válida")]
+        [RegularExpression(@"^[A-Z]+[a-zA-ZÁÉÍÓÚáéíóuñÑ''-'\s_ ]*$", ErrorMessage = "Introduce una títiulo válido")]
         [StringLength(70)]
         public string tittle { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-ZÁÉÍÓÚáéíóuñÑ''-'\s_ ]*$", ErrorMessage = "Introduce una ciudad válida")]
+
         [StringLength(5000)]
         public string description { get; set; }
 

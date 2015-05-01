@@ -77,8 +77,8 @@ namespace PisoEstudiantes.Models.DAO
 
                 /*Realizamos la sentencia SQL y la ejecutamos. Tiene dos parámetros, un string (con la sentencia SQL)
                 y una instancia de SqlConnection, para pasarle la conexión.*/
-                comm = new SqlCommand("Insert Into [dbo].[Flat] (province,city,address,postal_code,beedrooms,description,owner,profile_img,price,bathrooms,available_bedrooms,minimum_stay,availableDate,tittle,property_type) VALUES('"+ f.Province + "','" + f.City + "','" + f.Address + "','" 
-                + f.PC + "','" + f.Bedrooms + "','" + f.Description + f.Owner + "','" + f.Profile + "','" + f.Price + "','" + f.Bathrooms + "','" + f.AvailableBedrooms + "','" + f.Minimum + "','" + f.AvailableDate + "','" + f.Tittle + "','" + f.PropertyType +"')", conn);
+                comm = new SqlCommand("Insert Into [dbo].[Flat] (province,city,address,postal_code,bedrooms,description,owner,profile_img,price,bathrooms,available_bedrooms,minimum_stay,availableDate,tittle,property_type) VALUES('"+ f.Province + "','" + f.City + "','" + f.Address + "','" 
+                + f.PC + "','" + f.Bedrooms + "','" + f.Description + "','" + f.Owner.Email + "','" + f.Profile + "','" + f.Price + "','" + f.Bathrooms + "','" + f.AvailableBedrooms + "','" + f.Minimum + "','" + f.AvailableDate + "','" + f.Tittle + "','" + f.PropertyType +"')", conn);
                 int result = comm.ExecuteNonQuery();
 
                 if (result == 1)

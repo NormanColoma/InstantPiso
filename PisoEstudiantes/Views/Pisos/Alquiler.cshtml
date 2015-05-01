@@ -24,7 +24,6 @@
 <div class="flatForm">
     @using (Html.BeginForm("Alquiler", "Pisos", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
-        @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="proprietorship">
             <h3>Propiedad</h3>

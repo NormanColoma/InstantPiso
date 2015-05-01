@@ -38,6 +38,26 @@ namespace PisoEstudiantes.Models.DTO
             this.profile_img = profile_img;
             this.price = price;
         }
+
+        public Flat(string province, string city, string postal_code, string address, string description, string title,
+        int bedrooms, Owner owner, string profile_img, double price, int bathrooms, int available_bedrooms, int minimum, string property_type,
+        DateTime availableDate)
+        {
+            this.province = province;
+            this.city = city;
+            this.postal_code = postal_code;
+            this.address = address;
+            this.description = description;
+            this.bedrooms = bedrooms;
+            this.owner = owner;
+            this.profile_img = profile_img;
+            this.price = price;
+            this.bathrooms = bathrooms;
+            this.available_bedrooms = available_bedrooms;
+            this.minimum = minimum;
+            this.property_type = property_type;
+            this.availableDate = availableDate;
+        }
         public int ID
         {
             get { return id; }
