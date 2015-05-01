@@ -22,7 +22,7 @@
 <h4>Pon tu piso en alquiler ya y publica un anuncio</h4>
 
 <div class="flatForm">
-    @using (Html.BeginForm("Alquiler", "Pisos", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Alquiler", "Pisos", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype= "multipart/form-data" }))
     {
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="proprietorship">
@@ -221,7 +221,7 @@
                 </li>
                 <li>
                     <label>Foto</label>
-                   @Html.TextBoxFor(m => m.main_img, new { @class = "form-control", type="file" })
+                   @Html.TextBoxFor(m => m.main_img, new { @class = "form-control", type="file", name="main_img" })
                    @Html.ValidationMessageFor(m => m.main_img, "", new { @class = "text-danger" })
                 </li>
             </ul>
