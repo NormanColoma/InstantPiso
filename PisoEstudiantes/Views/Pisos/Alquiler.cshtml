@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "Alquiler";
+}
+@Styles.Render("~/Content/form-flat.css")
+@Styles.Render("~/Content/bootstrap-datepicker.css")
+@Styles.Render("~/Content/bootstrap-datepicker.min.css")
+@Scripts.Render("~/Scripts/bootstrap-datepicker.js")
+@Scripts.Render("~/Scripts/bootstrap-datepicker.min.js")
+<!-- Code to wire up your DatePicker -->
+<script type="text/javascript">
+    $(function () {
+        // This will make every element with the class "date-picker" into a DatePicker element
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            startDate: '-3d'
+        })
+    })
+</script>
+<h2>Alquila tu piso</h2>
+<h4>Pon tu piso en alquiler ya y publica un anuncio</h4>
+
+<div class="flatForm">
+    <div class="proprietorship">
+        <h3>Propiedad</h3>
+        <ul>
+            <li>
+                <label>¿Vives en el piso?</label>
+                <input type="checkbox" />
+            </li>
+            <li>
+                <label>Alquiler/mes (€)</label>
+                <input type="text" class="form-control" />
+            </li>
+            <li>
+                <div class="form-control-container">
+                    <label>Provincia</label>
+                    <select class="form-control">
+                        <option value="0">
+                            Provincia
+                        </option>
+                    </select>
+                </div>
+                <div class="form-control-container">
+                    <label>Ciudad</label>
+                    <input type="text" value="" class="form-control" />
+                </div>
+            </li>
+            <li>
+                    
+                    <div class="form-control-container">
+                        <label>Dirección</label>
+                        <input type="text" value="Calle..." class="form-control" />
+                    </div>
+                    
+                    <div class="form-control-container-small">
+                        <label>Código postal</label>
+                        <input type="text" value="código postal" class="form-control" />
+                    </div>
+            </li>
+        </ul>
+    </div>
+    <div class="property">
+        <h3>Características del inmuble</h3>
+        <ul>
+            <li>
+                <label>Disponible desde</label>
+                <input data-provide="datepicker" class="form-control">
+            </li>
+            <li>
+                <label>Estancia mínima (meses)</label>
+                <select class="form-control">
+                    <option value="0">
+                        Meses
+                    </option>
+                </select>
+            </li>
+            <li>
+                <label>Tipo de inmmuble</label>
+                <select class="form-control">
+                    <option value="0">
+                        Tipo
+                    </option>
+                </select>
+            </li>
+            <li>
+                <div class="form-control-container-xs">
+                    <label>Habitaciones</label>
+                    <select class="form-control">
+                        <option value="0">
+                            1
+                        </option>
+                    </select>
+                </div>
+                <div class="form-control-container-xs">
+                    <label>Aseos</label>
+                    <select class="form-control">
+                        <option value="0">
+                            1
+                        </option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <label>Habitaciones disponibles</label>
+                <select class="form-control">
+                    <option value="0">
+                        1
+                    </option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <div class="property-description">
+        <h3>Descripción del inmuble</h3>
+        <ul>
+            <li>
+                <label>Título del anuncio</label>
+                <input type="text" class="form-control" />
+            </li>
+            <li>
+                <label>Descripción del piso</label>
+                <textarea class="form-control"></textarea>
+            </li>
+            <li>
+                <label>Foto</label>
+                <input type="file" class="btn btn-default" />
+            </li>
+        </ul>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Publicar anuncio" />
+</div>
+
