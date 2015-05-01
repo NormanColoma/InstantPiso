@@ -189,6 +189,7 @@
     <Compile Include="Models\DTO\Owner.cs" />
     <Compile Include="Models\DTO\Renter.cs" />
     <Compile Include="Models\DTO\User.cs" />
+    <Compile Include="Models\FlatViewModel.cs" />
     <Compile Include="Models\IEmailSender.cs" />
     <Compile Include="Models\IFlat.cs" />
     <Compile Include="Models\IUser.cs" />
