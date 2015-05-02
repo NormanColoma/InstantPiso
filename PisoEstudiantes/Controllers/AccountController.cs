@@ -21,6 +21,7 @@ namespace PisoEstudiantes.Controllers
     {
         private BOUser userModel = new BOUser();
         private BOEmail emailModel = new BOEmail();
+        private BOFlat flatModel = new BOFlat();
         // GET: Account
         public ActionResult Login()
         {
@@ -171,6 +172,12 @@ namespace PisoEstudiantes.Controllers
                     ModelState.AddModelError("", "Ya existe una cuenta asociada al email " + model.Email);
             }
             return View(model);
+        }
+
+        public ActionResult MisPisos()
+        {
+
+            return View(flatModel.getFlatsByOwner(User.Identity.Name));
         }
     }
 

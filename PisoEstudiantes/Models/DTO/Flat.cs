@@ -12,22 +12,20 @@ namespace PisoEstudiantes.Models.DTO
         private string city;
         private string address;
         private string postal_code;
-        private string capacity;
+        private int bedrooms;
+        private int bathrooms;
+        private int available_bedrooms;
+        private int minimum;
         private string description;
+        private string tittle;
+        private string property_type;
+        private DateTime availableDate;
         private Owner owner;
         private string profile_img;
-        private string img1;
-        private string img2;
-        private string img3;
-        private string img4;
-        private string img5;
-        private string img6;
-        private string img7;
         private double price;
 
         public Flat(int id, string province, string city, string postal_code, string address, string description,
-        string capacity, Owner owner, string profile_img, string img1, string img2, string img3,
-        string img4, string img5, string img6, string img7, double price)
+        int bedrooms, Owner owner, string profile_img, double price)
         {
             this.id = id;
             this.province = province;
@@ -35,17 +33,30 @@ namespace PisoEstudiantes.Models.DTO
             this.postal_code = postal_code;
             this.address = address;
             this.description = description;
-            this.capacity = capacity;
+            this.bedrooms = bedrooms;
             this.owner = owner;
             this.profile_img = profile_img;
-            this.img1 = img1;
-            this.img2 = img2;
-            this.img3 = img3;
-            this.img4 = img4;
-            this.img5 = img5;
-            this.img6 = img6;
-            this.img7 = img7;
             this.price = price;
+        }
+
+        public Flat(string province, string city, string postal_code, string address, string description, string title,
+        int bedrooms, Owner owner, string profile_img, double price, int bathrooms, int available_bedrooms, int minimum, string property_type,
+        DateTime availableDate)
+        {
+            this.province = province;
+            this.city = city;
+            this.postal_code = postal_code;
+            this.address = address;
+            this.description = description;
+            this.bedrooms = bedrooms;
+            this.owner = owner;
+            this.profile_img = profile_img;
+            this.price = price;
+            this.bathrooms = bathrooms;
+            this.available_bedrooms = available_bedrooms;
+            this.minimum = minimum;
+            this.property_type = property_type;
+            this.availableDate = availableDate;
         }
         public int ID
         {
@@ -76,16 +87,53 @@ namespace PisoEstudiantes.Models.DTO
             set { postal_code = value; }
         }
 
-        public String Capacity
+        public int Bedrooms
         {
-            get { return capacity; }
-            set { capacity = value; }
+            get { return bedrooms; }
+            set { bedrooms = value; }
         }
+
+        public int Bathrooms
+        {
+            get { return bathrooms; }
+            set { bathrooms = value; }
+        }
+
+        public int Minimum
+        {
+            get { return minimum; }
+            set { minimum = value; }
+        }
+
+        public int AvailableBedrooms
+        {
+            get { return available_bedrooms; }
+            set { available_bedrooms = value; }
+        }
+
+        public DateTime AvailableDate
+        {
+            get { return availableDate; }
+            set { availableDate = value; }
+        }
+
 
         public String Description
         {
             get { return description; }
             set { description = value; }
+        }
+
+        public String Tittle
+        {
+            get { return tittle; }
+            set { tittle = value; }
+        }
+
+        public String PropertyType
+        {
+            get { return property_type; }
+            set { property_type = value; }
         }
 
         public Owner Owner
@@ -98,44 +146,6 @@ namespace PisoEstudiantes.Models.DTO
         {
             get { return profile_img; }
             set { profile_img = value; }
-        }
-
-        public String IMG1
-        {
-            get { return img1; }
-            set { img1 = value; }
-        }
-
-        public String IMG2
-        {
-            get { return img2; }
-            set { img2 = value; }
-        }
-
-        public String IMG3
-        {
-            get { return img3; }
-            set { img3 = value; }
-        }
-        public String IMG4
-        {
-            get { return img4; }
-            set { img4 = value; }
-        }
-        public String IMG5
-        {
-            get { return img5; }
-            set { img5 = value; }
-        }
-        public String IMG6
-        {
-            get { return img6; }
-            set { img6 = value; }
-        }
-        public String IMG7
-        {
-            get { return img7; }
-            set { img7 = value; }
         }
 
         public double Price

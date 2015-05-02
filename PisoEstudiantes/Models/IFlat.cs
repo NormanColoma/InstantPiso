@@ -12,5 +12,7 @@ namespace PisoEstudiantes.Models
         //TODO (solo necesitamos estas 2 operaciones para este sprint)
         List<Flat> getLastFlats();
         List<Flat> getFlatsByProvince(string province);
+        List<Flat> getFlatsByOwner(string email);
+        bool insertFlat(Flat f);
     }
 }
