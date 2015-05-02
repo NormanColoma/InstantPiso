@@ -201,6 +201,47 @@ namespace PisoEstudiantes.Models.DAO
             }
         }
 
+
+        public List<Flat> getFlatsByOwner(string email)
+        {
+            try
+            {
+                //Creamos instancia y abrimos la conexión de la BD
+                conn = new SqlConnection(bdConnection);
+                conn.Open();
+
+                /*Realizamos la sentencia SQL y la ejecutamos. Tiene dos parámetros, un string (con la sentencia SQL)
+                y una instancia de SqlConnection, para pasarle la conexión.*/
+                da = new SqlDataAdapter("SELECT * FROM [dbo].[Flat] where owner = '" + @email + "'", conn);
+                da.SelectCommand.Parameters.AddWithValue("@email", email);
+                //Llenamos (fill) el dataset, con el resultado de la consulta SQL almacenado en el DataAdapter.
+                da.Fill(ds, "Flats");
+                List<Flat> flats = new List<Flat>();
+                //Obtenemos las tablas contenidas en el DataSet.
+                t = ds.Tables["Flats"];
+                for (int i = 0; i < t.Rows.Count; i++)
+                {
+
+                    Flat f = new Flat(Convert.ToInt16(t.Rows[i]["id"]), t.Rows[i]["province"].ToString(), t.Rows[i]["city"].ToString(), t.Rows[i]["postal_code"].ToString(),
+                    t.Rows[i]["address"].ToString(), t.Rows[i]["description"].ToString(), Convert.ToInt16(t.Rows[i]["bedrooms"]), null, t.Rows[i]["profile_img"].ToString(),
+                    Convert.ToDouble(t.Rows[i]["price"]));
+                    flats.Add(f);
+                }
+                return flats;
+
+            }
+            catch (SqlException Ex)
+            {
+                throw Ex;
+
+            }
+            finally
+            {
+                if (conn != null)
+                    conn.Close();
+            }
+        }
+
        
 
     }

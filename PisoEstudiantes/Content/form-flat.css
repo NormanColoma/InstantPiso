@@ -24,3 +24,8 @@
     margin-right:15px;
 }
 
+textarea{
+  width: 80% !important;
+  max-width: initial;
+  height: 200px !important;
+}

@@ -21,6 +21,7 @@ namespace PisoEstudiantes.Controllers
     {
         private BOUser userModel = new BOUser();
         private BOEmail emailModel = new BOEmail();
+        private BOFlat flatModel = new BOFlat();
         // GET: Account
         public ActionResult Login()
         {
@@ -175,7 +176,8 @@ namespace PisoEstudiantes.Controllers
 
         public ActionResult MisPisos()
         {
-            return View();
+
+            return View(flatModel.getFlatsByOwner(User.Identity.Name));
         }
     }
 

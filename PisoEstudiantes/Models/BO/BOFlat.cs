@@ -24,5 +24,10 @@ namespace PisoEstudiantes.Models.BO
         {
             return df.insertFlat(f);
         }
+
+        public List<Flat> getFlatsByOwner(string email)
+        {
+            return df.getFlatsByOwner(email);
+        }
     }
 }
