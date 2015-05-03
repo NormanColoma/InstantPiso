@@ -2,11 +2,14 @@
 @{
     ViewBag.Title = "MisPisos";
 }
-
+@Styles.Render("~/Content/manage_flat.css")
 <h2>Mis Pisos</h2>
 <h4>Desde aquí podrás gestionar tus pisos: actulizarlos, o quitarlos de alquiler.</h4>
 
 <div class="flat-container">
+    <div class="alert alert-success" role="alert" hidden="hidden">
+        <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>El piso ha sido eliminado correctamente</p>
+    </div>
     <ul>
         @foreach (var flat in Model)
         {
@@ -16,13 +19,21 @@
                     <div class="description">
                         <span class="city">@Html.DisplayFor(modelItem => flat.City)</span>
                         <p>@Html.DisplayFor(modelItem => flat.Description)</p>
-                        <span class="price">@Html.DisplayFor(modelItem => flat.Price) €</span>
-                        <div class="hire-flat">
-                            <a href="" class="btn btn-sm btn-success btn-hire">Alquilar ahora</a>
+                        <div class="buttons">
+                            <input type="button" class="btn btn-default btn-delete" value="Eliminar" name="@Html.DisplayFor(modelItem => flat.ID)" />
+                            <input type="button" class="btn btn-default" value="Actualziar" name="@Html.DisplayFor(modelItem => flat.ID)" />
                         </div>
                     </div>
                 </div>
             </li>
         }
     </ul>
+    <script type="text/javascript">
+        $(function(){
+            $(".btn-delete").click(function(){
+                $(".alert").show();
+                $(".alert").fadeIn('slow').delay(4000).fadeOut('slow');
+            })
+        })
+    </script>
 </div>

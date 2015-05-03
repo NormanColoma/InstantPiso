@@ -1,0 +1,51 @@
+﻿.flat-container ul{
+    list-style:none;
+    float: left;
+    margin-top: 20px;
+    padding: 0;
+}
+
+
+.flat{
+    width:80%;
+    border:1px solid #dce0e0;
+    border-radius:2px;
+    float: left;
+    margin-right: 90px;
+    margin-bottom: 40px;
+    font-family: 'Open Sans',sans-serif;
+}
+
+.flat:hover{
+   box-shadow: 0 0 6px #757475;
+  -webkit-box-shadow: 0px 0 6px #757475;
+}
+
+.flat img{
+    float: left;
+    width: 400px;
+    height: 200px;
+}
+
+.description{
+    float: left;
+  width: 50%;
+  padding:10px;
+}
+
+.flat .city {
+  color: #357ebd;
+  font-weight: 700;
+  font-size: 14px;
+    margin-bottom: 5px;
+  float: left;
+  width: 100%;
+}
+
+.buttons{
+    float:right;
+}
+
+.glyphicon{
+    margin-right:5px;
+}
