@@ -100,7 +100,7 @@ namespace PisoEstudiantes.Models.DAO
             }
         }
 
-        public bool deleteFlat(Flat f)
+        public bool deleteFlat(int id)
         {
             try
             {
@@ -110,7 +110,8 @@ namespace PisoEstudiantes.Models.DAO
 
                 /*Realizamos la sentencia SQL y la ejecutamos. Tiene dos parámetros, un string (con la sentencia SQL)
                 y una instancia de SqlConnection, para pasarle la conexión.*/
-                comm = new SqlCommand("DELETE * FROM [dbo].[Flat] WHERE id ='"+f.ID+"'", conn);
+                comm = new SqlCommand("DELETE FROM [dbo].[Flat] WHERE id = @id", conn);
+                comm.Parameters.AddWithValue("@id", id);
                 int result = comm.ExecuteNonQuery();
                 if (result == 1)
                     return true;
@@ -138,16 +139,6 @@ namespace PisoEstudiantes.Models.DAO
                 //Creamos instancia y abrimos la conexión de la BD
                 conn = new SqlConnection(bdConnection);
                 conn.Open();
-
-                /*Realizamos la sentencia SQL y la ejecutamos. Tiene dos parámetros, un string (con la sentencia SQL)
-                y una instancia de SqlConnection, para pasarle la conexión.*/
-                /*comm = new SqlCommand("Update [dbo].[Flat] Set province= '"+f.Province+"' ,city= '"+ f.City+"' ,address= '"+ f.Address+"' ,postal_code= '"+f.PC+"' ,capacity= '"+f.Capacity+"' ,description= '"+f.Description+"' ,owner= '"+f.Owner +"' ,profile_img= '"+f.Profile+"', img1= '"+f.IMG1+"' ,img2= '"+f.IMG2+"' ,img3= '"+f.IMG3+"' ,img4= '"+f.IMG4+"' ,img5= '"+f.IMG5+"' ,img6= '"+f.IMG6+"' ,img7= '"+f.IMG7+"' ,price= '"+f.Price+"' where id='" + f.ID + "'", conn);
-                int result = comm.ExecuteNonQuery();
-
-                if (result == 1)
-                    return true;
-                else
-                    return false;*/
                 return true;
             }
             catch (SqlException Ex)
