@@ -14,5 +14,6 @@ namespace PisoEstudiantes.Models
         List<Flat> getFlatsByProvince(string province);
         List<Flat> getFlatsByOwner(string email);
         bool insertFlat(Flat f);
+        
     }
 }

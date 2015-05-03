@@ -10,7 +10,7 @@ namespace PisoEstudiantes.Models.DTO
         //TODO
         private List<Renter> lRenters;
         private List<Flat> lFlats;
-
+        private bool inHome;
         
 
         public List<Flat> LFlats
@@ -23,6 +23,12 @@ namespace PisoEstudiantes.Models.DTO
         {
             get { return lRenters; }
             set { lRenters = value; }
+        }
+
+        public bool InHome
+        {
+            get { return inHome; }
+            set { inHome = value; }
         }
     }
 }

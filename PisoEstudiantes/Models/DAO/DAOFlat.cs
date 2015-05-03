@@ -172,7 +172,7 @@ namespace PisoEstudiantes.Models.DAO
 
                 /*Realizamos la sentencia SQL y la ejecutamos. Tiene dos parámetros, un string (con la sentencia SQL)
                 y una instancia de SqlConnection, para pasarle la conexión.*/
-                da = new SqlDataAdapter("SELECT TOP(10) * FROM [dbo].[Flat]", conn);
+                da = new SqlDataAdapter("SELECT TOP(6) * FROM [dbo].[Flat]", conn);
                 //Llenamos (fill) el dataset, con el resultado de la consulta SQL almacenado en el DataAdapter.
                 da.Fill(ds, "Flats");
                 List<Flat> flats = new List<Flat>();

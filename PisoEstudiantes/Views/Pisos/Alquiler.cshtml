@@ -2,6 +2,7 @@
 @model AnnouncementViewModel
 @{
     ViewBag.Title = "Alquiler";
+    var leaseholder = TempData["leaseholder"];
 }
 @Styles.Render("~/Content/form-flat.css")
 @Styles.Render("~/Content/bootstrap-datepicker.css")
@@ -20,18 +21,14 @@
 </script>
 <h2>Alquila tu piso</h2>
 <h4>Pon tu piso en alquiler ya y publica un anuncio</h4>
-
+@if(leaseholder == "yes"){
 <div class="flatForm">
     @using (Html.BeginForm("Alquiler", "Pisos", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype= "multipart/form-data" }))
     {
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="proprietorship">
             <h3>Propiedad</h3>
-            <ul>
-                <li>
-                    <label>¿Vives en el piso?</label>
-                    @Html.CheckBoxFor(m => m.inHome, new { @class = "" })
-                </li>
+            <ul>     
                 <li>
                     <label>Alquiler/mes (€)</label>
                     @Html.TextBoxFor(m => m.rentPerMonth, new { @class = "form-control" })
@@ -229,6 +226,12 @@
         <input type="submit" class="btn btn-primary" value="Publicar anuncio" />
     }
 </div>
+}
+else{
+    <div class="message">
+       <p>Lo sentiemos, está opción solo está disponible para arrendatarios. Puedes actualizar tu cuenta a arrendatario si quieres. Solo tienes que pulsar el botón "Arrendatario", y la actualizaremos automáticamente.</p>
+    </div>
+}
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

@@ -39,7 +39,7 @@ namespace PisoEstudiantes.Models.DTO
             this.price = price;
         }
 
-        public Flat(string province, string city, string postal_code, string address, string description, string title,
+        public Flat(string province, string city, string postal_code, string address, string description, string tittle,
         int bedrooms, Owner owner, string profile_img, double price, int bathrooms, int available_bedrooms, int minimum, string property_type,
         DateTime availableDate)
         {
@@ -57,6 +57,7 @@ namespace PisoEstudiantes.Models.DTO
             this.minimum = minimum;
             this.property_type = property_type;
             this.availableDate = availableDate;
+            this.tittle = tittle;
         }
         public int ID
         {
