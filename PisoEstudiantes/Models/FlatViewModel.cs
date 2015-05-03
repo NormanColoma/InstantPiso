@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using PisoEstudiantes.Models.BO;
+using PisoEstudiantes.Models.DTO;
 namespace PisoEstudiantes.Models
 {
     public class FlatViewModel
@@ -12,6 +14,27 @@ namespace PisoEstudiantes.Models
 
     public class AnnouncementViewModel
     {
+        
+        public AnnouncementViewModel returnFlat(int id)
+        {
+            BOFlat flat = new BOFlat();
+            Flat f = flat.getFlat(id);
+            AnnouncementViewModel avm = new AnnouncementViewModel();
+            avm.address = f.Address;
+            avm.avialableDate = f.AvailableDate;
+            avm.bathrooms = f.Bathrooms;
+            avm.bedrooms = f.Bedrooms;
+            avm.bedrooms_availables = f.AvailableBedrooms;
+            avm.city = f.City;
+            avm.description = f.Description;
+            avm.main_img = f.Profile;
+            avm.postal_code = f.PC;
+            avm.property_type = f.PropertyType;
+            avm.province = f.Province;
+            avm.rentPerMonth = f.Price;
+            avm.tittle = f.Tittle;
+            return avm;
+        }
         public bool inHome { get; set; }
 
         [Required]

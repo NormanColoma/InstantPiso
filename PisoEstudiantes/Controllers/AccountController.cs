@@ -179,6 +179,48 @@ namespace PisoEstudiantes.Controllers
 
             return View(flatModel.getFlatsByOwner(User.Identity.Name));
         }
+
+        public ActionResult updateFlat(int id)
+        {
+            AnnouncementViewModel fModel = new AnnouncementViewModel();
+            ViewData["id"] = id;
+            return View(fModel.returnFlat(id));
+        }
+
+        [HttpPost]
+        public ActionResult updateFlat(AnnouncementViewModel model, int id, HttpPostedFileBase main_img)
+        {
+            Owner owner = new Owner();
+            owner.Email = User.Identity.Name;
+            if (model.main_img == null)
+            {
+                AnnouncementViewModel fModel = new AnnouncementViewModel();
+                model.main_img = flatModel.getFlat(id).Profile;
+            }
+            else
+            {
+                string pic = System.IO.Path.GetFileName(main_img.FileName);
+                string path = System.IO.Path.Combine(
+                                       Server.MapPath("~/Content/img"), pic);
+                // file is uploaded
+                main_img.SaveAs(path);
+            }
+
+            Flat f = new Flat(model.province, model.city, model.postal_code, model.address, model.description, model.tittle,
+            model.bedrooms, owner, main_img.FileName, model.rentPerMonth, model.bathrooms, model.bedrooms_availables, model.minimum, model.property_type,
+            model.avialableDate);
+            f.ID = id;
+            if (flatModel.updateFlat(f))
+            {
+                TempData["Updated"] = "updated";
+                return Redirect("~/Account/MisPisos/Actualizar/" + id);
+            }
+            else
+            {
+                ModelState.AddModelError("", "No se ha podido actualizar el anuncio en estos momentos. Inténtelo de nuevo.");
+            }
+            return View(model);
+        }
     }
 
 

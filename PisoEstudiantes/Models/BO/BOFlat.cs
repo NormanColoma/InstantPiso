@@ -34,5 +34,15 @@ namespace PisoEstudiantes.Models.BO
         {
             return df.deleteFlat(id);
         }
+
+        public Flat getFlat(int id)
+        {
+            return df.getFlat(id);
+        }
+
+        public bool updateFlat(Flat f)
+        {
+            return df.updateFlat(f);
+        }
     }
 }
