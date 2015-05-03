@@ -251,10 +251,10 @@ namespace PisoEstudiantes.Models.DAO
                 //Obtenemos las tablas contenidas en el DataSet.
                 t = ds.Tables["Flat"];
                 Owner owner = new Owner();
-                owner.Email = t.Rows[0]["email"].ToString();
+                owner.Email = t.Rows[0]["owner"].ToString();
                 Flat f = new Flat(t.Rows[0]["province"].ToString(), t.Rows[0]["city"].ToString(), t.Rows[0]["postal_code"].ToString(), t.Rows[0]["address"].ToString(), t.Rows[0]["description"].ToString(),
-                t.Rows[0]["tittle"].ToString(), Convert.ToInt16(t.Rows[0]["bedrooms"]), owner, t.Rows[0]["profile_img"].ToString(), Convert.ToDouble(t.Rows[0]["price"]), Convert.ToInt16(t.Rows[0]["bathrooms"]), Convert.ToInt16(t.Rows[0]["available_bedrooms"]), Convert.ToInt16(t.Rows[0]["minimum_stay"]), 
-                t.Rows[0]["property_type"].ToString(),DateTime.Parse(t.Rows[0]["availableDate"].ToString()));
+                t.Rows[0]["tittle"].ToString(), Convert.ToInt16(t.Rows[0]["bedrooms"]), owner, t.Rows[0]["profile_img"].ToString(), Convert.ToDouble(t.Rows[0]["price"]), Convert.ToInt16(t.Rows[0]["bathrooms"]), Convert.ToInt16(t.Rows[0]["available_bedrooms"]), Convert.ToInt16(t.Rows[0]["minimum_stay"]),
+                t.Rows[0]["property_type"].ToString(), Convert.ToDateTime(t.Rows[0]["availableDate"].ToString()));
                 return f;
 
             }

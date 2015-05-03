@@ -182,7 +182,15 @@ namespace PisoEstudiantes.Controllers
 
         public ActionResult updateFlat(int id)
         {
-            return View();
+            AnnouncementViewModel fModel = new AnnouncementViewModel();
+            ViewData["id"] = id;
+            return View(fModel.returnFlat(id));
+        }
+
+        public ActionResult changeFlat(int id)
+        {
+
+            return Redirect("~/Account/MisPisos/Actualizar/" + id);
         }
     }
 
