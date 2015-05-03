@@ -29,5 +29,10 @@ namespace PisoEstudiantes.Models.BO
         {
             return df.getFlatsByOwner(email);
         }
+
+        public bool deleteFlat(int id)
+        {
+            return df.deleteFlat(id);
+        }
     }
 }

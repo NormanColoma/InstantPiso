@@ -10,10 +10,16 @@
     <div class="alert alert-success" role="alert" hidden="hidden">
         <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>El piso ha sido eliminado correctamente</p>
     </div>
+    <div class="alert alert-info" role="alert" hidden="hidden">
+        <p>No se ha podido eliminar el piso en estos momentos. Por favor, inténtalo nuevamente</p>
+    </div>
+    <div class="alert alert-danger" role="alert" hidden="hidden">
+        <p>Se han encontrado problemas en el servidor. Por favor, si sigue sucediendo esto, pongáse en contacto con el equipo de <strong>InstantPiso</strong></p>
+    </div>
     <ul>
         @foreach (var flat in Model)
         {
-            <li>
+            <li class="@Html.DisplayFor(modelItem => flat.ID)">
                 <div class="flat">
                     <img src="~/Content/img/@Html.DisplayFor(modelItem => flat.Profile)">
                     <div class="description">
@@ -29,10 +35,34 @@
         }
     </ul>
     <script type="text/javascript">
-        $(function(){
-            $(".btn-delete").click(function(){
-                $(".alert").show();
-                $(".alert").fadeIn('slow').delay(4000).fadeOut('slow');
+        var port = location.port; //Al estar combinando controladores MVC y Web API, necesitamos la uri entera
+        var uri = "http://localhost:" + port + "/api/pisos/";
+        $(document).ready(function () {
+            $(".btn-delete").click(function () {
+                var uriMethod = uri;
+                var id = $(this).attr("name");
+                uri = "";
+                uri = uriMethod + id;
+                $.ajax({
+                    type: "DELETE",
+                    //dataType: "json",
+                    url: uri, 
+                    success: function (data) {
+                        if (data) {
+                            $("." + id).remove();
+                            $(".alert-success").show();
+                            $(".alert-success").fadeIn('slow').delay(4000).fadeOut('slow');
+                        }
+                        else {
+                            $(".alert-info").show();
+                            $(".alert-info").fadeIn('slow').delay(4000).fadeOut('slow');
+                        }
+                    },
+                    error: function () {
+                        $(".alert-danger").show();
+                        $(".alert-danger").fadeIn('slow').delay(4000).fadeOut('slow');
+                    }
+                });
             })
         })
     </script>
