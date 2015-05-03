@@ -36,7 +36,12 @@ namespace PisoEstudiantes.Models.BO
         }
 
         public bool insertUser(User u) {
-            return du.InsertarUsuario(u);
+            return du.insertUser(u);
+        }
+
+        public bool insertOwner(Owner ow)
+        {
+            return du.insertOwner(ow);
         }
     }
 }

@@ -11,5 +11,8 @@ namespace PisoEstudiantes.Models
     {
         //TODO (A completar en el siguiente sprint, para este solo necesitamos la operación login);
         bool login(User u);
+
+        bool insertUser(User u);
+        bool insertOwner(Owner owner);
     }
 }

@@ -39,7 +39,7 @@ namespace PisoEstudiantes.Controllers
                 User u = new User(model.Email, model.Password);
                 var user = userModel.login(u);
                 if (user != false)
-                {
+                {     
                     var identity = new ClaimsIdentity(new[] {
                             new Claim(ClaimTypes.Name, model.Email),
                         },

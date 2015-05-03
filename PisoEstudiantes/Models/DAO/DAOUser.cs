@@ -40,7 +40,7 @@ namespace PisoEstudiantes.Models.DAO
 
                 /*Realizamos la sentencia SQL y la ejecutamos. Tiene dos parámetros, un string (con la sentencia SQL)
                 y una instancia de SqlConnection, para pasarle la conexión.*/
-                da = new SqlDataAdapter("SELECT * FROM [dbo].[User] where email = '" + @email + "'", conn);
+                da = new SqlDataAdapter("SELECT * FROM [dbo].[User] where email = @email", conn);
                 da.SelectCommand.Parameters.AddWithValue("@email", email);
                 //Llenamos (fill) el dataset, con el resultado de la consulta SQL almacenado en el DataAdapter.
                 da.Fill(ds, "User");
@@ -104,7 +104,7 @@ namespace PisoEstudiantes.Models.DAO
 
         #region CRUDS
 
-        public bool InsertarUsuario(User us)
+        public bool insertUser(User us)
         {
             SqlConnection c = new SqlConnection(bdConnection);
             try
@@ -231,5 +231,34 @@ namespace PisoEstudiantes.Models.DAO
                     conn.Close();
             }
         }
+
+        public bool insertOwner(Owner owner)
+        {
+            SqlConnection c = new SqlConnection(bdConnection);
+            try
+            {
+
+
+
+                c.Open();
+
+                SqlCommand comm = new SqlCommand("IF NOT EXISTS(Select user_email from [dbo].[Owner] where user_email = @email)Insert Into [dbo].[Owner](user_email) VALUES (@email)", c);
+                comm.Parameters.AddWithValue("@email", owner.Email);
+                int result = comm.ExecuteNonQuery();
+                if (result == 1)
+                    return true;
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                c.Close();
+            }
+        }
+        
     }
 }

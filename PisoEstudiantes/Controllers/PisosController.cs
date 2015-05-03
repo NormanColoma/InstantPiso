@@ -14,9 +14,13 @@ namespace PisoEstudiantes.Controllers
     {
         private BOFlat flatModel = new BOFlat();
         private BOEmail emailModel = new BOEmail();
+        private BOUser userModel = new BOUser();
         // GET: Pisos
         public ActionResult Alquiler()
         {
+            User leaseholder = userModel.getUser(User.Identity.Name);
+            if(leaseholder.Leaseholder == "yes")
+                TempData["leaseholder"] = "yes";
             return View();
         }
 
@@ -41,10 +45,12 @@ namespace PisoEstudiantes.Controllers
                 model.minimum, model.property_type, model.avialableDate);
                 if (flatModel.insertFlat(f))
                 {
+                    userModel.insertOwner(owner);
                     return RedirectToAction("MisPisos", "Account");
                 }
                 else
-                    ModelState.AddModelError("", "No se ha podido publicar el anuncio, inténtelo nuevamente");   
+                    ModelState.AddModelError("", "No se ha podido publicar el anuncio, inténtelo nuevamente");
+                
             }
             return View(model);
         }
