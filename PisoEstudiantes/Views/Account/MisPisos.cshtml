@@ -27,7 +27,7 @@
                         <p>@Html.DisplayFor(modelItem => flat.Description)</p>
                         <div class="buttons">
                             <input type="button" class="btn btn-default btn-delete" value="Eliminar" name="@Html.DisplayFor(modelItem => flat.ID)" />
-                            <input type="button" class="btn btn-default" value="Actualziar" name="@Html.DisplayFor(modelItem => flat.ID)" />
+                            <input type="button" class="btn btn-default btn-update" value="Actualziar" name="@Html.DisplayFor(modelItem => flat.ID)" />
                         </div>
                     </div>
                 </div>
@@ -63,6 +63,12 @@
                         $(".alert-danger").fadeIn('slow').delay(4000).fadeOut('slow');
                     }
                 });
+            })
+            $(".btn-update").click(function () {
+                uri = "http://localhost:" + port + "/Account/MisPisos/Actualizar/";
+                var id = $(this).attr("name");
+                uri = uri + id;
+                window.location.href = uri;
             })
         })
     </script>
