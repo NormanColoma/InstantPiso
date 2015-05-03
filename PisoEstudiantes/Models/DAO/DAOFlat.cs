@@ -138,8 +138,27 @@ namespace PisoEstudiantes.Models.DAO
             {
                 //Creamos instancia y abrimos la conexión de la BD
                 conn = new SqlConnection(bdConnection);
+                SqlCommand comm = new SqlCommand("Update [dbo].[Flat] set province=@province , city=@city, postal_code=@pc , address=@addr, description=@desc, tittle=@tittle, bedrooms=@bed, profile_img=@img, price=@price, bathrooms=@bath, available_bedrooms=@ab, minimum_stay=@minimum, property_type=@pt, availableDate=@date where Id=@id", conn);
+                comm.Parameters.AddWithValue("@city", f.City);
+                comm.Parameters.AddWithValue("@province", f.Province);
+                comm.Parameters.AddWithValue("@pc", f.PC);
+                comm.Parameters.AddWithValue("@addr", f.Address);
+                comm.Parameters.AddWithValue("@desc", f.Description);
+                comm.Parameters.AddWithValue("@tittle", f.Tittle);
+                comm.Parameters.AddWithValue("@bed", f.Bedrooms);
+                comm.Parameters.AddWithValue("@img", f.Profile);
+                comm.Parameters.AddWithValue("@price", f.Price);
+                comm.Parameters.AddWithValue("@bath", f.Bathrooms);
+                comm.Parameters.AddWithValue("@ab", f.AvailableBedrooms);
+                comm.Parameters.AddWithValue("@minimum", f.Minimum);
+                comm.Parameters.AddWithValue("@pt", f.PropertyType);
+                comm.Parameters.AddWithValue("@date", f.AvailableDate);
+                comm.Parameters.AddWithValue("@id", f.ID);
                 conn.Open();
-                return true;
+                int result = comm.ExecuteNonQuery();
+                if (result == 1)
+                    return true;
+                return false;
             }
             catch (SqlException Ex)
             {

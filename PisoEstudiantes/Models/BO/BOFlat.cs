@@ -39,5 +39,10 @@ namespace PisoEstudiantes.Models.BO
         {
             return df.getFlat(id);
         }
+
+        public bool updateFlat(Flat f)
+        {
+            return df.updateFlat(f);
+        }
     }
 }
