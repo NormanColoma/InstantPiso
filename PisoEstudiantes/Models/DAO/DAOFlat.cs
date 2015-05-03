@@ -233,6 +233,43 @@ namespace PisoEstudiantes.Models.DAO
             }
         }
 
+
+        public Flat getFlat(int id)
+        {
+            try
+            {
+                //Creamos instancia y abrimos la conexión de la BD
+                conn = new SqlConnection(bdConnection);
+                conn.Open();
+
+                /*Realizamos la sentencia SQL y la ejecutamos. Tiene dos parámetros, un string (con la sentencia SQL)
+                y una instancia de SqlConnection, para pasarle la conexión.*/
+                da = new SqlDataAdapter("SELECT * FROM [dbo].[Flat] where Id = @id", conn);
+                da.SelectCommand.Parameters.AddWithValue("@id", id);
+                //Llenamos (fill) el dataset, con el resultado de la consulta SQL almacenado en el DataAdapter.
+                da.Fill(ds, "Flat");
+                //Obtenemos las tablas contenidas en el DataSet.
+                t = ds.Tables["Flat"];
+                Owner owner = new Owner();
+                owner.Email = t.Rows[0]["email"].ToString();
+                Flat f = new Flat(t.Rows[0]["province"].ToString(), t.Rows[0]["city"].ToString(), t.Rows[0]["postal_code"].ToString(), t.Rows[0]["address"].ToString(), t.Rows[0]["description"].ToString(),
+                t.Rows[0]["tittle"].ToString(), Convert.ToInt16(t.Rows[0]["bedrooms"]), owner, t.Rows[0]["profile_img"].ToString(), Convert.ToDouble(t.Rows[0]["price"]), Convert.ToInt16(t.Rows[0]["bathrooms"]), Convert.ToInt16(t.Rows[0]["available_bedrooms"]), Convert.ToInt16(t.Rows[0]["minimum_stay"]), 
+                t.Rows[0]["property_type"].ToString(),DateTime.Parse(t.Rows[0]["availableDate"].ToString()));
+                return f;
+
+            }
+            catch (SqlException Ex)
+            {
+                throw Ex;
+
+            }
+            finally
+            {
+                if (conn != null)
+                    conn.Close();
+            }
+        }
+
        
 
     }
