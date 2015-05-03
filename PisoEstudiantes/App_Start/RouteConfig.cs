@@ -18,6 +18,12 @@ namespace PisoEstudiantes
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+              name: "DetailsPisos",
+              url: "Account/MisPisos/Actualizar/{id}",
+              defaults: new { controller = "Account", action = "UpdateFlat", id = UrlParameter.Optional }
+          );
         }
     }
 }

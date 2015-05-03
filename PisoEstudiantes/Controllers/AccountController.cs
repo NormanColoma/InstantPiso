@@ -179,6 +179,11 @@ namespace PisoEstudiantes.Controllers
 
             return View(flatModel.getFlatsByOwner(User.Identity.Name));
         }
+
+        public ActionResult updateFlat(int id)
+        {
+            return View();
+        }
     }
 
 
