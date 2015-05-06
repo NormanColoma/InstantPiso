@@ -1,0 +1,35 @@
+﻿ul{
+    list-style:none;
+}
+
+.flatForm ul li{
+    width:100%;
+    float:left;
+    margin-bottom:20px;
+}
+
+.form-control-container{
+    float:left;
+    width:30%;
+}
+
+.form-control-container-small{
+    float:left;
+    width:15%;
+}
+
+.form-control-container-xs{
+    float:left;
+    width:12%;
+    margin-right:15px;
+}
+
+textarea{
+  width: 80% !important;
+  max-width: initial;
+  height: 200px !important;
+}
+
+.btn-lease{
+
+}

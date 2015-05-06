@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PisoEstudiantes.Models.BO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,14 +9,12 @@ namespace PisoEstudiantes.Controllers
 {
     public class HomeController : Controller
     {
+        private BOFlat flatModel = new BOFlat();
+        // GET: Home
         public ActionResult Index()
         {
-            return View();
-        }
 
-        public ActionResult Register()
-        {
-            return View();
+            return View(flatModel.getLastFlats());
         }
     }
 }

@@ -1,0 +1,237 @@
+﻿@using PisoEstudiantes.Models
+@model AnnouncementViewModel
+@{
+    ViewBag.Title = "Alquiler";
+    var leaseholder = TempData["leaseholder"];
+}
+@Styles.Render("~/Content/form-flat.css")
+@Styles.Render("~/Content/bootstrap-datepicker.css")
+@Styles.Render("~/Content/bootstrap-datepicker.min.css")
+@Scripts.Render("~/Scripts/bootstrap-datepicker.js")
+@Scripts.Render("~/Scripts/bootstrap-datepicker.min.js")
+<!-- Code to wire up your DatePicker -->
+<script type="text/javascript">
+    $(function () {
+        // This will make every element with the class "date-picker" into a DatePicker element
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            startDate: '-3d'
+        })
+    })
+</script>
+<h2>Alquila tu piso</h2>
+<h4>Pon tu piso en alquiler ya y publica un anuncio</h4>
+@if(leaseholder == "yes"){
+<div class="flatForm">
+    @using (Html.BeginForm("Alquiler", "Pisos", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype= "multipart/form-data" }))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="proprietorship">
+            <h3>Propiedad</h3>
+            <ul>     
+                <li>
+                    <label>Alquiler/mes (€)</label>
+                    @Html.TextBoxFor(m => m.rentPerMonth, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.rentPerMonth, "", new { @class = "text-danger" })
+                </li>
+                <li>
+                    <div class="form-control-container">
+                        <label>Provincia</label>
+                        @Html.DropDownListFor(m => m.province, new SelectList(
+                            new List<Object>
+                            {
+                            new{ value= "0", text ="Selecciona tu provincia"},
+	                        new{ value= "Álava", text="Álava"},
+	                        new{ value= "Albacete", text="Albacete"},
+	                        new{ value= "Alicante", text="Alicante"},
+	                        new{ value= "Almería", text="Almería"},
+	                        new{ value= "Asturias", text="Asturias"},
+	                        new{ value= "Ávila", text="Ávila"},
+	                        new{ value= "Badajoz", text="Badajoz"},
+	                        new{ value= "Barcelona", text="Barcelona"},
+	                        new{ value= "Burgos", text="Burgos"},
+	                        new{ value= "Cáceres", text="Cáceres"},
+	                        new{ value= "Cádiz", text="Cádiz"},
+	                        new{ value= "Cantabria", text="Cantabria"},
+	                        new{ value= "Castellón", text="Castellón"},
+	                        new{ value= "Ceuta", text="Ceuta"},
+	                        new{ value= "Ciudad Real", text="Ciudad Real"},
+	                        new{ value= "Córdoba", text="Córdoba"},
+	                        new{ value= "Cuenca", text="Cuenca"},
+	                        new{ value= "Girona", text="Girona"},
+	                        new{ value= "Las Palmas", text="Las Palmas"},
+	                        new{ value= "Granada", text="Granada"},
+	                        new{ value= "Guadalajara", text="Guadalajara"},
+	                        new{ value= "Guipúzcoa", text="Guipúzcoa"},
+	                        new{ value= "Huelva", text="Huelva"},
+	                        new{ value= "Huesca", text="Huesca"},
+	                        new{ value= "Islas Baleares", text="Islas Baleares"},
+	                        new{ value= "Jaén", text="Jaén"},
+	                        new{ value= "A Coruña", text="A Coruña"},
+	                        new{ value= "La Rioja", text="La Rioja"},
+	                        new{ value= "León", text="León"},
+	                        new{ value= "LLeida", text="LLeida"},
+	                        new{ value= "Lugo", text="Lugo"},
+	                        new{ value= "Madrid", text="Madrid"},
+	                        new{ value= "Málaga", text="Málaga"},
+	                        new{ value= "Melilla", text="Melilla"},
+	                        new{ value= "Murcia", text="Murcia"},
+	                        new{ value= "Navarra", text="Navarra"},
+	                        new{ value= "Ourense", text="Ourense"},
+	                        new{ value= "Palencia", text="Palencia"},
+	                        new{ value= "Pontevedra", text="Pontevedra"},
+	                        new{ value= "Salamanca", text="Salamanca"},
+	                        new{ value= "Segovia", text="Segovia"},
+	                        new{ value= "Sevilla", text="Sevilla"},
+	                        new{ value= "Soria", text="Soria"},
+	                        new{ value= "Tarragona", text="Tarragona"},
+	                        new{ value= "Tenerife", text="Tenerife"},
+	                        new{ value= "Teruel", text="Teruel"},
+	                        new{ value= "Toledo", text="Toledo"},
+	                        new{ value= "Valencia", text="Valencia"},
+	                        new{ value= "Valladolid", text="Valladolid"},
+	                        new{ value= "Vizcaya", text="Vizcaya"},
+	                        new{ value= "Zamora", text="Zamora"},
+	                        new{ value= "Zaragoza", text="Zaragoza"},
+                            }, "value", "text", 0
+                        ), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.province, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-control-container">
+                        <label>Ciudad</label>
+                        @Html.TextBoxFor(m => m.city, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.city, "", new { @class = "text-danger" })
+                    </div>
+                </li>
+                <li>
+                    
+                        <div class="form-control-container">
+                            <label>Dirección</label>
+                            @Html.TextBoxFor(m => m.address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.address, "", new { @class = "text-danger" })
+                        </div>
+                    
+                        <div class="form-control-container-small">
+                            <label>Código postal</label>
+                            @Html.TextBoxFor(m => m.postal_code, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.postal_code, "", new { @class = "text-danger" })
+                        </div>
+                </li>
+            </ul>
+        </div>
+        <div class="property">
+            <h3>Características del inmuble</h3>
+            <ul>
+                <li>
+                    <label>Disponible desde</label>
+                    @Html.TextBoxFor(m => m.avialableDate, new { @class = "form-control", data_provide="datepicker" })
+                    @Html.ValidationMessageFor(m => m.avialableDate, "", new { @class = "text-danger" })                  
+                </li>
+                <li>
+                    <label>Estancia mínima (meses)</label>
+                    @Html.DropDownListFor(m => m.minimum, new SelectList(
+                            new List<Object>
+                            {
+                                new{ value= 1, text ="1"},
+	                            new{ value= 2, text="2"},
+	                            new{ value= 3, text="3"},
+                                new{ value= 4, text="4"},
+                                new{ value= 5, text="5"},
+                                new{ value= 6, text="6"},
+                                new{ value= 7, text="7"},
+                                new{ value= 8, text="8"},
+                                new{ value= 9, text="9"},
+                                new{ value= 10, text="10"},
+                                new{ value= 11, text="11"},
+                                new{ value= 12, text="12"}
+                            }, "value", "text", 1
+                        ), new { @class = "form-control" })
+                </li>
+                <li>
+                    <label>Tipo de inmmuble</label>
+                    @Html.DropDownListFor(m => m.property_type, new SelectList(
+                            new List<Object>
+                            {
+                                new{ value= "0", text ="Escoge"},
+                                new{ value= "Casa", text ="Casa"},
+	                            new{ value= "Piso", text="Piso"},
+	                            new{ value= "Estudio", text="Estudio"},
+                                new{ value= "Residencia estudiantes", text="Residencia estudiantes"}
+                            }, "value", "text", 0
+                        ), new { @class = "form-control" })
+                </li>
+                <li>
+                    <div class="form-control-container-xs">
+                        <label>Habitaciones</label>
+                        @Html.DropDownListFor(m => m.bedrooms, new SelectList(
+                            new List<Object>
+                            {
+                                new{ value= 1, text ="1"},
+	                            new{ value= 2, text="2"},
+	                            new{ value= 3, text="3"},
+                                new{ value= 4, text="4"},
+                                new{ value= 5, text="5"}
+                            }, "value", "text", 1
+                        ), new { @class = "form-control" })
+                    </div>
+                    <div class="form-control-container-xs">
+                        <label>Aseos</label>
+                        @Html.DropDownListFor(m => m.bathrooms, new SelectList(
+                            new List<Object>
+                            {
+                                new{ value= 1, text ="1"},
+	                            new{ value= 2, text="2"},
+	                            new{ value= 3, text="3"},
+                                new{ value= 4, text="4"},
+                                new{ value= 5, text="5"}
+                            }, "value", "text", 1
+                        ), new { @class = "form-control" })
+                    </div>
+                </li>
+                <li>
+                    <label>Habitaciones disponibles</label>
+                    @Html.DropDownListFor(m => m.bedrooms_availables, new SelectList(
+                            new List<Object>
+                            {
+                                new{ value= 1, text ="1"},
+	                            new{ value= 2, text="2"},
+	                            new{ value= 3, text="3"},
+                                new{ value= 4, text="4"},
+                                new{ value= 5, text="5"}
+                            }, "value", "text", 1
+                        ), new { @class = "form-control" })
+                </li>
+            </ul>
+        </div>
+        <div class="property-description">
+            <h3>Descripción del inmuble</h3>
+            <ul>
+                <li>
+                    <label>Título del anuncio</label>
+                    @Html.TextBoxFor(m => m.tittle, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.tittle, "", new { @class = "text-danger" })
+                </li>
+                <li>
+                    <label>Descripción del piso</label>
+                    @Html.TextAreaFor(m => m.description, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.description, "", new { @class = "text-danger" })
+                </li>
+                <li>
+                    <label>Foto</label>
+                   @Html.TextBoxFor(m => m.main_img, new { @class = "form-control", type="file", name="main_img" })
+                   @Html.ValidationMessageFor(m => m.main_img, "", new { @class = "text-danger" })
+                </li>
+            </ul>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Publicar anuncio" />
+    }
+</div>
+}
+else{
+    <div class="message">
+       <p>Lo sentiemos, está opción solo está disponible para arrendatarios. Puedes actualizar tu cuenta a arrendatario si quieres. Solo tienes que pulsar el botón "Arrendatario", y la actualizaremos automáticamente.</p>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

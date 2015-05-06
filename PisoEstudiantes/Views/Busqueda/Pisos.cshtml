@@ -1,0 +1,33 @@
+﻿@model IEnumerable<PisoEstudiantes.Models.DTO.Flat> 
+@{
+    ViewBag.Title = "Busqueda";
+}
+@Styles.Render("~/Content/flat.css")
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<div class="result-container">
+    <h3 class="tittle">@Html.Encode(ViewData["num"]) pisos en alquiler encontrados en @Html.Encode(ViewData["city"])</h3>
+    <ul class="flat-list">
+        @foreach (var flat in Model) {
+ 
+        <li>
+            <div class="flat">
+                <img class="flat-main-img" src="~/Content/img/@Html.DisplayFor(modelItem => flat.Profile)" />
+                <div class="flat-info">
+                    <span class="flat-city">@Html.DisplayFor(modelItem => flat.City)</span>
+                    <p class="flat-description">@Html.DisplayFor(modelItem => flat.Description)</p>
+                    <ul class="flat-options">
+                        <li>
+                            <p>Actualmente disponible</p>
+                            <p>2 compañeros conocidos</p>
+                        </li>
+                    </ul>
+                    <div class="flat-buttons">
+                        <a href="http://asp.net" class="btn btn-primary btn-sm btn-search">Reservar cita</a>
+                        <a href="http://asp.net" class="btn btn-success btn-sm btn-search">Alquilar ya</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        }
+    </ul>
+</div>

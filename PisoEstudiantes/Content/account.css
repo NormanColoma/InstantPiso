@@ -1,0 +1,28 @@
+﻿.account-options {
+  
+}
+
+.close-account input[type="button"]{
+    margin-top:20px;
+}
+
+#incorrectPass{
+  float: left;
+  width: 100%;
+  font-weight: 100;
+}
+
+.select{
+    max-width: initial;
+    width: 280px;
+    font-size: 14px;
+    color: #333;
+    height: 34px;
+    padding-left: 10px;
+}
+
+.city, .age, .gender{
+  width: 100%;
+  float: left;
+  margin-top: 7px;
+}

@@ -1,0 +1,235 @@
+﻿@using PisoEstudiantes.Models
+@model RegisterViewModel
+
+@{
+    ViewBag.Title = "Registrar cuenta";
+}
+@Styles.Render("~/Content/register.css")
+<h2 class="tittle">@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-md-8 loginContainer">
+        <section id="loginForm">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+        @Html.AntiForgeryToken()
+        <h4>Crea tu cuenta y podrás empezar a realizar tus alquieres ya</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Surname, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label", @id="listCities" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.City, new SelectList(
+                             new List<Object>
+                             {
+                                new{ value= 0, text ="Selecciona tu ciudad"},
+	                            new{ value= 1, text="Álava"},
+	                            new{ value= 2, text="Albacete"},
+	                            new{ value= 3, text="Alicante"},
+	                            new{ value= 4, text="Almería"},
+	                            new{ value= 5, text="Asturias"},
+	                            new{ value= 6, text="Ávila"},
+	                            new{ value= 7, text="Badajoz"},
+	                            new{ value= 8, text="Barcelona"},
+	                            new{ value= 9, text="Burgos"},
+	                            new{ value= 10, text="Cáceres"},
+	                            new{ value= 11, text="Cádiz"},
+	                            new{ value= 12, text="Cantabria"},
+	                            new{ value= 13, text="Castellón"},
+	                            new{ value= 14, text="Ceuta"},
+	                            new{ value= 15, text="Ciudad Real"},
+	                            new{ value= 16, text="Córdoba"},
+	                            new{ value= 17, text="Cuenca"},
+	                            new{ value= 18, text="Girona"},
+	                            new{ value= 19, text="Las Palmas"},
+	                            new{ value= 20, text="Granada"},
+	                            new{ value= 21, text="Guadalajara"},
+	                            new{ value= 22, text="Guipúzcoa"},
+	                            new{ value= 23, text="Huelva"},
+	                            new{ value= 24, text="Huesca"},
+	                            new{ value= 25, text="Islas Baleares"},
+	                            new{ value= 26, text="Jaén"},
+	                            new{ value= 27, text="A Coruña"},
+	                            new{ value= 28, text="La Rioja"},
+	                            new{ value= 29, text="León"},
+	                            new{ value= 30, text="LLeida"},
+	                            new{ value= 31, text="Lugo"},
+	                            new{ value= 32, text="Madrid"},
+	                            new{ value= 33, text="Málaga"},
+	                            new{ value= 34, text="Melilla"},
+	                            new{ value= 35, text="Murcia"},
+	                            new{ value= 36, text="Navarra"},
+	                            new{ value= 37, text="Ourense"},
+	                            new{ value= 38, text="Palencia"},
+	                            new{ value= 39, text="Pontevedra"},
+	                            new{ value= 40, text="Salamanca"},
+	                            new{ value= 41, text="Segovia"},
+	                            new{ value= 42, text="Sevilla"},
+	                            new{ value= 43, text="Soria"},
+	                            new{ value= 44, text="Tarragona"},
+	                            new{ value= 45, text="Tenerife"},
+	                            new{ value= 46, text="Teruel"},
+	                            new{ value= 47, text="Toledo"},
+	                            new{ value= 48, text="Valencia"},
+	                            new{ value= 49, text="Valladolid"},
+	                            new{ value= 50, text="Vizcaya"},
+	                            new{ value= 51, text="Zamora"},
+	                            new{ value= 52, text="Zaragoza"},
+                             }, "value","text",0
+                           ), new { @class = "select" })
+
+                </div>
+                @Html.HiddenFor(m => m.selectedCity, new {@id="selectedCity"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label", @id="listGender" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.Gender, new SelectList(
+                                 new List<object>
+                        {
+                        new{ value= 0, text ="Selecciona tu sexo"},
+                        new{ value= 1, text="Hombre"},
+                        new{ value= 2, text="Mujer"}
+                        }, "value", "text", 0
+                    ), new { @class="select"})
+                </div>
+                @Html.HiddenFor(m => m.selectedGender, new {@id="selectedGender"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Age, new { @class = "col-md-2 control-label", @id="listAge" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.Age, new SelectList(
+                                         new List<object>
+                                {
+                                    new{ value= 0, text ="Selecciona tu edad"},
+                                    new{ value= 1, text="18"},
+                                    new{ value= 2, text="19"},
+                                    new{ value= 3, text="20"},
+                                    new{ value= 4, text="21"},
+                                    new{ value= 5, text="22"},
+                                    new{ value= 6, text="23"},
+                                    new{ value= 7, text="24"},
+                                    new{ value= 8, text="25"},
+                                    new{ value= 9, text="26"},
+                                    new{ value= 10, text="27"},
+                                    new{ value= 11, text="28"},
+                                    new{ value= 12, text="29"},
+                                    new{ value= 13, text="30"},
+                                    new{ value= 14, text="31"},
+                                    new{ value= 15, text="32"},
+                                    new{ value= 16, text="33"},
+                                    new{ value= 17, text="34"},
+                                    new{ value= 18, text="35"},
+                                    new{ value= 19, text="36"},
+                                    new{ value= 20, text="37"},
+                                    new{ value= 21, text="38"},
+                                    new{ value= 22, text="39"},
+                                    new{ value= 23, text="40"},
+                                    new{ value= 24, text="41"},
+                                    new{ value= 25, text="42"},
+                                    new{ value= 26, text="43"},
+                                    new{ value= 27, text="44"},
+                                    new{ value= 28, text="45"},
+                                    new{ value= 29, text="46"},
+                                    new{ value= 30, text="47"},
+                                    new{ value= 31, text="48"},
+                                    new{ value= 32, text="49"},
+                                    new{ value= 33, text="50"},
+                                    new{ value= 34, text="51"},
+                                    new{ value= 35, text="52"},
+                                    new{ value= 36, text="53"},
+                                    new{ value= 37, text="54"},
+                                    new{ value= 38, text="55"},
+                                    new{ value= 39, text="56"},
+                                    new{ value= 40, text="57"},
+                                    new{ value= 41, text="58"},
+                                    new{ value= 42, text="59"},
+                                    new{ value= 43, text="60"},
+                                    
+                                }, "value", "text", 0
+                            ), new { @class = "select" })
+                </div>
+                @Html.HiddenFor(m => m.selectedAge, new { @id = "selectedAge" })
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.Leaseholder)
+                        @Html.LabelFor(m => m.Leaseholder)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Crear cuenta" class="btn btn-primary" />
+                </div>
+            </div>
+                    }
+            <script type="text/javascript">
+                $(function () {
+                    $("form").submit(function () {
+                        var city = $("#City option:selected").text();
+                        if (!city.valueOf("Selecciona tu ciudad"))
+                            $("#selectedCity").val(city);
+                        else
+                            $("#selectedCity").val(0);
+                        var gender = $("#Gender option:selected").text();
+                        if(!gender.valueOf("Selecciona tu edad"))
+                            $("#selectedGender").val(gender);
+                        else
+                            $("#selectedGender").val(0)
+                        var age = $("#Age option:selected").text();
+                        if (!age.valueOf("Selecciona tu sexo"))
+                            $("#selectedAge").val(age);
+                        else
+                            $("#selectedAge").val(0);
+                    });
+                });
+            </script>
+    </section>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

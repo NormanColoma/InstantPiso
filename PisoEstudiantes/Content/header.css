@@ -1,0 +1,46 @@
+﻿.navbar-inverse {
+    background: #5cb85c;
+    border-bottom: 0px;
+}
+
+.navbar-inverse a{
+    color:white !important;
+}
+
+.navbar-register{
+
+}
+
+.navbar-register li:hover{
+    background-color:white;
+    
+}
+
+.navbar-register li:hover a{
+    color: #5cb85c !important;
+}
+
+.dropdown-toggle{
+  margin-top: 15px;
+  float: left;
+}
+
+.dropdown-toggle:hover{
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.dropdown-menu{
+    margin-top:40px;
+}
+
+.dropdown-menu a{
+    color: #333 !important;
+}
+
+.dropdown-menu a:hover{
+    color:white !important;
+}
+.nav .open>a{
+    background-color:transparent !important;
+}
