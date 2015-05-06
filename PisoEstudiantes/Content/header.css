@@ -20,4 +20,27 @@
     color: #5cb85c !important;
 }
 
+.dropdown-toggle{
+  margin-top: 15px;
+  float: left;
+}
 
+.dropdown-toggle:hover{
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.dropdown-menu{
+    margin-top:40px;
+}
+
+.dropdown-menu a{
+    color: #333 !important;
+}
+
+.dropdown-menu a:hover{
+    color:white !important;
+}
+.nav .open>a{
+    background-color:transparent !important;
+}
