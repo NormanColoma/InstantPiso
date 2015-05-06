@@ -192,9 +192,8 @@ namespace PisoEstudiantes.Controllers
         {
             Owner owner = new Owner();
             owner.Email = User.Identity.Name;
-            if (model.main_img == null)
+            if (main_img == null)
             {
-                AnnouncementViewModel fModel = new AnnouncementViewModel();
                 model.main_img = flatModel.getFlat(id).Profile;
             }
             else
@@ -204,10 +203,11 @@ namespace PisoEstudiantes.Controllers
                                        Server.MapPath("~/Content/img"), pic);
                 // file is uploaded
                 main_img.SaveAs(path);
+                model.main_img = main_img.FileName;
             }
 
             Flat f = new Flat(model.province, model.city, model.postal_code, model.address, model.description, model.tittle,
-            model.bedrooms, owner, main_img.FileName, model.rentPerMonth, model.bathrooms, model.bedrooms_availables, model.minimum, model.property_type,
+            model.bedrooms, owner, model.main_img, model.rentPerMonth, model.bathrooms, model.bedrooms_availables, model.minimum, model.property_type,
             model.avialableDate);
             f.ID = id;
             if (flatModel.updateFlat(f))
