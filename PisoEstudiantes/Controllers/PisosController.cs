@@ -57,7 +57,8 @@ namespace PisoEstudiantes.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            Flat f = flatModel.getFlat(id);
+            return View(f);
         }
     }
 }

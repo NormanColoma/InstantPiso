@@ -1,7 +1,12 @@
-﻿
+﻿@using PisoEstudiantes.Models
 @{
     ViewBag.Title = "Details";
 }
+@Styles.Render("~/Content/flat-details.css")
+<h2>@Model.Tittle</h2>
 
-<h2>Details</h2>
-
+<div class="flat-container">
+    <div class="flat-location">
+        <h4><i class="fa fa-map-marker loc-icon"></i>@Model.Address, <span>@Model.City, </span><span>@Model.Province</span></h4>
+    </div>
+</div>
