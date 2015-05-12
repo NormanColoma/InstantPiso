@@ -75,6 +75,12 @@
                     var link = "Busqueda/Pisos/" + city;
                     $("#searchButton").attr("href", link);
                 })
+                $(".flat").click(function () {
+                    var port = location.port;
+                    var id = $(this).find(".hidden-id").text();
+                    var uri = "http://localhost:" + port + "/Pisos/Details/"+id;
+                    window.location.replace(uri);
+                })
             })
         </script>   
     </div>
@@ -90,7 +96,7 @@
                     <span class="city">@Html.DisplayFor(modelItem => flat.City)</span>
                     <p>@Html.DisplayFor(modelItem => flat.Description)</p>
                     <span class="price">@Html.DisplayFor(modelItem => flat.Price) €</span>
-                    
+                    <span class="hidden-id" hidden="hidden">@Html.DisplayFor(modelItem => flat.ID)</span>
                 </div>
                 <div class="hire-flat">
                     <a href="" class="btn btn-sm btn-success btn-hire">Alquilar ahora</a>

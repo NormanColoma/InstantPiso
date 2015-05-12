@@ -45,6 +45,7 @@
     margin-right: 90px;
     margin-bottom: 40px;
     height:364px !important;
+    cursor: pointer;
 }
 
 .flat:hover{

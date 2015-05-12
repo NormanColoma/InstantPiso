@@ -331,6 +331,7 @@
     <Content Include="Views\Pisos\Alquiler.cshtml" />
     <Content Include="Views\Account\MisPisos.cshtml" />
     <Content Include="Views\Account\UpdateFlat.cshtml" />
+    <Content Include="Views\Pisos\Details.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

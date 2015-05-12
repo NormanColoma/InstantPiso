@@ -54,5 +54,10 @@ namespace PisoEstudiantes.Controllers
             }
             return View(model);
         }
+
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
     }
 }
