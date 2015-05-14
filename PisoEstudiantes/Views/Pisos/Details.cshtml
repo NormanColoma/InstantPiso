@@ -21,26 +21,31 @@
     </div>    
 </div>
 <div class="owner-container">
-    <h4>Contacta ya con @Model.Owner.Name</h4>
+    <h4>Reserva tu cita o alquila</h4>
     <div class="inner-owner-container">
-        <div class="owner-info">
-            <div class="owner-info-inner">
-                <p>Si sigues teniendo cualquier duda al respecto del inmueble, no dudes en contactar con su propietario. Te resolverá todas las dudas.</p>
-                <ul>
-                    <li>
-                        <span><i class="fa fa-envelope"></i>@Model.Owner.Email</span>
-                    </li>
-                    <li>
-                        <span><i class="fa fa-phone"></i>@Model.Owner.Phone</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="flat-options">
-            <p>Por el contrario, si no tienes ninguna duda al respecto, puedes proceder a alquilarlo ya, o a reservar una cita para verlo.</p>
-            <div class="buttons">
-                <a href="" class="btn  btn-primary">Alquilar ahora</a>
+            <div class="date">
+                <p>
+                    Si aún no está seguro, y quieres ver la propiedad sin comprimos, puedes reservar una cita con
+                    el propietario. Seleccione uno de los horarios disponibles, y confirme su cita.
+                </p>
+                <select class="select">
+                    <option>
+                        Selecciona la cita
+                    </option>
+                </select>
                 <a href="" class="btn  btn-success">Reservar cita</a>
+            </div>
+            <div class="rent">
+                <p>
+                    Si por el contrario, estás seguro de que quieres alquilar la propiedad, puedes hacerlo ya.Pero deberás
+                    aceptar las condiciones de contrato y compromiso.
+                </p>
+                <a href="" class="btn  btn-primary">Alquilar ahora</a>
+                <div class="legal">
+                    <input type="checkbox" /><p>Acepto el contrato de alquiler y las condiciones</p>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -90,4 +95,24 @@
             </li>
         </ul>
     </div>
+    <div class="flat-owner">
+        <h4><i class="fa fa-user"></i>Sobre el propietario</h4>
+        <ul>
+            <li>
+                <p>@Model.Owner.Name @Model.Owner.Surname</p>
+            </li>
+            <li>
+                <p>@Model.Owner.Email</p>
+            </li>
+            <li>
+                <p>@Model.Owner.Phone</p>
+            </li>
+        </ul>
+    </div>
+    <div class="flat-description">
+        <h4><i class="fa fa-file-text"></i>Descripción</h4>
+        <p>@Model.Description</p>
+    </div>
+    
 </div>
+

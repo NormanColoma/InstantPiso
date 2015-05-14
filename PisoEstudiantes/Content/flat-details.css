@@ -1,11 +1,12 @@
 ﻿.flat-container{
     float:left;
+    width:50%;
 }
 
 .owner-container{
     float:left;
     margin-left:70px;
-    width: 35%;
+    width: 40%;
 }
 
 .owner-info{
@@ -74,10 +75,54 @@
     margin-right:5px;
 }
 
-.flat-property ul{
+.flat-options ul{
     color: #2574a9;
 }
 
-.flat-property ul li p{
+.flat-options ul li p{
       color: #333;
+}
+
+
+.flat-description{
+    margin-top:30px;
+}
+
+.flat-description i{
+  font-size: 15px;
+  margin-top: 2px;
+  float: left;
+}
+
+.flat-owner{
+    margin-top:30px;
+}
+
+.date{
+    margin-bottom:40px;
+}
+
+.select {
+  max-width: initial;
+  width: 80%;
+  font-size: 14px;
+  color: #333;
+  height: 34px;
+  padding-left: 10px;
+  margin-bottom:10px;
+}
+
+.legal{
+    margin-top:5px;
+}
+
+.legal p{
+  float: left;
+  font-size: 12px;
+  margin-top: 2px;
+  margin-left:5px;
+}
+
+.legal input[type="checkbox"]{
+    float:left;
 }

@@ -52,6 +52,8 @@ namespace PisoEstudiantes.Models.BO
             User us = du.getUser(f.Owner.Email);
             f.Owner.Name = us.Name;
             f.Owner.Phone = us.Phone;
+            f.Owner.Surname = us.Surname;
+            f.Owner.Age = f.Owner.Age;
             return f;
         }
     }
