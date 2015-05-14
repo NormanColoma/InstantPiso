@@ -1,0 +1,118 @@
+﻿@using PisoEstudiantes.Models
+@{
+    ViewBag.Title = "Details";
+    var bedrooms = "habitación";
+    var bathrooms = "aseo";
+    var availabe_bed = "habitación";
+    var stay = "mes";
+}
+@Styles.Render("~/Content/flat-details.css")
+<h2>@Model.Tittle</h2>
+
+<div class="flat-container">
+    <div class="flat-location">
+        <h4><i class="fa fa-map-marker loc-icon"></i>@Model.Address, <span>@Model.City, </span><span>@Model.Province</span></h4>
+    </div>
+    <div class="flat-price">
+        <span>@Model.Price € mes</span>
+    </div>
+    <div class="flat-img">
+        <img src="~/Content/img/@Model.Profile" />
+    </div>    
+</div>
+<div class="owner-container">
+    <h4>Reserva tu cita o alquila</h4>
+    <div class="inner-owner-container">
+        <div class="flat-options">
+            <div class="date">
+                <p>
+                    Si aún no está seguro, y quieres ver la propiedad sin comprimos, puedes reservar una cita con
+                    el propietario. Seleccione uno de los horarios disponibles, y confirme su cita.
+                </p>
+                <select class="select">
+                    <option>
+                        Selecciona la cita
+                    </option>
+                </select>
+                <a href="" class="btn  btn-success">Reservar cita</a>
+            </div>
+            <div class="rent">
+                <p>
+                    Si por el contrario, estás seguro de que quieres alquilar la propiedad, puedes hacerlo ya.Pero deberás
+                    aceptar las condiciones de contrato y compromiso.
+                </p>
+                <a href="" class="btn  btn-primary">Alquilar ahora</a>
+                <div class="legal">
+                    <input type="checkbox" /><p>Acepto el contrato de alquiler y las condiciones</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flat-options">
+    <div class="flat-property">
+        <h4><i class="fa fa-home"></i>Sobre el inmueble</h4>
+        <ul>
+            <li>
+                <p>@Model.Bedrooms 
+                    @if (@Model.Bedrooms > 1)
+                    {
+                        bedrooms = "habitaciones";
+                    }
+                    @bedrooms
+                </p>
+            </li>
+            <li>
+                <p>Disponible @Model.AvailableBedrooms
+                    @if (@Model.AvailableBedrooms > 1)
+                    {
+                        availabe_bed = "habitaciones";
+                    }
+                    @availabe_bed
+                </p>
+            </li>
+            <li>
+                <p>@Model.Bathrooms 
+                   @if (Model.Bathrooms > 1)
+                   {
+                       bathrooms = "aseos";
+                   }
+                   @bathrooms
+                </p>
+            </li>
+            <li>
+                <p>Estancia mínima @Model.Minimum
+                   @if (Model.Minimum > 1)
+                   {
+                       stay = "meses";
+                   }
+                   @stay
+                </p>
+            </li>
+            <li>
+                <p>Disponible a partir de @Model.AvailableDate.ToString("dd/MM/yyyy")</p>
+            </li>
+        </ul>
+    </div>
+    <div class="flat-owner">
+        <h4><i class="fa fa-user"></i>Sobre el propietario</h4>
+        <ul>
+            <li>
+                <p>@Model.Owner.Name @Model.Owner.Surname</p>
+            </li>
+            <li>
+                <p>@Model.Owner.Email</p>
+            </li>
+            <li>
+                <p>@Model.Owner.Phone</p>
+            </li>
+        </ul>
+    </div>
+    <div class="flat-description">
+        <h4><i class="fa fa-file-text"></i>Descripción</h4>
+        <p>@Model.Description</p>
+    </div>
+    
+</div>
+

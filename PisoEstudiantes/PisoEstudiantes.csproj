@@ -213,7 +213,11 @@
     <Content Include="Content\bootstrap-datepicker3.standalone.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome\font-awesome.css" />
+    <Content Include="Content\font-awesome\font-awesome.min.css" />
+    <Content Include="Content\flat-details.css" />
     <Content Include="Content\flat.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\form-flat.css" />
     <Content Include="Content\header.css" />
     <Content Include="Content\home.css" />
@@ -297,6 +301,11 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -331,6 +340,7 @@
     <Content Include="Views\Pisos\Alquiler.cshtml" />
     <Content Include="Views\Account\MisPisos.cshtml" />
     <Content Include="Views\Account\UpdateFlat.cshtml" />
+    <Content Include="Views\Pisos\Details.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

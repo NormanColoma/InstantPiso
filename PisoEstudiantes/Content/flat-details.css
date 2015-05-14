@@ -1,0 +1,128 @@
+﻿.flat-container{
+    float:left;
+    width:50%;
+}
+
+.owner-container{
+    float:left;
+    margin-left:70px;
+    width: 40%;
+}
+
+.owner-info{
+  border: 1px solid #dce0e0;
+  border-radius: 2px;
+  margin-bottom:20px;
+}
+
+.owner-info-inner{
+    padding:5px;
+    font-size:12px;
+}
+
+.owner-container ul{
+    list-style:none;
+}
+
+.owner-container ul li{
+    margin-bottom:10px;
+}
+
+.owner-container ul li i{
+    margin-right:5px;
+}
+
+.inner-owner-container{
+    padding:0px 7px 7px 7px;
+}
+
+.flat-location{
+      color: #2574a9;
+}
+.loc-icon{
+    margin-right:5px;
+}
+
+.flat-price{
+  position: absolute;
+  background-color: black;
+  opacity: 0.7;
+  margin-top: 50px;
+}
+
+.flat-price span{
+  padding: 10px 10px 10px 10px;
+  float: left;
+  font-size: 18px;
+  color: white;
+}
+
+.buttons{
+    margin:0 auto;
+}
+
+.flat-options{
+    float:left;
+    width:90%;
+    margin-top:20px;
+}
+
+.flat-options h4{
+    color: #2574a9;
+}
+
+.flat-options i{
+    margin-right:5px;
+}
+
+.flat-options ul{
+    color: #2574a9;
+}
+
+.flat-options ul li p{
+      color: #333;
+}
+
+
+.flat-description{
+    margin-top:30px;
+}
+
+.flat-description i{
+  font-size: 15px;
+  margin-top: 2px;
+  float: left;
+}
+
+.flat-owner{
+    margin-top:30px;
+}
+
+.date{
+    margin-bottom:40px;
+}
+
+.select {
+  max-width: initial;
+  width: 80%;
+  font-size: 14px;
+  color: #333;
+  height: 34px;
+  padding-left: 10px;
+  margin-bottom:10px;
+}
+
+.legal{
+    margin-top:5px;
+}
+
+.legal p{
+  float: left;
+  font-size: 12px;
+  margin-top: 2px;
+  margin-left:5px;
+}
+
+.legal input[type="checkbox"]{
+    float:left;
+}
