@@ -1,6 +1,10 @@
 ﻿@using PisoEstudiantes.Models
 @{
     ViewBag.Title = "Details";
+    var bedrooms = "habitación";
+    var bathrooms = "aseo";
+    var availabe_bed = "habitación";
+    var stay = "mes";
 }
 @Styles.Render("~/Content/flat-details.css")
 <h2>@Model.Tittle</h2>
@@ -8,5 +12,82 @@
 <div class="flat-container">
     <div class="flat-location">
         <h4><i class="fa fa-map-marker loc-icon"></i>@Model.Address, <span>@Model.City, </span><span>@Model.Province</span></h4>
+    </div>
+    <div class="flat-price">
+        <span>@Model.Price € mes</span>
+    </div>
+    <div class="flat-img">
+        <img src="~/Content/img/@Model.Profile" />
+    </div>    
+</div>
+<div class="owner-container">
+    <h4>Contacta ya con @Model.Owner.Name</h4>
+    <div class="inner-owner-container">
+        <div class="owner-info">
+            <div class="owner-info-inner">
+                <p>Si sigues teniendo cualquier duda al respecto del inmueble, no dudes en contactar con su propietario. Te resolverá todas las dudas.</p>
+                <ul>
+                    <li>
+                        <span><i class="fa fa-envelope"></i>@Model.Owner.Email</span>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-phone"></i>@Model.Owner.Phone</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="flat-options">
+            <p>Por el contrario, si no tienes ninguna duda al respecto, puedes proceder a alquilarlo ya, o a reservar una cita para verlo.</p>
+            <div class="buttons">
+                <a href="" class="btn  btn-primary">Alquilar ahora</a>
+                <a href="" class="btn  btn-success">Reservar cita</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flat-options">
+    <div class="flat-property">
+        <h4><i class="fa fa-home"></i>Sobre el inmueble</h4>
+        <ul>
+            <li>
+                <p>@Model.Bedrooms 
+                    @if (@Model.Bedrooms > 1)
+                    {
+                        bedrooms = "habitaciones";
+                    }
+                    @bedrooms
+                </p>
+            </li>
+            <li>
+                <p>Disponible @Model.AvailableBedrooms
+                    @if (@Model.AvailableBedrooms > 1)
+                    {
+                        availabe_bed = "habitaciones";
+                    }
+                    @availabe_bed
+                </p>
+            </li>
+            <li>
+                <p>@Model.Bathrooms 
+                   @if (Model.Bathrooms > 1)
+                   {
+                       bathrooms = "aseos";
+                   }
+                   @bathrooms
+                </p>
+            </li>
+            <li>
+                <p>Estancia mínima @Model.Minimum
+                   @if (Model.Minimum > 1)
+                   {
+                       stay = "meses";
+                   }
+                   @stay
+                </p>
+            </li>
+            <li>
+                <p>Disponible a partir de @Model.AvailableDate.ToString("dd/MM/yyyy")</p>
+            </li>
+        </ul>
     </div>
 </div>

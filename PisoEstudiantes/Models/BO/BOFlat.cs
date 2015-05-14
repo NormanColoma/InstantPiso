@@ -10,6 +10,7 @@ namespace PisoEstudiantes.Models.BO
     public class BOFlat : IFlat
     {
         private DAOFlat df = new DAOFlat();
+        private DAOUser du = new DAOUser();
         public List<Flat> getFlatsByProvince(string city)
         {
             return df.getFlatsByProvince(city);
@@ -43,6 +44,15 @@ namespace PisoEstudiantes.Models.BO
         public bool updateFlat(Flat f)
         {
             return df.updateFlat(f);
+        }
+
+        public Flat getDetails(int id)
+        {
+            Flat f = df.getFlat(id);
+            User us = du.getUser(f.Owner.Email);
+            f.Owner.Name = us.Name;
+            f.Owner.Phone = us.Phone;
+            return f;
         }
     }
 }
