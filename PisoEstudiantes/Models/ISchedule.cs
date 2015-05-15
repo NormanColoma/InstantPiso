@@ -9,6 +9,6 @@ namespace PisoEstudiantes.Models
 {
     interface ISchedule
     {
-        public bool createSchedule(Schedule schedule);
+        bool createSchedule(Schedule schedule);
     }
 }

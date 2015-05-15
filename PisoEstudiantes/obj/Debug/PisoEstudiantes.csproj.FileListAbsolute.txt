@@ -72,7 +72,6 @@ C:\Users\Norman\Desktop\PisoEstudiantes\PisoEstudiantes\bin\es\Microsoft.Owin.Se
 C:\Users\Norman\Desktop\PisoEstudiantes\PisoEstudiantes\obj\Debug\PisoEstudiantes.csprojResolveAssemblyReference.cache
 C:\Users\Norman\Desktop\PisoEstudiantes\PisoEstudiantes\obj\Debug\PisoEstudiantes.dll
 C:\Users\Norman\Desktop\PisoEstudiantes\PisoEstudiantes\obj\Debug\PisoEstudiantes.pdb
-C:\Users\Norman\Desktop\dss\PisoEstudiantes\obj\Debug\PisoEstudiantes.csprojResolveAssemblyReference.cache
 C:\Users\Norman\Desktop\dss\PisoEstudiantes\obj\Debug\PisoEstudiantes.dll
 C:\Users\Norman\Desktop\dss\PisoEstudiantes\obj\Debug\PisoEstudiantes.pdb
 C:\Users\Norman\Desktop\dss\PisoEstudiantes\bin\PisoEstudiantes.dll.config

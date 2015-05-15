@@ -224,6 +224,7 @@ namespace PisoEstudiantes.Controllers
 
         public ActionResult Schedule(int id)
         {
+            ViewData["id"] = id;
             return View();
         }
     }

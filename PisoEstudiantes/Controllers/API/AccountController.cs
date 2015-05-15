@@ -17,7 +17,8 @@ namespace PisoEstudiantes.Controllers.API
             return Ok(bo.checkPassword(u));
         }
 
-        public IHttpActionResult createSchedule(string [] days, string hours []){
+        public IHttpActionResult createSchedule(string [] days, string [] hours){
+            List<Schedule> schedule = new List<Schedule>();
             return Ok();
         }
     }
