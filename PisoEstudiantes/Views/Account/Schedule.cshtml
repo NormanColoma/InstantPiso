@@ -1,13 +1,26 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Schedule";
 }
-
+@Styles.Render("~/Content/flat-schedule.css")
 <h2>Horario de visitas</h2>
-<p>Establezca el horario de visitas que mejor le venga, y actulice los mismos.</p>
+<p>Establezca el horario de visitas que mejor le venga, y actulice los mismos. Los hariros se establecen en intervalos de 1 hora.</p>
 <div class="new-schedule">
     <h4>Nuevo horario</h4>
-    
+    <div class="schedule">
+        <ul class="schedule-list">
+            <li>
+                <p>Horario 1</p>
+                <select class="select">
+                    <option>Día</option>
+                </select>
+                <select class="select hour-schedule">
+                    <option>Hora</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <input type="button" value="Añadir horario" class="add-schedule" />
+    <input type="button" value="Establecer horario" class="submit-schedule" />
 </div>
 <div class="current-schedule">
     <h4>Horario actual</h4>
