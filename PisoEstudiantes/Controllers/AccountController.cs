@@ -221,6 +221,11 @@ namespace PisoEstudiantes.Controllers
             }
             return View(model);
         }
+
+        public ActionResult Schedule(int id)
+        {
+            return View();
+        }
     }
 
 

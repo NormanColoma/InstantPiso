@@ -341,6 +341,7 @@
     <Content Include="Views\Account\MisPisos.cshtml" />
     <Content Include="Views\Account\UpdateFlat.cshtml" />
     <Content Include="Views\Pisos\Details.cshtml" />
+    <Content Include="Views\Account\Schedule.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -23,7 +23,12 @@ namespace PisoEstudiantes
               name: "DetailsPisos",
               url: "Account/MisPisos/Actualizar/{id}",
               defaults: new { controller = "Account", action = "UpdateFlat", id = UrlParameter.Optional }
-          );
+            );
+            routes.MapRoute(
+              name: "HorarioPisos",
+              url: "Account/MisPisos/Horario/{id}",
+              defaults: new { controller = "Account", action = "Schedule", id = UrlParameter.Optional }
+            );
         }
     }
 }
