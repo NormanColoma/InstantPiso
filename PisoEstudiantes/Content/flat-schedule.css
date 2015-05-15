@@ -20,3 +20,10 @@
     width:200px;
     margin-left:10px;
 }
+
+.remove-schedule{
+    margin-left:5px;
+    color:red;
+    font-size:16px;
+    cursor:pointer;
+}

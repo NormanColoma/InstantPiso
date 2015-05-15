@@ -10,11 +10,31 @@
         <ul class="schedule-list">
             <li>
                 <p>Horario 1</p>
-                <select class="select">
-                    <option>Día</option>
+                <select class="select day-schedule">
+                    <option value="1">Día</option>
+                    <option>Lunes</option>
+                    <option>Martes</option>
+                    <option>Miércoles</option>
+                    <option>Jueves</option>
+                    <option>Viernes</option>
+                    <option>Sábado</option>
+                    <option>Domingo</option>
                 </select>
                 <select class="select hour-schedule">
                     <option>Hora</option>
+                    <option>De 8-9</option>
+                    <option>De 9-10</option>
+                    <option>De 10-11</option>
+                    <option>De 11-12</option>
+                    <option>De 12-13</option>
+                    <option>De 13-14</option>
+                    <option>De 14-15</option>
+                    <option>De 15-16</option>
+                    <option>De 16-17</option>
+                    <option>De 17-18</option>
+                    <option>De 18-19</option>
+                    <option>De 19-20</option>
+                    <option>De 20-21</option>
                 </select>
             </li>
         </ul>
@@ -28,3 +48,6 @@
         <li>Sin horario actual</li>
     </ul>
 </div>
+@section Scripts {
+    @Scripts.Render("~/Scripts/Schedule.js")
+}

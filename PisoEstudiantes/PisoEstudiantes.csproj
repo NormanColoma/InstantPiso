@@ -189,6 +189,7 @@
     <Compile Include="Models\DTO\Flat.cs" />
     <Compile Include="Models\DTO\Owner.cs" />
     <Compile Include="Models\DTO\Renter.cs" />
+    <Compile Include="Models\DTO\Schedule.cs" />
     <Compile Include="Models\DTO\User.cs" />
     <Compile Include="Models\FlatViewModel.cs" />
     <Compile Include="Models\IEmailSender.cs" />
@@ -213,6 +214,7 @@
     <Content Include="Content\bootstrap-datepicker3.standalone.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\flat-schedule.css" />
     <Content Include="Content\font-awesome\font-awesome.css" />
     <Content Include="Content\font-awesome\font-awesome.min.css" />
     <Content Include="Content\flat-details.css" />
@@ -295,6 +297,7 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.uk.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Scripts\Schedule.js" />
     <Content Include="Views\favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

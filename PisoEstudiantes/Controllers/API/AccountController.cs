@@ -16,5 +16,9 @@ namespace PisoEstudiantes.Controllers.API
             User u = new User(User.Identity.Name, id);
             return Ok(bo.checkPassword(u));
         }
+
+        public IHttpActionResult createSchedule(string [] days, string hours []){
+            return Ok();
+        }
     }
 }
