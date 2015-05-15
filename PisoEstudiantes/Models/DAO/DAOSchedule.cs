@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PisoEstudiantes.Models.DTO;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Web;
 
 namespace PisoEstudiantes.Models.DAO
 {
-    public class DAOSchedule
+    public class DAOSchedule : ISchedule
     {
         private string bdConnection = ConfigurationManager.ConnectionStrings["database"].ConnectionString;
         //Instancia de la conexión a la BD.
@@ -26,5 +27,35 @@ namespace PisoEstudiantes.Models.DAO
 
         //DataTable es un elmento tipo tabla.
         private DataTable t = new DataTable();
+
+        public bool createSchedule(Schedule s)
+        {
+            SqlConnection c = new SqlConnection(bdConnection);
+            try
+            {
+
+
+
+                c.Open();
+
+                SqlCommand comm = new SqlCommand("Insert Into [dbo].[Schedule](day,hour,id_flat) VALUES (@day,@hour,@flat)", c);
+                comm.Parameters.AddWithValue("@day", s.Day);
+                comm.Parameters.AddWithValue("@hour", s.Hour);
+                comm.Parameters.AddWithValue("@dat", s.IDFlat);
+                int result = comm.ExecuteNonQuery();
+                if (result == 1)
+                    return true;
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                c.Close();
+            }
+        }
     }
 }

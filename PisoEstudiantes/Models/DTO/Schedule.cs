@@ -25,6 +25,12 @@ namespace PisoEstudiantes.Models.DTO
             get { return id; }
             set { id = value; }
         }
+
+        public int IDFlat
+        {
+            get { return id_flat; }
+            set { id_flat = value; }
+        }
         public String Day
         {
             get { return day; }
