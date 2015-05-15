@@ -20,6 +20,12 @@ namespace PisoEstudiantes.Models.DTO
             this.hour = hour;
         }
 
+        public Schedule(string day, string hour)
+        {
+            this.day = day;
+            this.hour = hour;
+        }
+
         public int ID
         {
             get { return id; }
