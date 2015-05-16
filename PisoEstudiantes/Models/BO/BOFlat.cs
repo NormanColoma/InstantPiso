@@ -74,5 +74,18 @@ namespace PisoEstudiantes.Models.BO
         {
             return df.getSchedule(id_flat);
         }
+
+        public bool deleteAllSchedule(List<int> schedules)
+        {
+            bool result;
+            bool result2 = true;
+            foreach (int id in schedules)
+            {
+                result = bs.deleteSchedule(id);
+                if (result == false)
+                    result2 = result;
+            }
+            return result2;
+        }
     }
 }

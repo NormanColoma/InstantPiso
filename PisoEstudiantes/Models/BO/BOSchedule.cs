@@ -15,6 +15,10 @@ namespace PisoEstudiantes.Models.BO
             return ds.createSchedule(s);
         }
 
+        public bool deleteSchedule(int id)
+        {
+            return ds.deleteSchedule(id);
+        }
 
         
     }

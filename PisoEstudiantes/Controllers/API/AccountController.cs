@@ -23,11 +23,7 @@ namespace PisoEstudiantes.Controllers.API
 
 
 
-        [System.Web.Http.HttpPost]
-        public IHttpActionResult createSchedule([FromBody] List<Schedule> schedule)
-        {
-            return Ok(bf.addSchedule(schedule));
-        }
+        
        
     }
 }

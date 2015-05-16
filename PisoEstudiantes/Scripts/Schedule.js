@@ -11,10 +11,9 @@
     $(".remove-all-schedule").click(function () {
         var ids = [];
         $(".current-schedule li").each(function () {
-            ids.push($(this).attr("class"));
-            removeSchedule(ids);
+            ids.push(parseInt($(this).attr("class")));
         })
-
+        removeSchedule(ids);
     })
 })
 
@@ -50,7 +49,7 @@ function createSchedule() {
         schedule.push(sched);
     }
     var port = location.port;
-    var uri = "http://localhost:" + port + "/api/Account";
+    var uri = "http://localhost:" + port + "/api/Schedule";
     var data = JSON.stringify(schedule);
     $.ajax({
         type: "POST",
@@ -59,7 +58,12 @@ function createSchedule() {
         contentType : "application/json",
         data: data,
         success: function (result) {
-            alert(result);
+            if (result) {
+                refreshSchedule("add")
+                showAlert("ok", "Sus horarios de visita han sido establecidos correctamente")
+            }
+            else
+                showAlert("ko", "Sus horarios de visita no han podido ser establecidos")
         },
         error: function () {
             alert("mal")
@@ -68,5 +72,70 @@ function createSchedule() {
 }
 
 function removeSchedule(ids) {
+    var port = location.port;
+    var uri = "http://localhost:" + port + "/api/Schedule";
+    var data = JSON.stringify(ids);
+    $.ajax({
+        type: "DELETE",
+        url: uri,
+        dateType: "json",
+        contentType: "application/json",
+        data: data,
+        statusCode:{
+            200: function (result) {
+                refreshSchedule("clear");
+                showAlert("ok", result)
+            },
+            404: function () {
+                showAlert("ko", "No se han podido borrar todos los horarios")
+            }
+        },
+        error: function () {
+            alert("mal")
+        }
+    });
+}
 
+function showAlert(status, message) {
+    if (status == "ok") {
+        $(".alert").removeClass("alert-danger").addClass("alert-success")
+    }
+    else {
+        $(".alert").removeClass("alert-success").addClass("alert-danger")
+    }
+    $(".alert").find("p").text(message);
+    $(".alert").show();
+    $(".alert").fadeIn('slow').delay(4000).fadeOut('slow');
+}
+
+function refreshSchedule(action) {
+    switch (action) {
+        case "clear": 
+            $(".current-schedule ul").empty();
+            var li = "<li class='empty-schedule'>Sin horarios</li>";
+            $(".current-schedule ul").append(li);
+            break;
+        case "add":
+            var id = $(".id-flat").text();
+            loadSchedule(id);
+            break;
+    }
+    
+}
+
+function loadSchedule(id) {
+    var port = location.port;
+    var uri = "http://localhost:" + port + "/api/Schedule/" + id;
+    $(".empty-schedule").remove();
+    $.getJSON(uri)
+        .done(function (data) {
+            var list = data
+            for (var i = 0; i < list.length; i++) {
+                var new_schedule = "<li class='" + list[i].ID + "'>" + list[i].Day +" "+ list[i].Hour + "<span class='schedule-selected'><input type='checkbox' /></span></li>";
+                $(".current-schedule ul").append(new_schedule);
+            }
+        })
+        .fail(function (jqXHR, textStatus, err) {
+
+        });
 }

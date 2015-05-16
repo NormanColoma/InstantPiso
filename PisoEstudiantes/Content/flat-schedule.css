@@ -36,3 +36,9 @@
     float:right;
     margin-right:280px;
 }
+
+.alert{
+    float:left;
+    width:90%;
+    margin-top:20px;
+}

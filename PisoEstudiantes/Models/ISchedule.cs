@@ -10,6 +10,8 @@ namespace PisoEstudiantes.Models
     interface ISchedule
     {
         bool createSchedule(Schedule schedule);
+
+        bool deleteSchedule(int id);
         
     }
 }

@@ -33,11 +33,7 @@ namespace PisoEstudiantes.Models.DAO
             SqlConnection c = new SqlConnection(bdConnection);
             try
             {
-
-
-
                 c.Open();
-
                 SqlCommand comm = new SqlCommand("Insert Into [dbo].[Schedule](day,hour,id_flat) VALUES (@day,@hour,@flat)", c);
                 comm.Parameters.AddWithValue("@day", s.Day);
                 comm.Parameters.AddWithValue("@hour", s.Hour);
@@ -57,6 +53,32 @@ namespace PisoEstudiantes.Models.DAO
                 c.Close();
             }
         }
+
+        public bool deleteSchedule(int id)
+        {
+            SqlConnection c = new SqlConnection(bdConnection);
+            try
+            {
+
+                c.Open();
+
+                SqlCommand comm = new SqlCommand("Delete From [dbo].[Schedule] where id=@id", c);
+                comm.Parameters.AddWithValue("@id", id);
+                int result = comm.ExecuteNonQuery();
+                if (result == 1)
+                    return true;
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                c.Close();
+            }
+        }  
 
        
     }
