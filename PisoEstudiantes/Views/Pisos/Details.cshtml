@@ -1,10 +1,12 @@
 ﻿@using PisoEstudiantes.Models
+@using PisoEstudiantes.Models.DTO
 @{
     ViewBag.Title = "Details";
     var bedrooms = "habitación";
     var bathrooms = "aseo";
     var availabe_bed = "habitación";
     var stay = "mes";
+    var list = Model.Schedule;
 }
 @Styles.Render("~/Content/flat-details.css")
 <h2>@Model.Tittle</h2>
@@ -33,6 +35,12 @@
                     <option>
                         Selecciona la cita
                     </option>
+                    @foreach (var schedule in list)
+                    {
+                        <option>
+                            @schedule.Day @schedule.Hour
+                        </option>
+                    }
                 </select>
                 <a href="" class="btn  btn-success">Reservar cita</a>
             </div>
