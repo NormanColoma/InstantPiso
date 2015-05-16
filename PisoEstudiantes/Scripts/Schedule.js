@@ -13,8 +13,18 @@
         $(".current-schedule li").each(function () {
             ids.push(parseInt($(this).attr("class")));
         })
+        removeSchedule(ids,"all");
+    })
+
+    $(".remove-selected-schedule").click(function () {
+        var ids = [];
+        $(".current-schedule li").each(function () {
+            if ($(this).find("input[type=checkbox]").is(':checked'))
+                ids.push(parseInt($(this).attr("class")));
+        })
         removeSchedule(ids);
     })
+
 })
 
 function addSchedule(size) {
@@ -45,33 +55,41 @@ function createSchedule() {
         hours.push(hour);
     })
     for (var i = 0; i < days.length; i++) {  //Creamos la lista de schedule para pasársela al método
-        var sched = { day: days[i], hour: hours[i], idflat: id };
-        schedule.push(sched);
-    }
-    var port = location.port;
-    var uri = "http://localhost:" + port + "/api/Schedule";
-    var data = JSON.stringify(schedule);
-    $.ajax({
-        type: "POST",
-        url: uri,
-        dateType: "json",
-        contentType : "application/json",
-        data: data,
-        success: function (result) {
-            if (result) {
-                refreshSchedule("add")
-                showAlert("ok", "Sus horarios de visita han sido establecidos correctamente")
-            }
-            else
-                showAlert("ko", "Sus horarios de visita no han podido ser establecidos")
-        },
-        error: function () {
-            alert("mal")
+        var new_schedule = days[i] + " " + hours[i];
+        if (!searchSchedule(new_schedule)) {
+            var sched = { day: days[i], hour: hours[i], idflat: id };
+            schedule.push(sched);
         }
-    });  
+        else {
+            showAlert("ko", 'El horario: "' + new_schedule + '" ya está establecido')
+        }
+    }
+    if (schedule.length > 0) {
+        var port = location.port;
+        var uri = "http://localhost:" + port + "/api/Schedule";
+        var data = JSON.stringify(schedule);
+        $.ajax({
+            type: "POST",
+            url: uri,
+            dateType: "json",
+            contentType: "application/json",
+            data: data,
+            success: function (result) {
+                if (result) {
+                    refreshSchedule("add",[])
+                    showAlert("ok", "Sus horarios de visita han sido establecidos correctamente")
+                }
+                else
+                    showAlert("ko", "Sus horarios de visita no han podido ser establecidos")
+            },
+            error: function () {
+                alert("mal")
+            }
+        });
+    }
 }
 
-function removeSchedule(ids) {
+function removeSchedule(ids,opt) {
     var port = location.port;
     var uri = "http://localhost:" + port + "/api/Schedule";
     var data = JSON.stringify(ids);
@@ -83,7 +101,10 @@ function removeSchedule(ids) {
         data: data,
         statusCode:{
             200: function (result) {
-                refreshSchedule("clear");
+                if (opt == "all")
+                    refreshSchedule("clear",ids);
+                else
+                    refreshSchedule("remove",ids);
                 showAlert("ok", result)
             },
             404: function () {
@@ -108,7 +129,7 @@ function showAlert(status, message) {
     $(".alert").fadeIn('slow').delay(4000).fadeOut('slow');
 }
 
-function refreshSchedule(action) {
+function refreshSchedule(action,ids) {
     switch (action) {
         case "clear": 
             $(".current-schedule ul").empty();
@@ -118,6 +139,11 @@ function refreshSchedule(action) {
         case "add":
             var id = $(".id-flat").text();
             loadSchedule(id);
+            break;
+        case "remove":
+            for (var i = 0; i < ids.length; i++) {
+                $(".current-schedule ." + ids[i]).remove();
+            }
             break;
     }
     
@@ -131,11 +157,25 @@ function loadSchedule(id) {
         .done(function (data) {
             var list = data
             for (var i = 0; i < list.length; i++) {
-                var new_schedule = "<li class='" + list[i].ID + "'>" + list[i].Day +" "+ list[i].Hour + "<span class='schedule-selected'><input type='checkbox' /></span></li>";
+                $("." + list[i].ID).remove();
+                var new_schedule = "<li class='" + list[i].ID + "'>" + list[i].Day + " " + list[i].Hour + "<span class='schedule-selected'><input type='checkbox' /></span></li>";
                 $(".current-schedule ul").append(new_schedule);
             }
         })
         .fail(function (jqXHR, textStatus, err) {
 
         });
+}
+
+function searchSchedule(schedule) {
+    var found = false;
+    $(".current-schedule li").each(function () {
+        var current = $(this).text();
+        if (current == schedule) {
+            found = true;
+            return false;
+        }
+    })
+
+    return found;
 }
