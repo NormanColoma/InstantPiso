@@ -58,6 +58,7 @@ namespace PisoEstudiantes.Controllers
         public ActionResult Details(int id)
         {
             Flat f = flatModel.getDetails(id);
+            f.Schedule = flatModel.getSchedule(id);
             return View(f);
         }
     }

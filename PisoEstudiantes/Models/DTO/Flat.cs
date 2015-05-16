@@ -23,6 +23,7 @@ namespace PisoEstudiantes.Models.DTO
         private Owner owner;
         private string profile_img;
         private double price;
+        private List<Schedule> schedule;
 
         public Flat(int id, string province, string city, string postal_code, string address, string description,
         int bedrooms, Owner owner, string profile_img, double price)
@@ -153,6 +154,12 @@ namespace PisoEstudiantes.Models.DTO
         {
             get { return price; }
             set { price = value; }
+        }
+
+        public List<Schedule> Schedule
+        {
+            get { return schedule; }
+            set { schedule = value; }
         }
     }
 }
