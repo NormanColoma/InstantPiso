@@ -16,5 +16,7 @@ namespace PisoEstudiantes.Models
         bool insertFlat(Flat f);
 
         Flat getFlat(int id);
+
+        List<Schedule> getSchedule(int id_flat);
     }
 }

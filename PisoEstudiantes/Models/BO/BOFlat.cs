@@ -11,6 +11,7 @@ namespace PisoEstudiantes.Models.BO
     {
         private DAOFlat df = new DAOFlat();
         private DAOUser du = new DAOUser();
+        private BOSchedule bs = new BOSchedule();
         public List<Flat> getFlatsByProvince(string city)
         {
             return df.getFlatsByProvince(city);
@@ -55,6 +56,36 @@ namespace PisoEstudiantes.Models.BO
             f.Owner.Surname = us.Surname;
             f.Owner.Age = f.Owner.Age;
             return f;
+        }
+
+        public bool addSchedule(List<Schedule> schedule)
+        {
+            bool result;
+            bool result2 = true;
+            foreach (Schedule s in schedule){
+                result = bs.createSchedule(s);
+                if (result == false)
+                    result2 = result;
+            }
+            return result2;
+        }
+
+        public List<Schedule> getSchedule(int id_flat)
+        {
+            return df.getSchedule(id_flat);
+        }
+
+        public bool deleteAllSchedule(List<int> schedules)
+        {
+            bool result;
+            bool result2 = true;
+            foreach (int id in schedules)
+            {
+                result = bs.deleteSchedule(id);
+                if (result == false)
+                    result2 = result;
+            }
+            return result2;
         }
     }
 }

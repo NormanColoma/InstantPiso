@@ -221,6 +221,15 @@ namespace PisoEstudiantes.Controllers
             }
             return View(model);
         }
+
+        public ActionResult Schedule(int id)
+        {
+            ViewData["id"] = id;
+            IList<Schedule> schedule = flatModel.getSchedule(id);
+            ViewData["items"] = schedule.Count;
+            return View(schedule);
+        }
+
     }
 
 

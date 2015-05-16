@@ -173,6 +173,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\AccountController.cs" />
     <Compile Include="Controllers\API\PisosController.cs" />
+    <Compile Include="Controllers\API\ScheduleController.cs" />
     <Compile Include="Controllers\BusquedaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PisosController.cs" />
@@ -182,17 +183,21 @@
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Models\BO\BOEmail.cs" />
     <Compile Include="Models\BO\BOFlat.cs" />
+    <Compile Include="Models\BO\BOSchedule.cs" />
     <Compile Include="Models\BO\BOUser.cs" />
     <Compile Include="Models\DAO\DAOFlat.cs" />
+    <Compile Include="Models\DAO\DAOSchedule.cs" />
     <Compile Include="Models\DAO\DAOUser.cs" />
     <Compile Include="Models\DTO\Email.cs" />
     <Compile Include="Models\DTO\Flat.cs" />
     <Compile Include="Models\DTO\Owner.cs" />
     <Compile Include="Models\DTO\Renter.cs" />
+    <Compile Include="Models\DTO\Schedule.cs" />
     <Compile Include="Models\DTO\User.cs" />
     <Compile Include="Models\FlatViewModel.cs" />
     <Compile Include="Models\IEmailSender.cs" />
     <Compile Include="Models\IFlat.cs" />
+    <Compile Include="Models\ISchedule.cs" />
     <Compile Include="Models\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -213,6 +218,7 @@
     <Content Include="Content\bootstrap-datepicker3.standalone.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\flat-schedule.css" />
     <Content Include="Content\font-awesome\font-awesome.css" />
     <Content Include="Content\font-awesome\font-awesome.min.css" />
     <Content Include="Content\flat-details.css" />
@@ -295,6 +301,7 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.uk.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Scripts\Schedule.js" />
     <Content Include="Views\favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -341,6 +348,7 @@
     <Content Include="Views\Account\MisPisos.cshtml" />
     <Content Include="Views\Account\UpdateFlat.cshtml" />
     <Content Include="Views\Pisos\Details.cshtml" />
+    <Content Include="Views\Account\Schedule.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -1,0 +1,44 @@
+﻿.new-schedule, .current-schedule{
+
+    float:left;
+    width:47%;
+    margin-top:20px;
+}
+
+
+.select {
+  max-width: initial;
+  width: 100px;
+  font-size: 14px;
+  color: #333;
+  height: 34px;
+  padding-left: 10px;
+  margin-bottom:10px;
+}
+
+.hour-schedule{
+    width:200px;
+    margin-left:10px;
+}
+
+.remove-schedule{
+    margin-left:5px;
+    color:red;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.current-schedule ul li{
+    margin-bottom:8px;
+}
+
+.schedule-selected{
+    float:right;
+    margin-right:280px;
+}
+
+.alert{
+    float:left;
+    width:90%;
+    margin-top:20px;
+}
