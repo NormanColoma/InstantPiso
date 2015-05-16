@@ -182,6 +182,7 @@
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Models\BO\BOEmail.cs" />
     <Compile Include="Models\BO\BOFlat.cs" />
+    <Compile Include="Models\BO\BOSchedule.cs" />
     <Compile Include="Models\BO\BOUser.cs" />
     <Compile Include="Models\DAO\DAOFlat.cs" />
     <Compile Include="Models\DAO\DAOSchedule.cs" />

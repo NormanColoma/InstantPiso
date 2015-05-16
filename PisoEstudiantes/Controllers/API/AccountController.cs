@@ -6,6 +6,9 @@ using System.Net.Http;
 using System.Web.Http;
 using PisoEstudiantes.Models.DTO;
 using PisoEstudiantes.Models.BO;
+using Newtonsoft.Json.Linq;
+using System.Collections;
+using Newtonsoft.Json;
 namespace PisoEstudiantes.Controllers.API
 {
     public class AccountController : ApiController
@@ -18,15 +21,13 @@ namespace PisoEstudiantes.Controllers.API
             return Ok(bo.checkPassword(u));
         }
 
-        public IHttpActionResult createSchedule(string [] days, string [] hours, int flat){
-            List<Schedule> schedule = new List<Schedule>();
-            for (int i = 0; i < days.Length; i++)
-            {
-                Schedule s = new Schedule(days[i], hours[i]);
-                s.IDFlat = flat;
-                schedule.Add(s);
-            }
+
+
+        [System.Web.Http.HttpPost]
+        public IHttpActionResult createSchedule([FromBody] List<Schedule> schedule)
+        {
             return Ok(bf.addSchedule(schedule));
         }
+       
     }
 }

@@ -7,7 +7,7 @@ namespace PisoEstudiantes.Models.DTO
 {
     public class Schedule
     {
-        private int id;
+        /*private int id;
         private int id_flat;
         private string day;
         private string hour;
@@ -24,6 +24,14 @@ namespace PisoEstudiantes.Models.DTO
         {
             this.day = day;
             this.hour = hour;
+        }
+
+        public Schedule(Schedule s)
+        {
+            this.day = s.day;
+            this.hour = s.hour;
+            this.id = s.id;
+            this.id_flat = s.id_flat;
         }
 
         public int ID
@@ -47,6 +55,11 @@ namespace PisoEstudiantes.Models.DTO
         {
             get { return hour; }
             set { hour = value; }
-        }
+        }*/
+
+
+        public string Day { get; set; }
+        public string Hour { get; set; }
+        public int IDFlat { get; set; }
     }
 }

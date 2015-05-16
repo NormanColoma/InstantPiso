@@ -4,7 +4,9 @@
         addSchedule(size);
     })
 
-   
+    $(".submit-schedule").click(function () {
+        createSchedule();
+    })
 })
 
 function addSchedule(size) {
@@ -14,14 +16,17 @@ function addSchedule(size) {
     $(".remove-schedule").click(function () {
         $(this).closest("li").remove();
     })
-    $(".submit-schedule").click(function () {
-        createSchedule();
-    })
+    
 }
 
 function createSchedule() {
-    days = new Array();
-    hours = new Array();
+   
+    var days = [];
+    var hours = [];
+    var id = $(".id-flat").text();
+    var schedule = [];
+    var sched;
+    
     $(".day-schedule option:selected").each(function () {
         var day = $(this).text();
         days.push(day);
@@ -29,6 +34,27 @@ function createSchedule() {
 
     $(".hour-schedule option:selected").each(function () {
         var hour = $(this).text();
-        hours.push(hours);
+        hours.push(hour);
     })
+    alert(id);
+    for (var i = 0; i < days.length; i++) {  //Creamos la lista de schedule para pasársela al método
+        var sched = { day: days[i], hour: hours[i], idflat: id };
+        schedule.push(sched);
+    }
+    var port = location.port;
+    var uri = "http://localhost:" + port + "/api/Account";
+    var data = JSON.stringify(schedule);
+    $.ajax({
+        type: "POST",
+        url: uri,
+        dateType: "json",
+        contentType : "application/json",
+        data: data,
+        success: function (result) {
+            alert(result);
+        },
+        error: function () {
+            alert("mal")
+        }
+    });  
 }

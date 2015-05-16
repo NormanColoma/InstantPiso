@@ -225,3 +225,4 @@ C:\Users\Norman\Desktop\dss\PisoEstudiantes\bin\System.Web.Http.WebHost.dll
 C:\Users\Norman\Desktop\dss\PisoEstudiantes\bin\System.Net.Http.Formatting.xml
 C:\Users\Norman\Desktop\dss\PisoEstudiantes\bin\System.Web.Http.xml
 C:\Users\Norman\Desktop\dss\PisoEstudiantes\bin\System.Web.Http.WebHost.xml
+C:\Users\Norman\Desktop\dss\PisoEstudiantes\obj\Debug\PisoEstudiantes.csprojResolveAssemblyReference.cache

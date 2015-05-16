@@ -41,7 +41,7 @@ namespace PisoEstudiantes.Models.DAO
                 SqlCommand comm = new SqlCommand("Insert Into [dbo].[Schedule](day,hour,id_flat) VALUES (@day,@hour,@flat)", c);
                 comm.Parameters.AddWithValue("@day", s.Day);
                 comm.Parameters.AddWithValue("@hour", s.Hour);
-                comm.Parameters.AddWithValue("@dat", s.IDFlat);
+                comm.Parameters.AddWithValue("@flat", s.IDFlat);
                 int result = comm.ExecuteNonQuery();
                 if (result == 1)
                     return true;
