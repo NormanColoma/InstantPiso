@@ -22,8 +22,7 @@
                         </li>
                     </ul>
                     <div class="flat-buttons">
-                        <a href="http://asp.net" class="btn btn-primary btn-sm btn-search">Reservar cita</a>
-                        <a href="http://asp.net" class="btn btn-success btn-sm btn-search">Alquilar ya</a>
+                        @Html.ActionLink("Ver más", "Details", "Pisos", new { id = @Html.DisplayFor(modelItem => flat.ID) }, new { @class = "btn btn-primary btn-search", @id = "searchButton" })
                     </div>
                 </div>
             </div>
