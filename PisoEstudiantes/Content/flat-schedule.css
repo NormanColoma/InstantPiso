@@ -27,3 +27,12 @@
     font-size:16px;
     cursor:pointer;
 }
+
+.current-schedule ul li{
+    margin-bottom:8px;
+}
+
+.schedule-selected{
+    float:right;
+    margin-right:280px;
+}

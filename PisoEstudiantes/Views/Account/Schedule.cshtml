@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<PisoEstudiantes.Models.DTO.Schedule> 
+@{
     ViewBag.Title = "Schedule";
     var id = ViewData["id"];
 }
@@ -47,8 +48,12 @@
 <div class="current-schedule">
     <h4>Horario actual</h4>
     <ul>
-        <li>Sin horario actual</li>
+        @foreach (var schedule in Model) {
+            <li class="@schedule.ID">@schedule.Day @schedule.Hour<span class="schedule-selected"><input type="checkbox" /></span></li>
+        }
     </ul>
+    <input type="button" value="Borrar horario" class="remove-all-schedule" />
+    <input type="button" value="Borrar seleccionados" class="remove-all-schedule" />
 </div>
 @section Scripts {
     @Scripts.Render("~/Scripts/Schedule.js")

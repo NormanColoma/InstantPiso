@@ -69,5 +69,10 @@ namespace PisoEstudiantes.Models.BO
             }
             return result2;
         }
+
+        public List<Schedule> getSchedule(int id_flat)
+        {
+            return df.getSchedule(id_flat);
+        }
     }
 }

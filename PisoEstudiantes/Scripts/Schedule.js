@@ -7,6 +7,15 @@
     $(".submit-schedule").click(function () {
         createSchedule();
     })
+
+    $(".remove-all-schedule").click(function () {
+        var ids = [];
+        $(".current-schedule li").each(function () {
+            ids.push($(this).attr("class"));
+            removeSchedule(ids);
+        })
+
+    })
 })
 
 function addSchedule(size) {
@@ -36,7 +45,6 @@ function createSchedule() {
         var hour = $(this).text();
         hours.push(hour);
     })
-    alert(id);
     for (var i = 0; i < days.length; i++) {  //Creamos la lista de schedule para pasársela al método
         var sched = { day: days[i], hour: hours[i], idflat: id };
         schedule.push(sched);
@@ -57,4 +65,8 @@ function createSchedule() {
             alert("mal")
         }
     });  
+}
+
+function removeSchedule(ids) {
+
 }
