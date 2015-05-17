@@ -48,5 +48,10 @@ namespace PisoEstudiantes.Models.BO
         {
             return du.getOwnerID(email);
         }
+
+        public string getOwnerEmail(int id)
+        {
+            return du.getOwnerEmail(id);
+        }
     }
 }

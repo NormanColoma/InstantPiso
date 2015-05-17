@@ -34,10 +34,11 @@ namespace PisoEstudiantes.Models.DAO
             try
             {
                 c.Open();
-                SqlCommand comm = new SqlCommand("Insert Into [dbo].[Notification](message,checked,user_email) VALUES (@message,@check,@user)", c);
+                SqlCommand comm = new SqlCommand("Insert Into [dbo].[Notification](message,checked,user_email,id_flat) VALUES (@message,@check,@user,@flat)", c);
                 comm.Parameters.AddWithValue("@message", n.Message);
                 comm.Parameters.AddWithValue("@check", n.Check);
                 comm.Parameters.AddWithValue("@user", n.User);
+                comm.Parameters.AddWithValue("@flat", n.IDFlat);
                 comm.ExecuteNonQuery();
 
             }

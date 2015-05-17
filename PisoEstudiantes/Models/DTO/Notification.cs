@@ -11,6 +11,7 @@ namespace PisoEstudiantes.Models.DTO
         private string message;
         private bool notificacion_checked;
         private User user;
+        private int idFlat;
 
         public Notification(string message, bool check, User user)
         {
@@ -50,6 +51,12 @@ namespace PisoEstudiantes.Models.DTO
         {
             get { return user; }
             set { user = value; }
+        }
+
+        public int IDFlat
+        {
+            get { return idFlat; }
+            set { idFlat = value; }
         }
     }
 }
