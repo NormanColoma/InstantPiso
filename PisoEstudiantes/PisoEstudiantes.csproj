@@ -189,6 +189,7 @@
     <Compile Include="Models\BO\BOUser.cs" />
     <Compile Include="Models\DAO\DAODate.cs" />
     <Compile Include="Models\DAO\DAOFlat.cs" />
+    <Compile Include="Models\DAO\DAONotification.cs" />
     <Compile Include="Models\DAO\DAOSchedule.cs" />
     <Compile Include="Models\DAO\DAOUser.cs" />
     <Compile Include="Models\DTO\Date.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="Models\IDate.cs" />
     <Compile Include="Models\IEmailSender.cs" />
     <Compile Include="Models\IFlat.cs" />
+    <Compile Include="Models\INotifaction.cs" />
     <Compile Include="Models\ISchedule.cs" />
     <Compile Include="Models\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
