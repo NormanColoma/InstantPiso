@@ -59,7 +59,25 @@ namespace PisoEstudiantes.Controllers
         {
             Flat f = flatModel.getDetails(id);
             f.Schedule = flatModel.getSchedule(id);
+            f.ID = id;
+            ViewData["owner_id"] = userModel.getOwnerID(f.Owner.Email);
             return View(f);
+        }
+
+        public ActionResult Confirmacion(string id)
+        {
+            if (id == "Cita")
+            {
+                ViewData["message"] = "Su cita ha sido reservada correctamente. Recuerde que puede anular la cita, asi como el propietario del inmueble";
+                ViewData["tittle"] = "Confirmación cita";
+
+            }
+            else
+            {
+                ViewData["message"] = "Su alquiler ha sido realizado correctamente. Recuerde que está sujeto a las condiciones del contrato. Puede anular el mismo";
+                ViewData["tittle"] = "Confirmación alquiler";
+            }
+            return View();
         }
     }
 }

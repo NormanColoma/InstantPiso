@@ -172,6 +172,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\AccountController.cs" />
+    <Compile Include="Controllers\API\DateController.cs" />
     <Compile Include="Controllers\API\PisosController.cs" />
     <Compile Include="Controllers\API\ScheduleController.cs" />
     <Compile Include="Controllers\BusquedaController.cs" />
@@ -181,13 +182,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModel.cs" />
+    <Compile Include="Models\BO\BODate.cs" />
     <Compile Include="Models\BO\BOEmail.cs" />
     <Compile Include="Models\BO\BOFlat.cs" />
     <Compile Include="Models\BO\BOSchedule.cs" />
     <Compile Include="Models\BO\BOUser.cs" />
+    <Compile Include="Models\DAO\DAODate.cs" />
     <Compile Include="Models\DAO\DAOFlat.cs" />
     <Compile Include="Models\DAO\DAOSchedule.cs" />
     <Compile Include="Models\DAO\DAOUser.cs" />
+    <Compile Include="Models\DTO\Date.cs" />
     <Compile Include="Models\DTO\Email.cs" />
     <Compile Include="Models\DTO\Flat.cs" />
     <Compile Include="Models\DTO\Owner.cs" />
@@ -195,6 +199,7 @@
     <Compile Include="Models\DTO\Schedule.cs" />
     <Compile Include="Models\DTO\User.cs" />
     <Compile Include="Models\FlatViewModel.cs" />
+    <Compile Include="Models\IDate.cs" />
     <Compile Include="Models\IEmailSender.cs" />
     <Compile Include="Models\IFlat.cs" />
     <Compile Include="Models\ISchedule.cs" />
@@ -240,6 +245,7 @@
     <Content Include="Content\register.css" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\Date.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.az.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.bg.min.js" />
@@ -349,6 +355,7 @@
     <Content Include="Views\Account\UpdateFlat.cshtml" />
     <Content Include="Views\Pisos\Details.cshtml" />
     <Content Include="Views\Account\Schedule.cshtml" />
+    <Content Include="Views\Pisos\Confirmacion.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

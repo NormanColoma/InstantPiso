@@ -126,3 +126,8 @@
 .legal input[type="checkbox"]{
     float:left;
 }
+
+
+.alert-danger {
+    background-color: transparent;
+}

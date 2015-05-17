@@ -9,7 +9,6 @@ namespace PisoEstudiantes.Models
 {
      public interface IFlat
     {
-        //TODO (solo necesitamos estas 2 operaciones para este sprint)
         List<Flat> getLastFlats();
         List<Flat> getFlatsByProvince(string province);
         List<Flat> getFlatsByOwner(string email);
@@ -18,5 +17,7 @@ namespace PisoEstudiantes.Models
         Flat getFlat(int id);
 
         List<Schedule> getSchedule(int id_flat);
+
+        
     }
 }
