@@ -232,7 +232,7 @@ namespace PisoEstudiantes.Controllers
 
         public ActionResult Notificaciones()
         {
-            return View();
+            return View(userModel.getNotifications(User.Identity.Name));
         }
 
     }

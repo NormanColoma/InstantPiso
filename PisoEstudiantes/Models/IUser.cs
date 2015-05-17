@@ -18,5 +18,7 @@ namespace PisoEstudiantes.Models
         int getOwnerID(string email);
 
         string getOwnerEmail(int id);
+
+        List<Notification> getNotifications(string email);
     }
 }

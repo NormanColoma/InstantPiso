@@ -14,6 +14,10 @@ namespace PisoEstudiantes.Models.DTO
         private int idFlat;
         private string type;
 
+        public Notification()
+        {
+
+        }
         public Notification(string message, bool check, User user, string type)
         {
             this.message = message;

@@ -53,5 +53,10 @@ namespace PisoEstudiantes.Models.BO
         {
             return du.getOwnerEmail(id);
         }
+
+        public List<Notification> getNotifications(string email)
+        {
+            return du.getNotifications(email);
+        }
     }
 }

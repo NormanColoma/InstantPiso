@@ -61,14 +61,13 @@ namespace PisoEstudiantes.Models.DAO
 
                 c.Open();
 
-                SqlCommand comm = new SqlCommand("Update [dbo].[Notification] set checked=@check where Id=@id", conn);
+                SqlCommand comm = new SqlCommand("Update [dbo].[Notification] set checked=1 where Id=@id", c);
                 comm.Parameters.AddWithValue("@id", n.ID);
-                comm.Parameters.AddWithValue("@check", n.Check);
                 comm.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                
+                throw ex;
             }
             finally
             {

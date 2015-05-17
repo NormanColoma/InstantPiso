@@ -1,8 +1,55 @@
-﻿
+﻿@model IEnumerable<PisoEstudiantes.Models.DTO.Notification> 
 @{
     ViewBag.Title = "Notificaciones";
+    var check = "";
 }
-
+@Styles.Render("~/Content/notifications.css")
 <h2>Notificaciones</h2>
 <p>Desde aquí podrá ver sus notificaciones, tanto pendientes como vistas</p>
 
+<div class="notification-container">
+    @foreach (var notification in Model)
+    {
+        <div class="notification-placeholder">
+            <div class="notification">
+                <div class="notification-header">
+                    <h4>
+                        @Html.DisplayFor(modelItem => notification.Type)
+                    </h4>
+                    @if(!notification.Check){
+                        check = "unchecked";
+                    }
+                    else{
+                        check = "checked";
+                    }
+                    @if (check == "unchecked") {
+                        <span class="view-more"><i class="fa fa-minus check-notification @check "></i></span>
+                    }
+                    else
+                    {
+                        <span class="view-more"><i class="fa fa-plus check-notification @check "></i></span>
+                    }
+                </div>
+                @if (check == "unchecked") { 
+                    <div class="notification-body">
+                        <p>@Html.DisplayFor(modelItem => notification.Message) para el 
+                        @Html.ActionLink("piso", "Details", "Pisos", new { id = @notification.IDFlat }, new {})</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="notification-body" hidden="hidden">
+                        <p>
+                            @Html.DisplayFor(modelItem => notification.Message) para el
+                            @Html.ActionLink("piso", "Details", "Pisos", new { id = @notification.IDFlat }, new { })
+                        </p>
+                    </div>
+                }
+                <span class="notification-id" hidden>@notification.ID</span>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/Scripts/notifications.js")
+}
