@@ -7,6 +7,7 @@
     var availabe_bed = "habitación";
     var stay = "mes";
     var list = Model.Schedule;
+    var owner_id = ViewData["owner_id"];
 }
 @Styles.Render("~/Content/flat-details.css")
 <h2>@Model.Tittle</h2>
@@ -24,6 +25,8 @@
 </div>
 <div class="owner-container">
     <h4>Reserva tu cita o alquila</h4>
+    <span class="f-id" hidden="hidden">@Model.ID</span>
+    <span class="f-owner" hidden="hidden">@owner_id</span>
     <div class="inner-owner-container">
         <div class="flat-options">
             <div class="date">
@@ -32,17 +35,14 @@
                     el propietario. Seleccione uno de los horarios disponibles, y confirme su cita.
                 </p>
                 <select class="select">
-                    <option>
-                        Selecciona la cita
-                    </option>
+                    <option>Selecciona la cita</option>
                     @foreach (var schedule in list)
                     {
-                        <option>
-                            @schedule.Day @schedule.Hour
-                        </option>
+                        <option>@schedule.Day @schedule.Hour</option>
                     }
                 </select>
-                <a href="" class="btn  btn-success">Reservar cita</a>
+                <p class="alert-danger date-danger" hidden="hidden">Selecciona la cita</p>
+                <a class="btn  btn-success book-date">Reservar cita</a>
             </div>
             <div class="rent">
                 <p>
@@ -123,4 +123,6 @@
     </div>
     
 </div>
-
+@section Scripts {
+    @Scripts.Render("~/Scripts/Date.js")
+}

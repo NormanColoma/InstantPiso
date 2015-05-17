@@ -59,6 +59,8 @@ namespace PisoEstudiantes.Controllers
         {
             Flat f = flatModel.getDetails(id);
             f.Schedule = flatModel.getSchedule(id);
+            f.ID = id;
+            ViewData["owner_id"] = userModel.getOwnerID(f.Owner.Email);
             return View(f);
         }
     }

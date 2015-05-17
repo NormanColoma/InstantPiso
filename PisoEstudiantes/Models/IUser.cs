@@ -14,5 +14,7 @@ namespace PisoEstudiantes.Models
 
         bool insertUser(User u);
         bool insertOwner(Owner owner);
+
+        int getOwnerID(string email);
     }
 }

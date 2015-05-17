@@ -259,6 +259,39 @@ namespace PisoEstudiantes.Models.DAO
                 c.Close();
             }
         }
+
+        public int getOwnerID(string email)
+        {
+
+            try
+            {
+                //Creamos instancia y abrimos la conexión de la BD
+                conn = new SqlConnection(bdConnection);
+                conn.Open();
+
+                /*Realizamos la sentencia SQL y la ejecutamos. Tiene dos parámetros, un string (con la sentencia SQL)
+                y una instancia de SqlConnection, para pasarle la conexión.*/
+                da = new SqlDataAdapter("SELECT id FROM [dbo].[Owner] where user_email = @email", conn);
+                da.SelectCommand.Parameters.AddWithValue("@email", email);
+                //Llenamos (fill) el dataset, con el resultado de la consulta SQL almacenado en el DataAdapter.
+                da.Fill(ds, "Owner");
+                //Obtenemos las tablas contenidas en el DataSet.
+                t = ds.Tables["Owner"];
+                int id = Convert.ToInt16(t.Rows[0]["id"].ToString());
+                return id;
+
+            }
+            catch (SqlException Ex)
+            {
+                throw Ex;
+
+            }
+            finally
+            {
+                if (conn != null)
+                    conn.Close();
+            }
+        }
         
     }
 }
