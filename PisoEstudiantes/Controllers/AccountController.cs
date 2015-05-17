@@ -230,6 +230,11 @@ namespace PisoEstudiantes.Controllers
             return View(schedule);
         }
 
+        public ActionResult Notificaciones()
+        {
+            return View(userModel.getNotifications(User.Identity.Name));
+        }
+
     }
 
 
