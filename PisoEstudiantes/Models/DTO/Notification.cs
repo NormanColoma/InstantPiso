@@ -12,20 +12,33 @@ namespace PisoEstudiantes.Models.DTO
         private bool notificacion_checked;
         private User user;
         private int idFlat;
+        private string type;
 
-        public Notification(string message, bool check, User user)
+        public Notification(string message, bool check, User user, string type)
         {
             this.message = message;
             this.notificacion_checked = check;
             this.user = user;
+            this.type = type;
         }
 
-        public Notification(int id, string message, bool check, User user)
+        public Notification(int id, string message, bool check, User user, string type)
         {
             this.id = id;
             this.message = message;
             this.notificacion_checked = check;
             this.user = user;
+            this.type = type;
+        }
+
+        public Notification(int id, string message, bool check, User user, int id_flat, string type)
+        {
+            this.id = id;
+            this.message = message;
+            this.notificacion_checked = check;
+            this.user = user;
+            this.idFlat = id_flat;
+            this.type = type;
         }
 
 
@@ -47,7 +60,7 @@ namespace PisoEstudiantes.Models.DTO
             set { notificacion_checked = value; }
         }
 
-        public User User
+        public User NotifiedUser
         {
             get { return user; }
             set { user = value; }
@@ -57,6 +70,12 @@ namespace PisoEstudiantes.Models.DTO
         {
             get { return idFlat; }
             set { idFlat = value; }
+        }
+
+        public String Type
+        {
+            get { return type; }
+            set { type = value; }
         }
     }
 }

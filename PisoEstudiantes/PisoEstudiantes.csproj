@@ -185,6 +185,7 @@
     <Compile Include="Models\BO\BODate.cs" />
     <Compile Include="Models\BO\BOEmail.cs" />
     <Compile Include="Models\BO\BOFlat.cs" />
+    <Compile Include="Models\BO\BONotification.cs" />
     <Compile Include="Models\BO\BOSchedule.cs" />
     <Compile Include="Models\BO\BOUser.cs" />
     <Compile Include="Models\DAO\DAODate.cs" />
@@ -359,6 +360,7 @@
     <Content Include="Views\Pisos\Details.cshtml" />
     <Content Include="Views\Account\Schedule.cshtml" />
     <Content Include="Views\Pisos\Confirmacion.cshtml" />
+    <Content Include="Views\Account\Notificaciones.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

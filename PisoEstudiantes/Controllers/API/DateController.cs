@@ -23,8 +23,8 @@ namespace PisoEstudiantes.Controllers.API
             renter.Email = User.Identity.Name;
             User owner = new User();
             owner.Email = bu.getOwnerEmail(date.IDOwner);
-            Notification n_to_renter = new Notification(message_to_renter,false,renter);
-            Notification n_to_owner = new Notification(message_to_owner, false, owner);
+            Notification n_to_renter = new Notification(message_to_renter,false,renter,"date");
+            Notification n_to_owner = new Notification(message_to_owner, false, owner,"date");
             n_to_owner.IDFlat = date.IDFlat;
             n_to_renter.IDFlat = date.IDFlat;
             bn.createNotification(n_to_owner);
