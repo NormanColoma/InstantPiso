@@ -194,6 +194,7 @@
     <Compile Include="Models\DTO\Date.cs" />
     <Compile Include="Models\DTO\Email.cs" />
     <Compile Include="Models\DTO\Flat.cs" />
+    <Compile Include="Models\DTO\Notification.cs" />
     <Compile Include="Models\DTO\Owner.cs" />
     <Compile Include="Models\DTO\Renter.cs" />
     <Compile Include="Models\DTO\Schedule.cs" />
