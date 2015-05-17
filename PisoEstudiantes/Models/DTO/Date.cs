@@ -7,7 +7,7 @@ namespace PisoEstudiantes.Models.DTO
 {
     public class Date
     {
-        public string Date { get; set; }
+        public string BookingDate { get; set; }
         public int ID { get; set; }
 
         public int IDFlat { get; set; }

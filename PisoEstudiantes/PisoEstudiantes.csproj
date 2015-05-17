@@ -172,6 +172,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\AccountController.cs" />
+    <Compile Include="Controllers\API\DateController.cs" />
     <Compile Include="Controllers\API\PisosController.cs" />
     <Compile Include="Controllers\API\ScheduleController.cs" />
     <Compile Include="Controllers\BusquedaController.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Models\DAO\DAOFlat.cs" />
     <Compile Include="Models\DAO\DAOSchedule.cs" />
     <Compile Include="Models\DAO\DAOUser.cs" />
+    <Compile Include="Models\DTO\Date.cs" />
     <Compile Include="Models\DTO\Email.cs" />
     <Compile Include="Models\DTO\Flat.cs" />
     <Compile Include="Models\DTO\Owner.cs" />

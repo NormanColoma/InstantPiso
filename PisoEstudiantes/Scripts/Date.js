@@ -11,10 +11,12 @@ function createDate(date) {
     else
         $(".date-danger").hide();
 
-    var date = { Date: date, IDFlat: $(".f-id"), IDOwner: $(".f-owner") }
+    
+    var bookingDate = { BookingDate: date, IDFlat: $(".f-id").text(), IDOwner: $(".f-owner").text() }
     var port = location.port;
     var uri = "http://localhost:" + port + "/api/Date";
-    var data = JSON.stringify(date);
+    var data = JSON.stringify(bookingDate);
+
     $.ajax({
         type: "POST",
         url: uri,
