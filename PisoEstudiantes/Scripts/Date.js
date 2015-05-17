@@ -23,8 +23,13 @@ function createDate(date) {
         dateType: "json",
         contentType: "application/json",
         data: data,
-        success: function (result) {
-           alert(result)
+        statusCode: {
+            200: function () {
+                window.location.href = "http://localhost:" + port + "/Pisos/Confirmacion/Cita";
+            },
+            404: function () {
+                alert("Su cita no podido ser creada")
+            }
         },
         error: function () {
             alert("mal")

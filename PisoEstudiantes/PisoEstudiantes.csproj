@@ -182,10 +182,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModel.cs" />
+    <Compile Include="Models\BO\BODate.cs" />
     <Compile Include="Models\BO\BOEmail.cs" />
     <Compile Include="Models\BO\BOFlat.cs" />
     <Compile Include="Models\BO\BOSchedule.cs" />
     <Compile Include="Models\BO\BOUser.cs" />
+    <Compile Include="Models\DAO\DAODate.cs" />
     <Compile Include="Models\DAO\DAOFlat.cs" />
     <Compile Include="Models\DAO\DAOSchedule.cs" />
     <Compile Include="Models\DAO\DAOUser.cs" />
@@ -197,6 +199,7 @@
     <Compile Include="Models\DTO\Schedule.cs" />
     <Compile Include="Models\DTO\User.cs" />
     <Compile Include="Models\FlatViewModel.cs" />
+    <Compile Include="Models\IDate.cs" />
     <Compile Include="Models\IEmailSender.cs" />
     <Compile Include="Models\IFlat.cs" />
     <Compile Include="Models\ISchedule.cs" />
@@ -352,6 +355,7 @@
     <Content Include="Views\Account\UpdateFlat.cshtml" />
     <Content Include="Views\Pisos\Details.cshtml" />
     <Content Include="Views\Account\Schedule.cshtml" />
+    <Content Include="Views\Pisos\Confirmacion.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

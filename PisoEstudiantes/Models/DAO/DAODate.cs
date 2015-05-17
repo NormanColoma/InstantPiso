@@ -34,11 +34,11 @@ namespace PisoEstudiantes.Models.DAO
             try
             {
                 c.Open();
-                SqlCommand comm = new SqlCommand("Insert Into [dbo].[Date](id_flat,date,owner,user) VALUES (@flat,@date,@ow,@us)", c);
+                SqlCommand comm = new SqlCommand("Insert Into [dbo].[Date](id_flat,date,owner,user_email) VALUES (@flat,@bookingDate,@owner,@user)", c);
                 comm.Parameters.AddWithValue("@flat", date.IDFlat);
-                comm.Parameters.AddWithValue("@date", date.BookingDate);
-                comm.Parameters.AddWithValue("@ow", date.IDOwner);
-                comm.Parameters.AddWithValue("@us", date.UserEmail);
+                comm.Parameters.AddWithValue("@bookingDate", date.BookingDate);
+                comm.Parameters.AddWithValue("@owner", date.IDOwner);
+                comm.Parameters.AddWithValue("@user", date.UserEmail);
                 int result = comm.ExecuteNonQuery();
                 if (result == 1)
                     return true;
