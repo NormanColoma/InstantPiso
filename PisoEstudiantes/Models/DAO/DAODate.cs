@@ -54,5 +54,31 @@ namespace PisoEstudiantes.Models.DAO
                 c.Close();
             }
         }
+
+        public bool deleteDate(int id)
+        {
+            SqlConnection c = new SqlConnection(bdConnection);
+            try
+            {
+
+                c.Open();
+
+                SqlCommand comm = new SqlCommand("Delete From [dbo].[Date] where id=@id", c);
+                comm.Parameters.AddWithValue("@id", id);
+                int result = comm.ExecuteNonQuery();
+                if (result == 1)
+                    return true;
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                c.Close();
+            }
+        }
     }
 }
